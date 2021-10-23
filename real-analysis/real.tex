@@ -1,0 +1,70 @@
+% ==> preamble
+\input{../preamble.tex}
+
+\title{Notes on Real Analysis}
+% <==
+
+\begin{document}
+\maketitle
+% ==> Real Numbers
+\chapter{Real Numbers}
+% ==> properties
+\section{Properties of Real Numbers}
+For now, let me just assume that the set $\N,\Z$ and $\Q$ 
+are already exist. Just note that they're an 
+\emph{``Order Field''}. The thing is, there must be some 
+number system that is quite \emph{larger} than $\Q$, because
+for example, there is no $q\in\Q$ such that $q^2=2$.
+
+To extend from $\Q$, we're going to make up a new number 
+system (kinda cheat a little bit, dun you think?) denoted 
+by $\R$, which has the addition operation
+$(+)$ and multiplication $(\cdot)$ such that for all $a,b\in\R$
+\[a+b\in\R\quad\text{and}\quad ab:=a\cdot b\in\R.\]
+Since we extended from $\Q$, this new set $\R$ is going to inherit all
+the properties from $\Q$ listed below
+
+\begin{enumerate}[label={\bfseries[A\arabic*]}]
+  \item for any $a,b\in\R$, then $a+b=b+a$ and $ab=ba$.
+  \item for any $a,b,c\in\R$, then $a+(b+c)=(a+b)+c$ and 
+    $a(bc)=(ab)c$
+  \item there is a number (\emph{indentity}) $\theta\in\R$ 
+    and $\gamma\in\R$ such that 
+    $a+\theta=a\gamma=a$  for all $a\in\R$.
+  \item for any $a\in\R$, 
+    \begin{itemize}
+      \item there exist an \emph{additive inverse} $\alpha$ 
+        such that $a+\alpha=\theta$.
+      \item if $a\neq \theta$, there exist a 
+        \emph{multiplicative inverse} $\beta$ such that 
+        $a\beta=\gamma$.
+    \end{itemize}
+  \item for any $a,b,c\in\R$, then $a(b+c)=ab+ac$.
+\end{enumerate}
+
+Well because $\Q\subset\R$ (subspace), the indentity $\theta$ 
+and $\gamma$ are the same of those in $\Q$, which we already
+know they're simply the numbers $0,1$. 
+Note also that, we must assume that $0\neq 1$.
+\begin{theorem}
+  For any $a,b,c\in\R$, the following holds
+  \begin{itemize}
+    \item the \emph{additive} and the \emph{multiplicative} 
+      indentity are unique. 
+      (later denoted them by $0$ and $1$ resp.)
+    \item the addition and multiplicative inverses are
+      unique. (later denoted them by $-a$ and $a\inv$ resp.)
+    \item if $a+c=b+c\iff a=b$.
+    \item $a\cdot 0=0,~-a=(-1)a$ and $-(-a)=a$.
+    \item if $ab=0$ then $a=0$ or $b=0$.
+  \end{itemize}
+\end{theorem}
+% <== 
+
+
+% <==
+
+
+
+
+\end{document}

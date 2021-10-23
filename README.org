@@ -1,0 +1,11 @@
+* My Notes in University
+I started this repo in 2021, the year I entered college
+to pursue mathematics. Here, I keep all of my notes and
+everything that is quite important to me. And I am going 
+this as an opportunity to learn basic git commnds as well.
+
+* How To Download?
+What a strange question!
+#+begin_src bash
+git clone github.com/mengistic/notes.git
+#+end_src
