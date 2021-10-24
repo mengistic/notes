@@ -8,8 +8,8 @@
 \maketitle
 % ==> Real Numbers
 \chapter{Real Numbers}
-% ==> properties
 \section{Properties of Real Numbers}
+% ==> properties
 For now, let me just assume that the set $\N,\Z$ and $\Q$ 
 are already exist. Just note that they're an 
 \emph{``Order Field''}. The thing is, there must be some 
@@ -59,7 +59,65 @@ Note also that, we must assume that $0\neq 1$.
     \item if $ab=0$ then $a=0$ or $b=0$.
   \end{itemize}
 \end{theorem}
+The above theorem is not that hard to prove. However, I promise 
+to come back to this point to provide a full proof about it.
+
+What now? The set $\R$ here behaves the same as $\Q$. 
+How is it possible that $\R$ is bigger that $\Q$?
+Let's find the condition that $\Q$ is lack of.
+
+A long the way, we're introduced \emph{bounded sets.}
+% <==
+% ==> bounded
+\begin{definition}[Maximum and Minimum]
+  Let $S\subset\R$.
+  \begin{itemize}
+    \item if there exists $M\in S$ such that 
+      $M\geq s$ for all $s\in S$, then $M$ is said to be the
+      maximum of $S$ and is denoted by $\max S$.
+    \item if there exists $m\in S$ such that 
+      $m\leq s$ for all $s\in S$, then $m$ is said to be the
+      minimum of $S$ and is denoted by $\min S$.
+  \end{itemize}
+\end{definition}
+\begin{definition}[Bounded Sets]
+  The set $S\subseteq\R$ is called
+  \begin{itemize}
+    \item \emph{bounded above} if $\exists M\in\R$ such that 
+      $s\leq M$ for all $s\in S$.
+    \item \emph{bounded below} if $\exists m\in\R$  such that
+      $m\leq s$ for all $s\in S$.
+    \item \emph{bounded} if it is both bounded below and above, 
+      that is $\exists M>0$ such that $\abs{s}<M$ for all $s\in S$.
+  \end{itemize}
+\end{definition}
+\begin{definition}[Upper and Lower bounds]
+  Let $S\subseteq\R$ be a bounded set. We denote
+  \begin{itemize}
+    \item the set of all upper bounds of $S$ by 
+      $\mathcal{U}(S)=\set{M\in\R}{M\geq s \text{ for all }s\in S}$
+    \item the set of all lower bounds of $S$ by
+      $\mathcal{L}(S)=\set{m\in\R}{m\leq s\text{ for all }s\in S}$
+  \end{itemize}
+\end{definition}
+\begin{definition}[Infimum and Supremum]
+  Let $S$ be a bounded set. If
+  \begin{itemize}
+    \item the set $\mathcal{U}(S)$ has a minimum $\alpha$, then the set
+      $S$ is said to have a \emph{supremum}, that is
+      $\sup S:=\alpha$.
+    \item the set $\mathcal{L}(S)$ has a maximum $\beta$,
+      then the set $S$ is said to have an \emph{infimum}, that is
+      $\inf S:=\beta$.
+  \end{itemize}
+\end{definition}
 % <== 
+% ==> AoC
+\begin{axiom}[Axiom of Completeness]
+  Every non-empty subset of $\R$ that is bounded above 
+  has a supremum.
+\end{axiom}
+% <==
 
 
 % <==
