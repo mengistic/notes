@@ -1,10 +1,27 @@
 
-\documentclass[10pt]{book}
+\documentclass[10pt]{memoir}
 % ==> math
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage{mathtools}
+
+\mathtoolsset{centercolon} % not work when using |mathpazo|
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiterX\norm[1]\lVert\rVert{
+	\ifblank{#1}{\:\cdot\:}{#1}
+}
+\def\set#1#2{\left\{#1 ~:~ #2\right\}}
+\def\permil{\text{\hskip 0.3pt\englishfont\textperthousand}}
+
+
+\DeclareMathOperator{\arccot}{cot}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ord}{ord}
+
 
 \def\N{\mathbb{N}}
 \def\Z{\mathbb{Z}}
@@ -27,16 +44,16 @@
 
 % <== end: math
 % ==> language
-%\usepackage{fontspec}
-%\usepackage{mathpazo}
-%\setmainfont{TeX Gyre Pagella}
+\usepackage[no-math]{fontspec}
+\usepackage{mathpazo}
+\setmainfont{TeX Gyre Pagella}
 % <== 
 % ==> setup
-\usepackage{geometry}
-\geometry{a4paper,
-  left=2.5cm, right=2.5cm,
-  top=3cm, bottom=3cm
-}
+%\usepackage{geometry}
+%\geometry{a4paper,
+%  left=2.5cm, right=2.5cm,
+%  top=3cm, bottom=3cm
+%}
 % <== 
 % ==> enumerate
 \usepackage{enumitem}
