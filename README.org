@@ -1,11 +1,21 @@
 * My Notes in University
 I started this repo in 2021, the year I entered college
 to pursue mathematics. Here, I keep all of my notes and
-everything that is quite important to me. And I am going 
-this as an opportunity to learn basic git commnds as well.
+everything that is quite important to me. And I am going
+to use this as an opportunity to learn basic git commnds
+as well.
 
-* How To Download?
-What a strange question!
-#+begin_src bash
-git clone github.com/mengistic/notes.git
-#+end_src
+Note also that, these are my personal notes, so almost
+everthing here are incorrect.
+
+
+* French
+I have no experience what so ever in French. But here are the resources I use
+- [[https://www.youtube.com/c/EasyFrench][Easy French]] youtube channel
+- [[https://www.youtube.com/channel/UCXptamDYEVcU4JCio30hYTw][Peppa Pig]] (kids' show lol)
+
+* Abstract Algebra
+Resources:
+- Benedict Gross's [[https://www.youtube.com/playlist?list=PLelIK3uylPMGzHBuR3hLMHrYfMqWWsmx5][MIT Lecture]]
+- [[https://b-ok.asia/book/2074468/649ed0][Algebra]], /Michael Artin/
+- [[https://www.pdfdrive.com/contemporary-abstract-algebra-e158162817.html][Contemporary Asbtract Algebra]], /Josheph Gallian/

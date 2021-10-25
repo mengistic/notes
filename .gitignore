@@ -1,4 +1,4 @@
+.auxtex-auto/*
 *.log
 *.aux
-*.pdf
 *syntex.gz
