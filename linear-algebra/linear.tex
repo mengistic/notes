@@ -10,6 +10,51 @@
 \subsection{Bases}
 \subsection{Generating (span)}
 \subsection{Independent System}
+
+\begin{definition}[Independent]
+  The system $\left\{\vec{v_1},\vec{v_2},\vec{v_3},\dots,
+  \vec{v_n}\right\}$ are 
+  called ``Independent'' iff
+  \[
+    \lambda_1\vec{v_1}+\lambda2\vec{v_2}+\cdots+
+    \lambda_n\vec{v_n}=\vec{0}
+    \iff \lambda_i=0
+  \]
+\end{definition}
+\begin{definition}[Dependent]
+  The system $\left\{\vec{v_1},\vec{v_2},
+  \vec{v_3},\dots,\vec{v_n}\right\}$ are 
+  called ``Dependent'' iff there exits some 
+  $\lambda_j\neq 0$ such that $j<n$ and 
+  \[\sum_{i=1}^{n}\lambda_i\vec{v_i}=\vec{0}\]
+\end{definition}
+\begin{proposition}
+  The system $\left\{v_1,v_2,v_3,\dots,v_n\right\}$ are 
+  dependent iff there exits $j$ such that 
+  $\vec{v_j}$ is the linear combination of the other vectors.
+\end{proposition}
+\begin{proof}
+  There exits $j<n$ such that $\lambda_j\neq 0$ and 
+  \begin{align*}
+    &\sum_{i=1}^{n}\lambda_i\vec{v_i}=\vec{0}\\
+    \implies\quad &\lambda_j\vec{v_j}+
+    \sum_{i\neq j}\lambda_i\vec{v_i}=\vec{0}\\
+    \implies\quad &
+    \vec{v_j}=\sum_{i\neq j}\frac{-\lambda_i}{\lambda_j}\vec{v_i}
+  \end{align*}
+  And the converse is simple to prove.
+\end{proof}
+\begin{proposition}
+  If the system $\left\{v_1,v_2,v_3,\dots,v_n\right\}$ are
+  both 
+\end{proposition}
+\begin{proposition}
+  Bases $\iff$ Generating + Independent
+\end{proposition}
+
+
+
+
 \section{Linear Transformation}
 
 

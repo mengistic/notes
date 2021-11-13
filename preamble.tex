@@ -38,6 +38,7 @@
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{axiom}[definition]{Axiom}
 \newtheorem{exercise}{Exercise}
+\newtheorem{example}[exercise]{Example}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -66,5 +67,121 @@
 % <==
 % ==> title
 \author{Sivmeng}
+% <==
+% ==> listings
+\usepackage{xcolor}
+\usepackage{listings}
+% ==> basic
+\lstset{%
+	basicstyle=\small\ttfamily,
+	keywordstyle=\color{black},
+	commentstyle=\color{gray},
+	keywordstyle=[1]{\color{blue!90!black}},
+	keywordstyle=[2]{\color{magenta!90!black}},
+	keywordstyle=[3]{\color{red!60!orange}},
+	keywordstyle=[4]{\color{teal}},
+	commentstyle=\color{gray},
+	stringstyle=\color{green!60!black},
+	tabsize=2,
+	%
+	numbers=left,
+	numberstyle=\tiny\color{blue!70!gray},
+	stepnumber=1,
+	%
+	frame=Lt,
+	breaklines=true,
+	xleftmargin=0cm,
+	rulecolor=\color{gray!50!black},
+	aboveskip=0.5cm,
+	belowskip=0.5cm
+}
+% <==
+% ==> code c
+\lstdefinelanguage{cmeng}{
+  morekeywords={
+    auto,break,case,char,const,continue,default,do,double,%
+    else,enum,extern,float,for,goto,if,int,long,register,return,%
+    short,signed,sizeof,static,struct,switch,typedef,union,unsigned,%
+    void,volatile,while},%
+  morekeywords=[2]{
+    printf, scanf,  include
+  },
+  sensitive,%
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+}
+% <==
+% ==> code python
+\lstdefinelanguage{py}{
+	morekeywords={
+		access,and,as,break,class,continue,def,del,elif,else,
+		except,exec,finally,for,from,global,if,import,in,is,lambda,
+		not,or,pass,print,raise,return,try,while},
+	% Built-ins
+	morekeywords=[2]{
+		abs,all,any,basestring,bin,bool,bytearray,
+		callable,chr,classmethod,cmp,compile,complex,delattr,dict,dir,
+		divmod,enumerate,eval,execfile,file,filter,float,format,
+		frozenset,getattr,globals,hasattr,hash,help,hex,id,input,int,
+		isinstance,issubclass,iter,len,list,locals,long,map,max,
+		memoryview,min,next,object,oct,open,ord,pow,property,range,
+		raw_input,reduce,reload,repr,reversed,round,set,setattr,slice,
+		sorted,staticmethod,str,sum,super,tuple,type,unichr,unicode,
+		vars,xrange,zip,apply,buffer,coerce,intern,True,False},
+	%
+	morecomment=[l]\#,%
+	morestring=[b]',%
+	morestring=[b]",%
+	morecomment=[s]{'''}{'''},% used for documentation text
+	%                         % (mulitiline strings)
+	morecomment=[s]{"""}{"""},% added by Philipp Matthias Hahn
+	morestring=[s]{r'}{'},% `raw' strings
+	morestring=[s]{r"}{"},%
+	morestring=[s]{r'''}{'''},%
+	morestring=[s]{r"""}{"""},%
+	morestring=[s]{u'}{'},% unicode strings
+	morestring=[s]{u"}{"},%
+	morestring=[s]{u'''}{'''},%
+	morestring=[s]{u"""}{"""},%
+	%
+	sensitive=true,%
+}
+% <==
+% ==> code asy
+\lstdefinelanguage{asy}{ %% Added by Sivmeng HUN
+	morekeywords=[1]{
+		import, for, if, else,new, do,and, access,
+		from, while, break, continue, unravel, 
+		operator, include, return},
+	morekeywords=[2]{
+		struct,typedef,static,public,readable,private,explicit,
+		void,bool,int,real,string,var,picture,
+		pair, path, pair3, path3, triple, transform, guide, pen, frame
+	},
+	morekeywords=[3]{
+		true,false,and,cycle,controls,tension,atleast,
+		curl,null,nullframe,nullpath,
+		currentpicture,currentpen,currentprojection,
+		inch,inches,cm,mm,pt,bp,up,down,right,left,
+		E,N,S,W,NE,NW,SE,SW,
+		solid,dashed,dashdotted,longdashed,longdashdotted,
+		squarecap,roundcap,extendcap,miterjoin,roundjoin,
+		beveljoin,zerowinding,evenodd,invisible
+	},
+	morekeywords=[4]{
+		size,unitsize,draw,dot,label,
+		sqrt,sin,cos,tan,cot,Sin,Cos,Tan,Cot,
+		graph,
+	},
+	%
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/},
+	morestring=[b]',
+	morestring=[b]",
+	%
+}
+% <==
 % <==
 

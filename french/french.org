@@ -144,7 +144,7 @@
 | dictionnaire    | nm |                |
 |                 |    |                |
 | cabinet médical |    |                |
-| ambulance       | nf |                |
+| ambulance       |nf |                |
 | pastéque        | nf |                |
 | pomme           |    | =apple=        |
 | lion            | nm |                |
@@ -316,7 +316,7 @@ esayez de cochez dans la bonne case.
 | hirondelle    | =a kind of bird=     |
 | bagage        | =luggage=            |
 | cohabiter     |                      |
-| bijouterie    |                      |
+| bijouterie    | =jewelry store=      |
 | anglophone    |                      |
 
 ** Séance 12
@@ -485,7 +485,7 @@ troi (5pt)
 |------------+----------+---------------------------|
 | ç          | ca-di-ye | :has  =s=  sound          |
 | sc         |          | =a,o,u= has  =s-k=  sound |
-| sc         |          | =e,y=   has  =s=  sound   |
+| sc         |          | =e,y,i=   has  =s=  sound |
 |------------+----------+---------------------------|
 | ch         |          |                           |
 | sh         |          | has similar sound         |
@@ -524,13 +524,13 @@ secrit comça
 5. chambre: =bedroom=
 
 Activité 3: Lisez mes mots.
-- La cheminée =chemise=
+- La cheminée =chimney=
 - Le garçon =boy=
 - Le shampoing =សាប៊ូកក់សក់=
 - La sculpter =រូបចម្លាក់=
 - ischémique =នៃការស្ទះសរសៃឈាម=
 - Le shopping
-- schématiser /shay-ma-tis-say/
+- schématiser /shay-ma-tis-zay/
 - La gerçure  =jea-sear= =ប្រះកែងជើង=
 - La chauffeuse =អ្នកបើករថយន្ត=
 - La scène  =ឈុតឆាក=
@@ -576,10 +576,297 @@ lisez et completétez les mots avec consonnes composées manquantes.
 | Kazakhztan    |                        |
 | ping-pong     |                        |
 | enthousiasme  | =អារម្មណ៍រីករាយ=          |
-| footing       |                        |
+| footing       | =jogging=              |
 | éloignement   | =ការឃ្លាតឆ្ងាយ=          |
 | sympathique   | =គួរឱ្យរាប់អាន=           |
 | morphosyntaxe | =grammar related=      |
 | mékhitariste  | =សមាជិកសាសនានៅបារាំង=    |
 
 NOTE: Proper nouns didn't have /les,la,le/.
+
+** Séance 18
+
+1. flottement =floating=
+2. klaxon =ស៊ីប្លេអេតចាយ=
+3. immeuble   =im-mer-ble=, =appartment building=
+4. plongement =ការមុជទឹក=
+5. éclipse
+6. islamique
+7. église =ព្រះវិហារ=
+8. atlas =សៀវភៅផែនដីភូមិសាស្ត្រ=
+
+Activité
+1. picklage =ការព្យាបាលស្បែកដោយប្រើអាស៊ីតម្យ៉ាង=
+2. exclavage ==
+3. flexibilité =បត់បែន=
+4. établissement =ស្ថានប័ន=
+5. applaudissement =អបអរ=
+6. législatif =អំណាចនិតីបញ្ញត្តិ=
+7. glissement =រអិល=
+8. atlantique
+
+** Séance 19
+
+Lecture
+1. Krama
+2. français
+3. avril
+4. tracteur
+5. professeur
+6. bracelet
+7. crayon
+8. kilogramme
+9. vendredi =friday=
+10. Israel
+
+Écoutez
+1. le fromage =cheeze=
+2. la israélienne
+3. un ukrainien
+4. le drapeau =flag=
+5. le tribunal =សាលាក្តី=
+6. la grève =កូតកម្ម=
+7. le crocodile
+8. le brouillard =fog=  /bru-yar/
+9. les lèvres =lips=
+10. la princesse
+11. prince
+12. arréte du travail
+13. bus
+14. maniféstation
+
+Lisez les mots
+1. bronchite =រលាកសួត=
+2. crémaillère /cra-mai-yè-re/ =ឡើងផ្ទះ=
+3. dramatique
+4. frigidité =coldness=
+5. gratuitement /gra-tvi-te-ment/  =free=
+6. sanskrite
+7. promenade =លំហែកាយ=
+8. disruption =ការបែកបាក់=
+9. tremblement =tremble=
+10. vraiment =truth=
+    
+** Séance 20
+- PN
+- PT
+- PS
+- SP
+- ST
+
+Activité: À l'aide des dessins proposés, lisez et choisissez
+la bonne réponse.
+- les sportif =រាងអ្នកកីឡា=
+- la pneumonie =រលាកសួត=
+- le généraliste =general=
+- le apsara
+- la reptile ==
+
+
+1. captivité =ភាពជាប់បង្ឃាំង=
+2. journaliste =អ្នកកាសែត=
+3. hypnose =ព្យាបាលផ្លូវចិត្តដោយប្រើអារម្មណ៍=
+4. capsule =ប្រភេទនៃការខ្ចប់ថ្នាំដោយផ្លាស្តិក=
+5. spectacle =ការបង្ហាញសិល្បៈ=
+
+Activité
+1. pneumologue =ពេទ្យសួត=
+2. isoptère
+3. pseudonyme =nickname=
+4. spécialement =especially=
+5. égoiste =អាត្មានិយម=
+6. apnéiste =អ្នកហែលទឹកអាជិព=
+7. serveau reptilien =ខួរក្បាលសភាវគតិ=  =reptile brain=
+8. psychologie =psy-ko-lo-gy= =ចិត្តវិទ្យា=
+9. spirituellement =spea-ri-tu-el-le-meng= =ទាក់ទងនឹងព្រលឹង=
+10. injustement =injustice=
+		
+* Leçon 2: Bilan
+** Séance 21
+
+1. un chien
+2. un chat
+3. une poule
+4. une vache
+5. un mouton
+6. un canard
+7. un cheval
+8. un cochon
+9. une chevre
+10. un lapin
+11. un ane
+12. une guitare
+
+Activité 1 (4pt)
+1. la chemise
+2. la +cigonge+
+3. le glaçon
+4. l'éclipse
+5. la chambre
+
+Activité 2 (5pt)
+Le mot numéro un correndondant au dessin/la photo A,B,C
+C'est le fromage.
+
+1. le plongement   --> D
+2. le fromage      --> A
+3. l'immeuble      --> B
+4. le tribunal     --> E
+5. le journaliste  --> C
+
+
+Activité 3 (2pt)
+Let group l'intrus c'est
+1. princesse      1
+2. pneomologue    0
+3. isoptére       0
+4. spectacle      1
+5. Éclipse        0
+
+
+Activité 4 (6pt)
+Remettez les mots par odre alphabétique
+1. atlas
+2. bracelet
+3. crayon
+4. dramatique
+5. église
+6. flottement
+
+
+total 17pt
+
+
+** Exam
+
+- Aujourd'hui c'est le mercredi-3-novembre-2021
+- Hier c'est le mardi-2--
+- demain c'est le vendredi-4
+- 
+- S'il vous plaît monsieur
+- C'est quel animal?
+- C'est quel légume?
+- C'est quel le fruit?
+- C'est quoi?
+- C'est qui?
+- Qu'est-ce que c'est?
+
+
+
+
+* Leçon 24: Voyelles Composées
+Activité 1:
+
+- an
+- ann
+- am
+- amm
+
+| françias       | englias             |
+|----------------+---------------------|
+| une ampouple   | =lamp=              |
+| antenne        | =antina=            |
+| la grammaire   |                     |
+| l'anniversaire | =birthday party=    |
+| le programme   | =គម្រោង កម្មវិធី=       |
+| une annonce    | =សេចក្តីប្រកាស=        |
+| l'ampère       |                     |
+| l'anthropomor  | =ancestor of human= |
+|                |                     |
+
+1. un ambassadeur =អគ្គរាជទូត=, ambassade
+2. diagramme  =ដ្យាក្រាម=
+3. paysanne =poor farmer= /pa-i-sanne/
+4. romantique  =មនោសញ្ចេតនា=
+5. inflammation =រលាក=
+6. antisèche =cheating=
+7. ambiance =បរិយាកាសការងារ ក្នុងថ្នាក់=
+8. scanner
+
+kjadf
+
+1. annuellement =annually=
+2. ambiguïté /am-bi-gvi-té/ =អត់យល់ន័យ=
+3. pictogramme  =representative picture=
+4. notamment =vraiment=
+5. ambition  =មហិច្ឆិតា=
+6. antagoniste =enemy=
+7. anthropologie  =science of life= =នរវិជ្ជា=
+8. annulation  =cancelation=
+
+* Séance 25
+
+- Tu aimes le sports?
+- J'aime le faire du vélo.
+
+Voyelles Composées
+- en  /អង់/
+- enn /អែន៎/
+- em  /អំ/
+- emm  /អែមមឹះ/   /អាំមមឹះ/
+
+Activité
+1. la Moyenne =average=
+2. la femme   /ហ្វាំមឹះ/
+3. le ciment
+4. l'embryon
+5. un ascenseur =ជណ្តើរប្រអប់=
+6. les membres  =សមាជិក=
+7. une antenne
+8. la flemme  =lazy=
+
+Activité
+1. une lycéenne =សិស្សវិទ្យាល័យ (ស្រី)=
+2. un encyclopédie =សៀវភៅសិក្សារាល់ព័ត៌មានដោយលំអិត=
+3. une employée  =បុគ្គលិក=
+4. un gemmologue =អ្នកជំនាញខាងត្បូងពេជ្យ=
+5. prudemment (adj.) /ព្រុយ ដាំ ម៉ង់/ =ប្រុងប្រយ័ត្ន=
+6. l'embouteillage /អំ ប៊ូ តេ យ៉ាជ៎/   =traffic jam=
+7. enceinte (adj) /អង់ សាំងទ៎/  =pregnant=
+8. coréennes =south korean=
+
+
+Activité
+1. enchanté =nice to meet you=
+2. emprisonner =em-pri-zon-na=
+3. quotidienne =daily=
+4. gemmage  =ការចម្រាញ់យកជ័រពីប្រេងខ្យល់=
+5. encouragement  =ការលើកទឹកចិត្ត=
+6. empruter /អំ ព្រាំ តេ/ =borrow=
+7. ancienneté   =ភាពចំណាស់=
+8. violemment   =ដោយហិង្សា=
+
+* Séance 26
+Activité: À l'aide des dessins proposés, lisez et complétez les mots
+avec les voyelles composées 
+1. pomme
+2. compresse =បង់បិតដំបៅ=
+3. coordonnée
+4. personne =person=
+5. compas 
+6. contrat =កិច្ចសន្យា=
+7. une gomme  
+8. brouillon =draft papper=
+
+Activité: Écontez et complétez les mots.
+C'est on-om-onn ou omm?
+Quel mot entendez-vous?
+
+1. les randonnées =ការដើរព្រៃ tracking=
+2. la colombie =អាមេរិកឡាទីន=
+3. la saison =season=  /say-zon/
+4. le commode =ទូសម្អាង=
+5. gonfler (v.) /gon-fla/  =សប់ខ្យល់=
+6. commissariat /commi-za-ri-ya/ =police station=
+7. stationner (v.) /park/
+8. le compétition
+
+Activité
+1. comptabilité ==
+2. concentration
+3. sonnerie   =ringtone ឧបករណ៍បន្លឺសម្លេង= 
+4. sommaire   =summary=
+5. comportement  =behavior អត្តចរិត=
+6. contravention =ព្រមាន=
+7. visionnage  =ទស្សនា=
+8. communication

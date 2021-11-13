@@ -1,3 +1,4 @@
+%
 % ==> preamble
 \input{../preamble.tex}
 
@@ -118,10 +119,34 @@ A long the way, we're introduced \emph{bounded sets.}
   has a supremum.
 \end{axiom}
 % <==
-
-
 % <==
 
+
+% ==> abs convergence
+\newpage
+\begin{example}
+  The function $f(x)=2x+1$ converges over $\R$.
+  Note that $\forall x\in\R$
+  \[\abs{f(x)-f(x_0)}=2\abs{x-x_0}\]
+  therefore we can choose $\delta=\frac{\epsilon}{2}$
+  which does not depend on the choise of $x_0$.
+\end{example}
+\begin{example}
+  The function $f(x)=x^2$ converges over $\R$.
+  Note that $\forall x_0\in\R$
+  \[\abs{f(x)-f(x_0)}=\abs{x^2-x_0^2}=\abs{x-x_0}\cdot\abs{x+x_0}\]
+  Suppose that $\abs{x-x_0}<1$ and hence 
+  \[\abs{x+x_0}<\abs{x-x_0}+\abs{2x_0}<1+\abs{2x_0}\]
+  So we can choose $\delta=\min\left\{1,\frac{\epsilon}{1+2\abs{x_0}}\right\}•$
+  which depends on the choise of $x_0$.
+\end{example}
+\begin{definition}[Absolutely Convergent]
+  The function $f:\mathcal{D}\to\R$ is said to be \emph{Absolutely Convergent}
+  iff for each $\epsilon>0$ there exists $\delta>0$ such 
+  that $\forall x,y\in\mathcal{D}$ 
+  \[\abs{x-x_0}<\delta\implies\abs{f(x)-f(y)}<\epsilon.\]
+\end{definition}
+% <==
 
 
 
