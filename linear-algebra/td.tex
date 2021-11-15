@@ -1,0 +1,219 @@
+\input{../preamble.tex}
+
+\renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
+
+\begin{document}
+\chapter{Basic Notions}
+% ==> Vector Spaces
+\section{Vector Spaces}
+% ==> ex1
+\begin{exercise}
+  Let $\vec{x}=(1,2,3)\tran, ~\vec{y}=(y_1,y_2,y_3)\tran$ and 
+  $\vec{z}=(4,2,1)\tran$. Compute 
+  $2\vec{x},~3\vec{y},~\vec{x}+2\vec{y}-3\vec{z}$.
+\end{exercise}
+\begin{proof}
+  Little calculation reveals that
+  \[
+    2\vec{x}=
+    \begin{pmatrix}
+      2\\4\\6
+    \end{pmatrix},\quad
+    3\vec{y}=
+    \begin{pmatrix}
+      3y_1\\3y_2\\3y_3
+    \end{pmatrix},\quad
+    \vec{x}+2\vec{y}-3\vec{z}=
+    \begin{pmatrix}
+      2y_1 -11\\
+      2y_2-4\\
+      2y_3
+    \end{pmatrix}
+  \]
+\end{proof}
+% <==
+% ==> ex2
+\begin{exercise}
+  Which of the following sets (with natural addition and multiplication
+  by a scalar) are vector spaces? Justify your answers.
+  \begin{enumerate}
+    \item The set of all continuous functions on the interval $[0,1]$;
+    \item The set of all non-negative functions on the interval $[0,1]$;
+    \item The set of all polynomials of degree \emph{exactly} $n$;
+    \item The set of all symmetric $n\times n$ matrices, i.e. 
+      the set of matrices $A=\{a_{j,k}\}_{j,k=1}^{n}$ such 
+      that $A\tran=A$.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \text{}
+  \begin{enumerate}
+    \item Let $\mathcal{C}[0,1]$ be the set of all continuous functions
+      on $[0,1]$. For any $f,g\in\mathcal{C}[0,1]$ and $\alpha\in\R$, we define
+      \[
+        (f+g)(x):=f(x)+g(x)
+        \quad\text{and}\quad
+        (\alpha f)(x):=\alpha\cdot f(x)
+      \]
+      for each $x\in[0,1]$. Therefore, $(\mathcal{C}[0,1], +,\cdot)$
+      is closed under addition and scalar multiplication.
+      It's immediate to see that all the eight properties of vector space
+      are all satisfied, that is
+      \begin{multicols}{2}
+        \begin{itemize}
+          \item $f+g=g+f$
+          \item $f+(g+h)=(f+g)+h$
+          %\item the function $0\in\mathcal{C}[0,1]$ such that 
+          \item $f+0=f$
+          \item $f+(-f)=0$
+          %
+          \item $1f=f$
+          \item $\alpha(\beta f)=(\alpha\beta)f$
+          \item $(\alpha+\beta)f=\alpha f+\beta f$
+          \item $\alpha(f+g)=\alpha f+\beta g$
+        \end{itemize}
+      \end{multicols}
+      Note that the function $0\in\mathcal{C}[0,1]$ such that
+      $0(x)=0$ for each $x\in[0,1]$.
+    \item Let $\mathcal{B}$ is the set of all non-negative functions on $[0,1]$.
+      Then $(\mathcal{B},+\cdot)$ is not a vector space because it's not closed 
+      under scalar multiplication, i.e. if $f\in\mathcal{B}$, hence $f>0$ yet
+      \[-f=(-1)\cdot f<0.\]
+      (Even if we restrict the scalar be to positive real numbers, this set 
+      still won't be a vector space, because it fails to have an inverse.)
+    \item Let $\mathcal{P}$ be the set of all polynomials of degree exactly $n$,
+      then $(\mathcal{P}, +, \cdot)$ is \emph{not} a vector space, 
+      because the addtive indentity is the polynomial 
+      $0$. However, $0\notin\mathcal{P}$.
+    \item Let $\sym(n)$ be the set of all symmetric $n\times n$ matrices. 
+      The addition and scalar multiplication are defined as an
+      \emph{entrywise} operations. Hence, $\sym(n)$ is closed under
+      $(+)$ and $(\cdot)$. The additive indentity is the matrix 
+      \[ \vec{0}=
+        \begin{pmatrix}
+          0&0&\cdots&0\\
+          0&0&\cdots&0\\
+          \vdots&&\ddots&\\
+          0&0&\cdots&0
+        \end{pmatrix}\in\sym(n).
+      \]
+      We could easily see that all the eight properties of vector spaces 
+      are all satisfied.
+  \end{enumerate}
+\end{proof}
+% <==
+% ==> ex3
+\begin{exercise}
+  True or false:
+  \begin{enumerate}
+    \item Every vector space contains a zero vector;
+      (\textbf{True.})
+    \item A vector space can have more than one zero vector;
+      (\textbf{False.} The zero vector is unique.)
+    \item An $m\times n$ matrix has $m$ rows and $n$ columns;
+      (\textbf{True.})
+    \item If $f$ and $g$ are polynomials of degree $n$, then $f+g$
+      is also a polynomial of degree $n$.
+      (\textbf{False.} consider $t^n$ and $t-t^n$.)
+    \item If $f$ and $g$ are polynomials of degree atmost $n$, the $f+g$
+      is also a polynomial of degree atmost $n$.
+      (\textbf{True.})
+  \end{enumerate}
+\end{exercise}
+% <==
+% ==> ex4
+\begin{exercise}
+  Prove that a zero vector $\vec{0}$ of a vector space $V$ is
+  unique.
+\end{exercise}
+\begin{proof}
+  Suppose that $\vec{a}$ and $\vec{b}$ are the zero vectors of $V$.
+  From the \emph{Axioms of Vector Space}, we obtain that
+  \begin{align*}
+    \vec{a}
+      &=\vec{a}+\vec{b} && \text{($\vec{b}$ is the zero vector)}\\
+      &=\vec{b}+\vec{a} && \text{(commutitativity)}\\
+      &=\vec{b}         && \text{($\vec{a}$ is the zero vector)}
+  \end{align*}
+  Hence, a zero vector of a vector space is unique,
+  and we usually denote it by $\vec{0}$.
+\end{proof}
+% <==
+% ==> ex5
+\begin{exercise}
+  What is the zero matrix of the space $M_{2\times 3}$?
+\end{exercise}
+\begin{proof}[Answer]
+  In the space $M_{2\times 3}$, the zero matrix is 
+  \[
+    \vec{0}=
+    \begin{pmatrix}
+      0&0&0\\
+      0&0&0
+    \end{pmatrix}.
+  \]
+\end{proof}
+% <==
+% ==> ex6
+\begin{exercise}
+  Prove that the additive inverse of a vector space is unique.
+\end{exercise}
+\begin{proof}
+  Let $\vec{a}$ be an arbitrary vector. Assume the $\vec{a}$ has 
+  two inverses, namely $\vec{x}$ and $\vec{y}$. Hence
+  \begin{align*}
+    \vec{x}
+      &=\vec{x}+\vec{0}   && \\
+      &=\vec{x}+(\vec{a}+\vec{y}) && \text{($\vec{y}$ is an inverse)}\\
+      &=(\vec{x}+\vec{a})+\vec{y} && \text{(associativity)}\\
+      &=\vec{0}+\vec{y}           && \text{($\vec{x}$ is an inverse)}\\
+      &=\vec{y}.
+  \end{align*}
+  Therefore, the inverse of any vector $\vec{a}\in V$ is unique, and 
+  is usually denoted by $-\vec{a}$.
+\end{proof}
+% <==
+% ==> ex7
+\begin{exercise}
+  Prove that $0\vec{v}=\vec{0}$ for any vector $\vec{v}\in V$.
+\end{exercise}
+\begin{proof}
+  Let $\vec{v}\in V$ and  $\vec{b}$ is an inverse of $0\vec{v}$. Therefore, 
+  \begin{align*}
+    0
+      &=0\vec{v}+b        \\
+      &=(0+0)\vec{v}+b    \\
+      &=(0\vec{v}+0\vec{v})+b && \text{(distributivity)}\\
+      &=0\vec{v}+(0\vec{v}+b) && \text{(associativity)}\\
+      &=0\vec{v}+\vec{0}      && \text{($\vec{b}$ is an inverse of $0\vec{v}$)}\\
+      &=0\vec{v}
+  \end{align*}
+  for any $\vec{v}\in V$.
+\end{proof}
+% <==
+% ==> ex8
+\begin{exercise}
+  Prove that for any vector $\vec{v}$ its additive inverse $-\vec{v}$
+  is given by $(-1)\vec{v}$.
+\end{exercise}
+\begin{proof}
+  As proved in the above exercise for any $\vec{v}\in V$, 
+  \[
+    \vec{0}=0\vec{v}=(1-1)\vec{v}=\vec{v}+(-1)\vec{v}
+  \]
+  where the last equallity derives from the distributive property.
+  Because $-\vec{v}$ is the inverse of $\vec{v}$, then
+  \begin{align*}
+    -\vec{v}
+      &=-\vec{v}+\vec{0}\\
+      &=-\vec{v}+\big[\vec{v}+(-1)\vec{v}\big]\\
+      &=(\underbrace{-\vec{v}+\vec{v}}_{\vec{0}})+(-1)\vec{v}\\
+      &=(-1)\vec{v}
+  \end{align*}
+  as desired.
+\end{proof}
+% <==
+
+% <==
+
+\end{document}

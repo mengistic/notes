@@ -8,15 +8,19 @@ as well.
 Note also that, these are my personal notes, so almost
 everthing here are incorrect.
 
+* Linear Algebra
+Resources:
+- /Sergie Treil/, [[https://www.math.brown.edu/streil/papers/LADW/LADW_2017-09-04.pdf][Linear Algebra Done Wrong]]
+- /Gilbert Strang/'s [[https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D][MIT Lecture]] 
+
+* Abstract Algebra
+Resources:
+- Benedict Gross's [[https://www.youtube.com/playlist?list=PLelIK3uylPMGzHBuR3hLMHrYfMqWWsmx5][MIT Lecture]]
+- [[https://b-ok.asia/book/2074468/649ed0][Algebra]] /Michael Artin/
+- [[https://www.pdfdrive.com/contemporary-abstract-algebra-e158162817.html][Contemporary Asbtract Algebra]] /Josheph Gallian/
 
 * French
 I have no experience what so ever in French. But here are the resources I use
 - [[https://www.youtube.com/channel/UC0x30zg5FzDAq-NDzCing7w][Morphle en Fraçias]]
 - [[https://www.youtube.com/c/EasyFrench][Easy French]] youtube channel
 - [[https://www.youtube.com/channel/UCXptamDYEVcU4JCio30hYTw][Peppa Pig]] (kids' show lol)
-
-* Abstract Algebra
-Resources:
-- Benedict Gross's [[https://www.youtube.com/playlist?list=PLelIK3uylPMGzHBuR3hLMHrYfMqWWsmx5][MIT Lecture]]
-- [[https://b-ok.asia/book/2074468/649ed0][Algebra]], /Michael Artin/
-- [[https://www.pdfdrive.com/contemporary-abstract-algebra-e158162817.html][Contemporary Asbtract Algebra]], /Josheph Gallian/
