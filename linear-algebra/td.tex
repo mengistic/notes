@@ -1,6 +1,12 @@
+
+% ==> preamble
 \input{../preamble.tex}
 
+\renewcommand{\thesection}{\arabic{section}.}
 \renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
+% <==
+\def\by{\times}
+
 
 \begin{document}
 \chapter{Basic Notions}
@@ -213,7 +219,191 @@
   as desired.
 \end{proof}
 % <==
-
+% <==
+% ==> Linear Combination
+\section{Linear Combination, bases}
+% ==> ex1
+\begin{exercise}
+  Find the basis in the space of $3\by 2$ matrices
+  $M_{3\by 2}$.
+\end{exercise}
+\begin{proof}[Answer]
+  The basis of $M_{3\by 2}$ has six vetors,
+  \begin{align*}
+    \vec{e_1}=\begin{bmatrix} 1&0\\0&0\\0&0 \end{bmatrix},\quad
+    \vec{e_2}=\begin{bmatrix} 0&1\\0&0\\0&0 \end{bmatrix},\quad
+    \vec{e_3}=\begin{bmatrix} 0&0\\1&0\\0&0 \end{bmatrix},\\[0.3cm]
+    \vec{e_4}=\begin{bmatrix} 0&0\\0&1\\0&0 \end{bmatrix},\quad
+    \vec{e_5}=\begin{bmatrix} 0&0\\0&0\\1&0 \end{bmatrix},\quad
+    \vec{e_6}=\begin{bmatrix} 0&0\\0&0\\0&1 \end{bmatrix}.
+  \end{align*}
+\end{proof}
+% <==
+% ==> ex2
+\begin{exercise}
+  True or false:
+  \begin{enumerate}[label={\alph*)}]
+    \item Any set containing a zero vector is linearly dependent;
+    \item A basis must contain $\vec{0}$;
+    \item subsets of linearly dependent sets are linearly dependent;
+    \item subsets of linearly independent sets are linearly independent;
+    \item if $\alpha_1\vec{v}_1+\alpha_2\vec{v_2}+\cdots+\alpha_n\vec{v_n}=0$
+      then all scalars $\alpha_k$ are zero.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}[Answer]
+  \text{}
+  \begin{enumerate}[label={\alph*)}]
+    \item \textbf{True.} because $\vec{0}$ can be represented as a linear 
+      combination of the other vectors (simply put all the scalars to $0$).
+    \item \textbf{No.} if so, they must be linearly dependent, which is not a base.
+    \item \textbf{No.} Take for example the system of linearly dependent
+      $\{\vec{e_1},\vec{e_2},\vec{e_3}\}$ where 
+      $\vec{e_1}=(1,0),~\vec{e_2}=(0,1)$ and $\vec{e_3}=(1,1)$.
+      The subset $\{\vec{e_1},\vec{e_2}\}$ is a basis, which is 
+      clearly not linearly dependent.
+    \item \textbf{True.} Supppose that the system 
+      $\{\vec{v_1},\dots,\vec{v_p}\}$
+      is a subset of the linearly independent system 
+      $\{\vec{v_1},\dots,\vec{v_p},\dots,\vec{v_n}\}$. Let $\alpha_k$ the 
+      real numbers such that
+      $\alpha_{1}\vec{v_1}+\cdots+\alpha_{p}\vec{v_p}=\vec{0}$
+      hence
+      \[
+        \alpha_{1}\vec{v_1}+\cdots+\alpha_{p}\vec{v_p}+
+        0\vec{v_{p+1}}+\cdots+0\vec{v_n}=\vec{0}.
+      \]
+      Because the system $\{\vec{v_1},\dots,\vec{v_p},\dots,\vec{v_n}\}$
+      is linearly independent, therefore all the scalars $\alpha_k=0$. 
+      Thus, the system $\{\vec{v_1},\dots,\vec{v_p}\}$ is also linearly
+      independent.
+    \item \textbf{No.} It's true only when $\{\vec{v_1},\dots,\vec{v_n}\}$
+      are linearly independent.
+  \end{enumerate}
+\end{proof}
+% <==
+% ==> ex3
+\begin{exercise}
+  Recall, that a matrix is called \emph{symmetric} if 
+  $A\tran=A$. Write down a basis in the space of \emph{symmetric}
+  $2\by 2$ matrices (there are many possible answers). How many
+  elements are there in the basis.
+\end{exercise}
+\begin{proof}[Answer]
+  A basis of of this space is $\{\vec{e_1},\vec{e_2},\vec{e_3}\}$ where
+  \[
+    \vec{e_1}= \begin{bmatrix} 1&0\\0&0 \end{bmatrix},\quad
+    \vec{e_2}= \begin{bmatrix} 0&1\\1&0 \end{bmatrix},\quad
+    \vec{e_3}= \begin{bmatrix} 0&0\\0&1 \end{bmatrix}.
+  \]
+  There are 3 vectors in this basis.
+\end{proof}
+% <==
+% ==> ex4
+\begin{exercise}
+  Write down a basis for the space of
+  \begin{enumerate}[label={\alph*).}]
+    \item $3\by 3$ symmetric matrices;
+    \item $n\by n$ symmetric matrices;
+    \item $n\by n$ antisymmetric matrices.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}[Answer]
+  \text{}
+  \begin{enumerate}[label={\alph*).}]
+    \item the basis of $3\by 3$ matrices contains 6 vectors, namely
+      \begin{align*}
+        \vec{e_1}= \begin{bmatrix} 1&0&0 \\ 0&0&0 \\ 0&0&0 \end{bmatrix},\quad
+        \vec{e_2}= \begin{bmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&0 \end{bmatrix},\quad
+        \vec{e_3}= \begin{bmatrix} 0&0&0 \\ 0&0&0 \\ 0&0&1 \end{bmatrix},\\[0.4cm]
+        \vec{e_4}= \begin{bmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&0 \end{bmatrix},\quad
+        \vec{e_5}= \begin{bmatrix} 0&0&1 \\ 0&0&0 \\ 1&0&0 \end{bmatrix},\quad
+        \vec{e_6}= \begin{bmatrix} 0&0&0 \\ 0&0&1 \\ 0&1&0 \end{bmatrix}.
+      \end{align*}
+    \item For the $n\by n$ symmetric matrices, we are going to prove that
+      the basis of this space contains $\frac{n(n+1)}{2}$ vectors.
+      It's easy to see that this is true for $n=2$ and $n=3$.
+      Let's assume this is true for some integer $n$. Therefore, the 
+      numbers of vectors in a basis of an $(n+1)\by (n+1)$ symmetric matrices is
+  \end{enumerate}
+\end{proof}
+% <==
+% ==> ex5
+\begin{exercise}
+  Let a system of vectors $\vec{v}_1,\vec{v}_2,\dots, \vec{v}_r$
+  be linearly independent but not generating. Show that it is possible 
+  to find a vector $\vec{v}_{r+1}$ such that the system 
+  $\vec{v}_1,\vec{v}_2, \dots, \vec{v}_r,\vec{v}_{r+1}$ is linearly 
+  independent.
+\end{exercise}
+\begin{proof}
+  Because the system $\vec{v}_1,\vec{v}_2,\dots, \vec{v}_r$ is not generating, 
+  therefore there exists a vector $\vec{v}_{r+1}$ such that $\vec{v}_{r+1}$ 
+  cannot be represented as a linear combination of $\vec{v}_1,\vec{v}_2,\dots, \vec{v}_r$.
+  Let $\alpha_i$ be the scalars such that 
+  \begin{equation}
+    \label{eq:2:r_plus_1}
+    \alpha_1\vec{v}_1+\alpha_2\vec{v}_2+\cdots+\alpha_r\vec{v}_r+\alpha_{r+1}\vec{v}_{r+1}=\vec{0}
+  \end{equation}
+  Now we have to prove that all the scalars are all zero.
+  If $\alpha_{r+1}\neq 0$ then 
+  \[
+    \vec{v}_{r+1}=-\sum_{i=1}^{r}\frac{\alpha_i}{\alpha_{r+1}}\cdot\vec{v}_{i},
+  \]
+  meaning $\vec{v}_{r+1}$ is the linear combination of the other vectors, 
+  a contradiction. Hence $\alpha_{r+1}$ must equals to zero. So
+  the $r+1$ term in the equation \eqref{eq:2:r_plus_1} vanishes. And 
+  because the system $\vec{v}_1,\vec{v}_2,\dots, \vec{v}_r$ is linearly independent, 
+  all the scalars $\alpha_i=0$ for all $i=0,1,\dots,r$. Thus, the system
+  \[
+    \vec{v}_1,\vec{v}_2,\dots, \vec{v}_r, \vec{v}_{r+1}
+  \]
+  is also \emph{linearly independent}.
+\end{proof}
+% <==
+% ==> ex6
+\begin{exercise}
+  Is it possible that vectors $\vec{v_1}, \vec{v_2}, \vec{v_3}$
+  are linearly dependent, but the vectors $\vec{w_1}=\vec{v_1}+\vec{v_2}$,
+  $\vec{w_2}=\vec{v_2}+\vec{v_3}$ and $\vec{w_3}=\vec{v_3}+\vec{v_1}$
+  are linearly \emph{independent}.
+\end{exercise}
+\begin{proof}
+  It's not possible, and we're going to prove this assertion via contradiction.
+  Assume that there are such vectors $\vec{v}_1,\vec{v}_2,\vec{v}_3$
+  satisfying the above conditions. Then there are numbers $x,y,z\in\R$
+  such that
+  \[
+    \abs{x}+\abs{y}+\abs{z}>0
+    \quad\text{and}\quad
+    x\vec{v}_1+y\vec{v}_2+z\vec{v}_3=\vec{0}.
+  \]
+  By letting 
+  \[a=x+y-z,\quad b=y+z-x,\quad c=z+x-y\]
+  we obtain that
+  \begin{align*}
+    a\vec{w}_1+b\vec{w}_2+c\vec{w}_3
+    &=(x\vec{w}_1+y\vec{w}_1-z\vec{w}_1)
+     +(y\vec{w}_2+z\vec{w}_2-x\vec{w}_2)\\
+    &\qquad\qquad\qquad\qquad +(x\vec{w}_3+z\vec{w}_3-y\vec{w}_3)\\
+    &=2x\vec{v}_1+2y\vec{v}_2+2z\vec{v}_3\\
+    &=\vec{0}.
+  \end{align*}
+  Since $\{\vec{w}_1,\vec{w}_2,\vec{w}_3\}$
+  are linearly independent, we must have $a=b=c=0$. Hence
+  \[
+    \begin{cases}
+      x+y-z=0\\
+      y+z-x=0\\
+      z+x-y=0
+    \end{cases}
+  \]
+  adding all the 3 eqations, $x+y+z=0$. Substituting back to the 
+  system of eqations above we get
+  \[x=y=z=0\]
+  which contradicts to the fact that $\abs{x}+\abs{y}+\abs{z}>0$.
+\end{proof}
+% <==
 % <==
 
 \end{document}

@@ -30,3 +30,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Then you have to install coc extension or configure language servers for LSP support.
 Installing a language server by
 =:CocInstall coc-vimtex=.
+* LaTeX
+** how to install latex on linux
+For Linux user's, I recommend using [[https://tug.org/texlive/][texlive]].
+You can use any text editors that you like, 
+for beginners, it's best to use [[https://www.xm1math.net/texmaker/][texmaker]].
+To install, run the following:
+#+begin_src sh
+sudo pacan -S texlive-most texlive-lang biber texmaker
+#+end_src
+for more info, see [[https://wiki.archlinux.org/title/TeX_Live][arch wiki]].
