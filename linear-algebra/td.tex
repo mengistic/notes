@@ -4,8 +4,14 @@
 
 \renewcommand{\thesection}{\arabic{section}.}
 \renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
-% <==
+%\renewcommand{\thehomework}{\arabic{section}.\arabic{exercise}}
 \def\by{\times}
+% <==
+
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{*}{1}
+\checkandfixthelayout
+\def\theenumi{\alph{enumi})}
 
 
 \begin{document}
@@ -228,21 +234,52 @@
   $M_{3\by 2}$.
 \end{exercise}
 \begin{proof}[Answer]
-  The basis of $M_{3\by 2}$ has six vetors,
+  Consider the vectors:
   \begin{align*}
     \vec{e_1}=\begin{bmatrix} 1&0\\0&0\\0&0 \end{bmatrix},\quad
     \vec{e_2}=\begin{bmatrix} 0&1\\0&0\\0&0 \end{bmatrix},\quad
     \vec{e_3}=\begin{bmatrix} 0&0\\1&0\\0&0 \end{bmatrix},\\[0.3cm]
     \vec{e_4}=\begin{bmatrix} 0&0\\0&1\\0&0 \end{bmatrix},\quad
     \vec{e_5}=\begin{bmatrix} 0&0\\0&0\\1&0 \end{bmatrix},\quad
-    \vec{e_6}=\begin{bmatrix} 0&0\\0&0\\0&1 \end{bmatrix}.
+    \vec{e_6}=\begin{bmatrix} 0&0\\0&0\\0&1 \end{bmatrix}
   \end{align*}
+  and we're going to prove that the system of thses vectors are a basis.
+  Any  matrix 
+  \[
+    \vec{v}=
+    \begin{bmatrix}
+      a&b\\ c&d\\ e&f
+    \end{bmatrix}\in M_{3\by 2}
+  \]
+  can be represented as the combination
+  $\vec{v}=a\vec{e_1}+b\vec{e_2}+c\vec{e_3}+d\vec{e_4}+e\vec{e_5}+f\vec{e_6}$
+  thus this system is generating. Next we're going to prove the uniqueness.
+
+  Supppose that there are $\hat{a},\hat{b},\dots,\hat{f}$ with
+  \begin{align*}
+    \vec{v}&=\hat{a}\vec{e_1}+\hat{b}\vec{e_2}+\hat{c}\vec{e_3}
+              +\hat{d}\vec{e_4}+\hat{e}\vec{e_5}+\hat{f}\vec{e_6}\\
+    \implies\quad 
+    \begin{bmatrix} 
+      a&b\\c&d\\e&f 
+    \end{bmatrix}
+    &=
+    \begin{bmatrix} 
+      \hat{a} & \hat{b}\\ \hat{c}&\hat{d} \\ \hat{e}&\hat{f}
+    \end{bmatrix}
+  \end{align*}
+  This implies that each corresponding entry is equals. Hence the representation
+  is unique. Therefore this system is a basis.
+
+
+
+
 \end{proof}
 % <==
 % ==> ex2
 \begin{exercise}
   True or false:
-  \begin{enumerate}[label={\alph*)}]
+  \begin{enumerate}
     \item Any set containing a zero vector is linearly dependent;
     \item A basis must contain $\vec{0}$;
     \item subsets of linearly dependent sets are linearly dependent;
@@ -253,7 +290,7 @@
 \end{exercise}
 \begin{proof}[Answer]
   \text{}
-  \begin{enumerate}[label={\alph*)}]
+  \begin{enumerate}
     \item \textbf{True.} because $\vec{0}$ can be represented as a linear 
       combination of the other vectors (simply put all the scalars to $0$).
     \item \textbf{No.} if so, they must be linearly dependent, which is not a base.
@@ -277,8 +314,8 @@
       is linearly independent, therefore all the scalars $\alpha_k=0$. 
       Thus, the system $\{\vec{v_1},\dots,\vec{v_p}\}$ is also linearly
       independent.
-    \item \textbf{No.} It's true only when $\{\vec{v_1},\dots,\vec{v_n}\}$
-      are linearly independent.
+    \item \textbf{No.} Take, $\vec{e_1}=(2,2)$ and $\vec{e_2}=(1,1)$ for instance.
+      We have $\vec{e_1}-2\vec{e_2}=\vec{0}$ yet the scalars are non-zero.
   \end{enumerate}
 \end{proof}
 % <==
@@ -290,19 +327,35 @@
   elements are there in the basis.
 \end{exercise}
 \begin{proof}[Answer]
-  A basis of of this space is $\{\vec{e_1},\vec{e_2},\vec{e_3}\}$ where
+  We are going to prove that the system $\{\vec{d_1},\vec{d_2},\vec{e_1}\}$ where
   \[
-    \vec{e_1}= \begin{bmatrix} 1&0\\0&0 \end{bmatrix},\quad
-    \vec{e_2}= \begin{bmatrix} 0&1\\1&0 \end{bmatrix},\quad
-    \vec{e_3}= \begin{bmatrix} 0&0\\0&1 \end{bmatrix}.
+    \vec{d_1}= \begin{bmatrix} 1&0\\0&0 \end{bmatrix},\quad
+    \vec{d_2}= \begin{bmatrix} 0&0\\0&1 \end{bmatrix},\quad
+    \vec{e_1}= \begin{bmatrix} 0&1\\1&0 \end{bmatrix},\quad
   \]
-  There are 3 vectors in this basis.
+  is a basis. Observe that any symmetric matrix 
+  \[
+    \vec{v}=
+    \begin{bmatrix}
+      d_1 & e_1\\
+      e_1 & d_2
+    \end{bmatrix}
+  \]
+  can be represented as $\vec{v}=d_1\vec{d_1}+d_2\vec{d_2}+e_1\vec{e_1}$,
+  hence it's generating. Note that the equation 
+  \begin{align*}
+    &d_1\vec{d_1}+d_2\vec{d_2}+e_1\vec{e_1}=\vec{0}\\
+    &\begin{bmatrix}d_1 & e_1\\  e_1 &d_2\end{bmatrix}=\begin{bmatrix}0&0\\0&0\end{bmatrix}
+  \end{align*}
+  holds only when all the scalars are all zero. Hence the system is linearly 
+  independent. Thus, it's a basis.
+
 \end{proof}
 % <==
 % ==> ex4
 \begin{exercise}
   Write down a basis for the space of
-  \begin{enumerate}[label={\alph*).}]
+  \begin{enumerate}
     \item $3\by 3$ symmetric matrices;
     \item $n\by n$ symmetric matrices;
     \item $n\by n$ antisymmetric matrices.
@@ -310,21 +363,34 @@
 \end{exercise}
 \begin{proof}[Answer]
   \text{}
-  \begin{enumerate}[label={\alph*).}]
-    \item the basis of $3\by 3$ matrices contains 6 vectors, namely
+  \begin{enumerate}
+    \item we are going to prove that the system of vectors
       \begin{align*}
-        \vec{e_1}= \begin{bmatrix} 1&0&0 \\ 0&0&0 \\ 0&0&0 \end{bmatrix},\quad
-        \vec{e_2}= \begin{bmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&0 \end{bmatrix},\quad
-        \vec{e_3}= \begin{bmatrix} 0&0&0 \\ 0&0&0 \\ 0&0&1 \end{bmatrix},\\[0.4cm]
-        \vec{e_4}= \begin{bmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&0 \end{bmatrix},\quad
-        \vec{e_5}= \begin{bmatrix} 0&0&1 \\ 0&0&0 \\ 1&0&0 \end{bmatrix},\quad
-        \vec{e_6}= \begin{bmatrix} 0&0&0 \\ 0&0&1 \\ 0&1&0 \end{bmatrix}.
+        \vec{d_1}= \begin{bmatrix} 1&0&0 \\ 0&0&0 \\ 0&0&0 \end{bmatrix},\quad
+        \vec{d_2}= \begin{bmatrix} 0&0&0 \\ 0&1&0 \\ 0&0&0 \end{bmatrix},\quad
+        \vec{d_3}= \begin{bmatrix} 0&0&0 \\ 0&0&0 \\ 0&0&1 \end{bmatrix},\\[0.4cm]
+        \vec{e_1}= \begin{bmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&0 \end{bmatrix},\quad
+        \vec{e_2}= \begin{bmatrix} 0&0&1 \\ 0&0&0 \\ 1&0&0 \end{bmatrix},\quad
+        \vec{e_3}= \begin{bmatrix} 0&0&0 \\ 0&0&1 \\ 0&1&0 \end{bmatrix}.
       \end{align*}
-    \item For the $n\by n$ symmetric matrices, we are going to prove that
-      the basis of this space contains $\frac{n(n+1)}{2}$ vectors.
-      It's easy to see that this is true for $n=2$ and $n=3$.
-      Let's assume this is true for some integer $n$. Therefore, the 
-      numbers of vectors in a basis of an $(n+1)\by (n+1)$ symmetric matrices is
+      is the basis. First of, any symmetric matrix 
+      \begin{align*}
+        \vec{v}
+        &=\begin{bmatrix}
+          d_1 & e_1 & e_2 \\
+          e_1 & d_2 & e_3 \\
+          e_2 & e_3 & d_3
+        \end{bmatrix}
+      \intertext{can be represented as}
+        \vec{v}&=d_1\vec{d_1}+d_2\vec{d_2}+d_3\vec{d_3}
+          +e_1\vec{e_1}+e_2\vec{e_2}+e_3\vec{e_3}
+      \end{align*}
+      yeilds that the system is generating. Similar to the previous problem, 
+      if the linear combination of these vectors equals $\vec{0}$, then all 
+      the scalars must equals zero. Thus it's linearly independent. 
+      Therefore it's a basis.
+    \item Working on it.
+    \item Working on it.
   \end{enumerate}
 \end{proof}
 % <==
@@ -404,6 +470,763 @@
   which contradicts to the fact that $\abs{x}+\abs{y}+\abs{z}>0$.
 \end{proof}
 % <==
+% ==> ex7
+\begin{exercise}
+  Any finite independent system is a subset of some basis.
+\end{exercise}
+\begin{proof}
+  Let $\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_n\}$ is linearly independent.
+  If this system is generating, then it's a base and we're done. If not,
+  from exercise 2.5, there exists $\vec{v}_{n+1}$ such that
+  \[\{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_n,\vec{v}_{n+1}\}\]
+  is still linearly independent. Now if this new system is generating, then 
+  we're done. If not, we keep continue this process a finite steps, 
+  adding vectors $\vec{v}_{n+1},\vec{v}_{n+2},\dots,\vec{v}_{n+r}$, and 
+  eventually the new system
+  \[\{\vec{v}_1,\dots,\vec{v}_{n},\vec{v}_{n+1},\dots,\vec{v}_{n+r}\}\]
+  is now a basis.
+\end{proof}
 % <==
+% <==
+% ==> linear transformation
+\section{Linear Transformation}
+% ==> hw1
+\begin{homework}
+  Prove that the transformation $T:\F^n\to\F^m$ if and only if 
+  $T(\alpha\vec{x}+\beta\vec{y})=\alpha T(\vec{x})+\beta T(\vec{y})$
+  for any scalars $\alpha,\beta$ and vectors 
+  $\vec{x},\vec{y}\in\F$.
+\end{homework}
+\begin{proof}
+  We need to prove this in two directions.
+  \begin{itemize}
+    \item[($\Rightarrow$)] Suppose $T$ is a linear transformation, 
+      then 
+      %$T(\vec{x}+\vec{y})=T(\vec{x})+T(\vec{y})$ and 
+      %$T(\alpha\vec{x})=\alpha T(\vec{\alpha})$. Thus
+      \[
+        T(\alpha\vec{x}+\beta\vec{y})
+        =T(\alpha\vec{x})+T(\beta\vec{y})
+        =\alpha T(\vec{x})+\beta T(\vec{y})
+      \]
+      as needed.
+    \item[$(\Leftarrow)$] For this direction, we first assume that
+      $T$ has the property that 
+      $T(\alpha\vec{x}+\beta\vec{y}) =\alpha T(\vec{x})+\beta T(\vec{y})$
+      for all $\alpha,\beta,\vec{x},\vec{y}$. We need to show that
+      $T$ has the property listed in the definition of the linear 
+      transformation. Observe that
+      \begin{itemize}
+        \item take $\alpha=\beta=1$ then,
+          $T(\vec{x}+\vec{y})=T(\vec{x})+T(\vec{y})$
+        \item take $\beta=0$ then,
+          $T(\alpha\vec{x})=\alpha T(\vec{x})$
+      \end{itemize}
+      Hence $T$ is a linear transformation, 
+      and the proof is completed.
+  \end{itemize}
+\end{proof}
+% <==
+% ==> hw2
+\begin{homework}
+  Let $T:V\to W$ be a linear transformation. Prove that
+  $T(\vec{0})=\vec{0}$ and 
+  \[TV=\{T\vec{v}~:~\vec{v}\in V\}\]
+  is a vector space.
+\end{homework}
+\begin{proof}
+  Since $T$ is linear, and as proved before $0\cdot\vec{0}=\vec{0}$, 
+  it's easy to see that 
+  $$T(\vec{0})=T(0\cdot\vec{0})=0\cdot T(\vec{0})=\vec{0}.$$
+  To prove that $TV$ is a vector space, we need to check that $TV$ satisfies
+  all the eight conditions listed in the definition of vector space.
+
+  We first need to prove that $TV$ is closed.
+  Because $TV\subset W$, hence $TV$ is closed under scalar multiplication and
+  vector addition. Let $\vec{x},\vec{y},\vec{z}\in V$. Observe that
+  \begin{itemize}
+    \item $T\vec{x}+T\vec{y}=T\vec{y}+T\vec{x}$
+      \quad (commutitativity of $W$)
+    \item $(T\vec{x}+T\vec{y})+T\vec{z}=T\vec{x}+(T\vec{y}+T\vec{z})$
+      \quad (associativity of $W$)
+    \item The vector $\vec{0}\in W$ is the indentity of $TV$ because 
+      \[
+        T\vec{x}+\vec{0}=T\vec{x}+T\vec{0}=T(\vec{x}+\vec{0})=T(\vec{x}),\quad 
+        \forall \vec{x}\in V
+      \]
+    \item The vector $T(-\vec{x})$ is the additive inverse of $T\vec{x}$ because
+      \[T\vec{x}+T(-\vec{x})=T(\vec{x}-\vec{x})=\vec{0}\]
+    \item $1\cdot T\vec{v}=T\vec{v}$
+      \quad (multiplicative iden. in $W$)
+  \end{itemize}
+  Let $\alpha, \beta$ be scalars.
+  \begin{itemize}
+    \item multiplicative associativity
+      \begin{align*}
+        (\alpha\beta)T\vec{x} 
+        &= T((\alpha\beta)\vec{x})
+        && (\text{linearity of $T$})\\
+        &= T(\alpha (\beta\vec{x})) 
+        && (\text{mult. asso. of $V$})\\
+        &= \alpha T(\beta\vec{x})
+        && (\text{linearity of $T$})\\
+        &= \alpha\cdot\beta T\vec{x}
+      \end{align*}
+    \item scalar multiplication
+      \begin{align*}
+        \alpha(T\vec{x}+T\vec{y})
+        &=\alpha T(\vec{x}+\vec{y}) && (\text{linearity of $T$})\\
+        &=T(\alpha(\vec{x}+\vec{y})) \\
+        &=T(\alpha\vec{x}+\alpha\vec{y}) && (\text{scalar mult. in $V$})\\
+        &=T(\alpha\vec{x})+T(\alpha\vec{x}) && (\text{linearity of $T$})\\
+        &=\alpha T\vec{x}+\alpha T\vec{y}
+      \end{align*}
+    \item scalar multiplication
+      \begin{align*}
+        (\alpha+\beta)T\vec{x}
+        &=T((\alpha+\beta)\vec{x}) && (\text{linearity of $T$})\\
+        &=T(\alpha\vec{x}+\beta\vec{x}) && (\text{scalar mult. of $V$})\\
+        &=T(\alpha\vec{x})+T(\beta\vec{x}) \\
+        &=\alpha T\vec{x}+\beta T\vec{x}
+      \end{align*}
+  \end{itemize}
+  We see that $TV$ has all eight properties to be a vector space, and the proof
+  is completed.
+
+
+\end{proof}
+% <==
+% ==> hw3
+\begin{homework}
+  Let $V,W$ be vector spaces. Prove that $\mathcal{L}(V,W)$, the set of all 
+  linear transformations $T:V\to W$, is also a vector space.
+\end{homework}
+\begin{proof}
+  We first need to show that $\mathcal{L}(V,W)$ is closed.
+  Let $T_1, T_2\in\mathcal{L}(V,W)$ and $a$ be a scalar.
+  So we need to show the transformation $T_1+T_2$ and $a T_1$ 
+  are both linear. 
+  \begin{itemize}
+    \item Let $\vec{x}, \vec{y}$ be arbitrary vectors in $V$ 
+      and $\alpha,\beta$ be scalar. 
+      Denote $T:=T_1+T_2$. Observe that 
+      \begin{align*}
+        T(\alpha\vec{x}+\beta\vec{y})
+        =&(T_1+T_2)(\alpha\vec{x}+\beta\vec{y})\\
+        &=T_1(\alpha\vec{x}+\beta\vec{y})+T_2(\alpha\vec{x}+\beta\vec{y}) && (\text{by def. of $T_1+T_2$})\\
+        &=\alpha T_1\vec{x}+\beta T_1\vec{y}+\alpha T_2\vec{x}+\beta T_2\vec{y} && (\text{by lin. of $T_1$ and $T_2$})\\
+        &=(\alpha T_1\vec{x}+\alpha T_2\vec{x}) + (\beta T_1\vec{y}+\beta T_2\vec{y})\\
+        &=\alpha (T_1\vec{x}+T_2\vec{x}) + \beta (T_1\vec{y}+T_2\vec{y}) && (\text{by scalar mult. in $W$})\\
+        &=\alpha (T_1+T_2)\vec{x}+\beta (T_1+T_2)\vec{y}\\
+        &=\alpha T\vec{x}+\beta T\vec{y}
+      \end{align*}
+      This shows that $T_1+T_2$ is also a linear transformation, hence 
+      $\mathcal{L}(V,W)$ is closed under addition.
+    \item Similarly, we let $\vec{x},\vec{y}\in V$. For simplicity, we again 
+      denote $T:=a T_1$. Hence for any scalars $\alpha, \beta$
+      \begin{align*}
+        T(\alpha\vec{x}+\beta\vec{y})
+        &=(aT_1)(\alpha\vec{x}+\beta\vec{y})\\
+        &=a\cdot T_1(\alpha\vec{x}+\beta\vec{y}) && (\text{by def. of $aT_1$})\\
+        &=a\cdot (\alpha T_1\vec{x}+\beta T_1\vec{y}) && (\text{by lin. of $T_1$})\\
+        &=\alpha aT_1\vec{x}+\beta aT_1\vec{y}\\
+        &=\alpha (aT_1)\vec{x}+\beta (aT_1){\vec{y}}\\
+        &=\alpha T\vec{x}+\beta T\vec{y}
+      \end{align*}
+      This suggests that $aT_1$ is also linear, hence $\mathcal{L}(V,W)$
+      is closed under scalar multiplication.
+      Ultimately, we've proved that $\mathcal{L}(V,W)$ is closed as needed.
+  \end{itemize}
+  We are now ready to prove that $\mathcal{L}(V,W)$ is a vector space.
+  Let $T_1,T_2,T_3\in\mathcal{L}(V,W)$ we have
+  \begin{itemize}
+    \item $T_1+T_2=T_2+T_1$, because for any $\vec{x}\in V$
+      \[ (T_1+T_2)\vec{x}=T_1\vec{x}+T_2\vec{x}=T_2\vec{x}+T_1\vec{x}=(T_2+T_1)\vec{x}. \]
+    \item $T_1+(T_2+T_3)=(T_1+T_2)+T_3$, because for any $\vec{x}\in V$
+      \begin{align*}
+        (T_1+(T_2+T_3))\vec{x}
+        &=T_1\vec{x}+(T_2+T_3)\vec{x}\\
+        &=T_1\vec{x}+(T_2\vec{x}+T_3\vec{x})\\
+        &=(T_1\vec{x}+T_2\vec{x})+T_3\vec{x} && (\text{by asso. of $W$})\\
+        &=(T_1+T_2)\vec{x}+T_3\vec{x}\\
+        &=((T_1+T_2)+T_3)\vec{x}
+      \end{align*}
+    \item Consider the transformation $0:V\to W$ such that
+      $0(\vec{v})=\vec{0}$ for all $\vec{v}\in V$. We're going to prove that
+      this $0$ is the indentity of $\mathcal{L}(V,W)$. But first, we need to 
+      know if $0$ is  linear or not. For any $\vec{v_1},\vec{v_2}\in V$, we have
+      \[
+        0(\alpha\vec{v_1}+\beta\vec{v_2})=\vec{0}
+        \quad\text{and}\quad
+        \alpha 0\vec{v_1}+\beta 0\vec{v_2}=\alpha\vec{0}+\beta\vec{0}=\vec{0}.
+      \]
+      Hence $0(\alpha\vec{v_1}+\beta\vec{v_2})=\alpha 0\vec{v_1}+\beta 0\vec{v_2}$,
+      thus the transformation $0$ is linear, i.e. $0\in\mathcal{L}(V,W)$.
+
+      Observe that for any $\vec{x}\in V$
+      \[(T_1+0)\vec{x}=T_1\vec{x}+0\vec{x}=T_1\vec{x}\]
+      This implies that $T_1+0=T_1$ for any $T_1\in\mathcal{L}(V,W)$.
+      We conclude that $0$ is the indentity of $\mathcal{L}(V,W)$.
+    \item The transformation $-T_1:=(-1)T_1$ is the additive inverse of $T_1$
+      because for any $\vec{x}\in V$
+      \[T_1\vec{x}+(-T_1\vec{x})=T_1\vec{x}+T_1(-\vec{x})=T_1(\vec{x}-\vec{x})=\vec{0}=0(\vec{x}).\]
+    \item $1\cdot T_1=T_1$ because  $(1\cdot T_1)\vec{x}=1\cdot T_1\vec{x}=T_1\vec{x}$
+      for any $\vec{x}\in V$.
+    \item $(\alpha\beta)T_1=\alpha (\beta T_1)$, because 
+      \[ 
+        [(\alpha \beta)T_1]\vec{x}=(\alpha\beta)T_1\vec{x}=T_1(\alpha\beta\vec{x})
+        =\alpha T_1(\beta\vec{x})=\alpha (\beta T_1)\vec{x}
+      \]
+    \item $\alpha (T_1+T_2)=\alpha T_1+\alpha T_2$ because
+      \[
+        [\alpha(T_1+T_2)](\vec{x})=\alpha T_1\vec{x}+\alpha T_2\vec{x}=(\alpha T_1+\alpha T_2)(\vec{x})
+      \]
+  \end{itemize}
+\end{proof}
+% <==
+
+% ==> ex1
+\begin{exercise}
+  Multiply
+  \begin{enumerate}
+    \item 
+      $
+      \begin{pmatrix} 1&2&3\\4&54&6 \end{pmatrix}
+      \begin{pmatrix} 1\\3\\2 \end{pmatrix} =
+      \begin{pmatrix} 1+6+6\\ 4+15+12 \end{pmatrix}=
+      \begin{pmatrix} 13\\31 \end{pmatrix}
+      $
+    \item 
+      $
+      \begin{pmatrix} 1&2\\0&1\\2&0 \end{pmatrix}
+      \begin{pmatrix} 1\\3 \end{pmatrix}=
+      \begin{pmatrix} 1+6\\ 0+3\\ 2+0 \end{pmatrix}=
+      \begin{pmatrix} 7\\3\\2 \end{pmatrix}
+      $
+    \item 
+      $
+      \begin{pmatrix} 1&2&0&0\\ 0&1&2&0\\ 0&0&1&2\\ 0&0&0&1 \end{pmatrix}
+      \begin{pmatrix} 1\\2\\3\\4 \end{pmatrix}=
+      \begin{pmatrix} 1+4+0+0\\ 0+2+6+0\\ 0+0+3+8\\ 0+0+0+4 \end{pmatrix}=
+      \begin{pmatrix} 5\\8\\11\\4 \end{pmatrix}
+      $
+    \item 
+      $ \begin{pmatrix} 1&2&0\\0&1&2\\ 0&0&1\\0&0&0 \end{pmatrix}
+      \begin{pmatrix} 1\\2\\3\\4 \end{pmatrix} $\\
+      can't be multiplied because the number of columns of the first matrix
+      doesn't equal to the number of rows of the second matrix.
+  \end{enumerate}
+\end{exercise}
+% <==
+% ==> ex2
+\begin{exercise}
+  Let a linear transformation in $\R^2$ be the reflection in the line 
+  $x_1=x_2$. Find its matrix.
+\end{exercise}
+\begin{proof}[Solution]
+  Let $T:\R^2\to\R^2$ be this transformation. The basis of the domain is
+  $\{\vec{e_1}, \vec{e_2}\}$ where 
+  $\vec{e_1}=(1,0)\tran$ and $\vec{e_2}=(0,1)\tran$. Because $T$ reflect
+  the line $x_1=x_2$ then 
+  \[
+    T\vec{e_1}= \begin{pmatrix} 0\\1 \end{pmatrix}
+    \quad\text{and}\quad
+    T\vec{e_2}= \begin{pmatrix} 1\\0 \end{pmatrix}.
+  \]
+  Therefore, the matrix of this transformation is
+  $[T]= \begin{bmatrix} 0&1\\1&0 \end{bmatrix}$.
+
+\end{proof}
+% <==
+% ==> ex3
+\begin{exercise}
+  For each linear transformation below, find its matrix
+  \begin{enumerate}
+    \item $T:\R^2\to\R^3$ defined by $T(x,y)\tran=(x+2y,2x-5y,7y)\tran$
+    \item $T:\R^4\to\R^3$ defined by 
+      $T(x_1,x_2,x_3,x_4)\tran=(x_1+x_2+x_3+x_4, x_2-x_4, x_1+3x_2+6x_4)\tran$
+    \item $T:\P_n\to\P_n$ st $Tf(t)=f'(t)$ 
+      (find the matrix with respect to the standard basis 
+      $1,t,t^2,\dots, t^n$)
+    \item $T:\P_n\to\P_n$ st $Tf(t)=2f(t)+3f'(t)-4f''(t)$.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  Find the matrix.
+  \begin{enumerate}
+    \item The standard basis in $\R^2$ is $\{\vec{e_1},\vec{e_2}\}$ where
+      $\vec{e_1}=(1,0)\tran$ and $\vec{e_2}=(0,1)\tran$. We have
+      \[
+        T\vec{e_1}= \begin{pmatrix*}[r] 1\\2\\0 \end{pmatrix*}
+        \quad\text{and}\quad
+        T\vec{e_2}= \begin{pmatrix*}[r] 2\\-5\\7 \end{pmatrix*}
+      \]
+      %Observe also that
+      %\[
+        %\begin{pmatrix*}[r]
+          %1&2\\
+          %2&-5\\
+          %0&7
+        %\end{pmatrix*}
+        %\begin{pmatrix}
+          %x\\y
+        %\end{pmatrix}=
+        %\begin{pmatrix}
+          %x+2y\\2x-5y\\7y
+        %\end{pmatrix}
+      %\]
+      Hence
+      $
+        \begin{pmatrix*}[r]
+          1&2\\
+          2&-5\\
+          0&7
+        \end{pmatrix*}
+      $ is its matrix.
+    \item Let $\{\vec{e_1},\vec{e_2},\vec{e_3},\vec{e_4}\}$ be the standard 
+      basis in $\R^4$. Hence
+      \begin{align*}
+        &T\vec{e_1}=T(1,0,0,0)\tran = \begin{pmatrix} 1\\0\\1 \end{pmatrix},
+        &&T\vec{e_2}=T(0,1,0,0)\tran= \begin{pmatrix} 1\\1\\3 \end{pmatrix}\\
+        &T\vec{e_3}=T(0,0,1,0)\tran= \begin{pmatrix} 1 \\0\\0 \end{pmatrix},
+        &&T\vec{e_4}=T(0,0,0,1)\tran= \begin{pmatrix*}[r] 1\\-1\\6 \end{pmatrix*}
+      \end{align*}
+      Therefore, 
+      $ \begin{pmatrix*}[r]
+        1&1&1&1\\
+        0&1&0&-1\\
+        1&3&0&6
+      \end{pmatrix*} $
+      is its matrix.
+    \item Let $E=\{t^n,t^{n-1},\dots,t,1\}$ be the standard basis
+      and $f(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots+a_1t+a_0\in\P_n$. We write
+      \[
+        f(t)=(a_n, a_{n-1},\dots,a_1,a_0)\tran
+      \]
+      is base $E$. Since
+      \[
+        T(t^n)=nt^{n-1},\quad~T(t^{n-1})=(n-1)t^{n-2}\quad,\dots,\quad T(t)=1,\quad T(1)=0
+      \]
+      Therefore its matrix is 
+      \[
+        \begin{pmatrix*}[l]
+          0&0&0&\cdots&0&0\\
+          n&0&0&\cdots&0&0\\
+          0&n-1&0&\cdots&0&0\\
+          0&0&n-2&\cdots&0&0\\
+          \vdots & \vdots & \vdots & \ddots &\vdots & \vdots\\
+          0&0&0&\cdots&1&0\\
+          0&0&0&\cdots&0&0
+        \end{pmatrix*}
+      \]
+      %\begin{align*}
+        %Tf(t)=f'(t)&=na_nt^{n-1}+(n-1)a_{n-1}t^{n-2}+\cdots+a_1
+      %\end{align*}
+      %\begin{align*}
+        %&T(t^n)=nt^{n-1}= \begin{pmatrix} 0\\n\\0\\\vdots\\0\\0 \end{pmatrix},
+        %&&T(t^{n-1})=(n-1)t^{n-2}= \begin{pmatrix*} 0\\0\\n-1\\\vdots\\0\\0 \end{pmatrix*},\quad\\
+        %&\vdots&&\vdots\\
+        %&T(t)=1= \begin{pmatrix} 0\\0\\0\\\vdots\\1\\0 \end{pmatrix},
+        %&&T(1)=0= \begin{pmatrix} 0\\0\\0\\\vdots\\0\\0 \end{pmatrix}
+      %\end{align*}
+      \newpage
+    \item $Tf(t)=2f(t)+3f'(t)-4f''(t)$\\
+      Again, the standard basis is $\{t^n,t^{n-1},\dots,t,1\}$. For
+      each $i\in [0,n]$ we have
+      \[T(t^i)=2t^i+3it^{i-1}-4i(i-1)t^{i-2}\]
+      Hence the matrix is achieved by stacking 
+      $[T(t^n),\dots,T(t^i),\dots,T(t),T(1)]$, therefore the matrix is
+      \[ [T]=
+        \begin{bmatrix*}
+          2        &0      &\cdots &0   &0\\
+          3n       &2      &\cdots &0   &0\\
+          -4n(n-1) &3(n-1) &\cdots &0   &0\\
+          \vdots \\
+          0        &0      &\cdots &2   &0\\
+          0        &0      &\cdots &3   &2
+        \end{bmatrix*}
+      \]
+  \end{enumerate}
+\end{proof}
+% <==
+% ==> ex4
+\begin{exercise}
+  Find $3\by3$ matrices representing the transformations of $\R^3$ which
+  \begin{enumerate}
+    \item project every vector onto $x$-$y$ plane;
+    \item reflect every vector through $x$-$y$ plane;
+    \item rotate the $x$-$y$ plane through $30^\circ$, leaving the
+      $z$-axis alone.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  In space $\R^3$, we shall use its standard basis 
+  $\{\vec{e_1},\vec{e_2},\vec{e_3}\}$ where 
+  $\vec{e_1}=(1,0,0)\tran$,
+  $\vec{e_2}=(0,1,0)\tran$ and 
+  $\vec{e_3}=(0,0,1)\tran$.
+  \begin{enumerate}
+    \item Let $T$ be this transformation. This means 
+      $T(x,y,z)\tran=(x,y,0)\tran$. We get
+      \[
+        T\vec{e_1}= \begin{pmatrix} 1\\0\\0 \end{pmatrix},\quad
+        T\vec{e_2}= \begin{pmatrix} 0\\1\\0 \end{pmatrix},\quad
+        T\vec{e_3}= \begin{pmatrix} 0\\0\\0 \end{pmatrix}.
+      \]
+      Therefore is matrix is 
+      $ \begin{pmatrix} 1&0&0\\0&1&0\\0&0&0 \end{pmatrix}. $
+    \item Let $R$ be this transformation. Since $R$ project every vector
+      through $x$-$y$ plane, hence $R(x,y,z)\tran=(x,y,-z)\tran$. We get
+      \[
+        R\vec{e_1}= \begin{pmatrix} 1\\0\\0 \end{pmatrix},\quad
+        R\vec{e_2}= \begin{pmatrix} 0\\1\\0 \end{pmatrix},\quad
+        R\vec{e_3}= \begin{pmatrix*}[r] 0\\0\\-1 \end{pmatrix*}.
+      \]
+      Thus the matrix of $R$ is 
+      $
+      \begin{pmatrix*}[r]
+        1&0&0\\
+        0&1&0\\
+        0&0&-1
+      \end{pmatrix*}
+      $
+    \item Let $S$ be this transformation. $S$ moves the vectors
+      $\vec{e_1},\vec{e_2}$ to the point $x',y'$ respectively.
+      %Then we have 
+      %$T(x,y,z)\tran = T(x',y',z)$ where $x'=\cos 30^\circ=\frac{\sqrt{3}}{2}$
+      %and $y=\sin 30^\circ=\frac{1}{2}$.
+      \begin{center}
+        \begin{tikzpicture}[scale=2.5, rotate=-10]
+          \coordinate (O) at (0,0);
+          \coordinate (x) at (0,-1);
+          \coordinate (y) at (1,0);
+          \coordinate (xp) at (-60:1);
+          \coordinate (yp) at (30:1);
+
+
+          \draw[-open triangle 60, thick] (0,0)--(0,-1) node[below]{$\vec{e_1}$};
+          \draw[-open triangle 60, thick] (0,0)--(1,0) node[right]{$\vec{e_2}$};
+
+          \draw[-open triangle 60, gray] (0,0)--(-60:1);
+          \draw[-open triangle 60, gray] (0,0)--(30:1);
+
+          \draw[dashed] ($(0,-0.86)$)--(xp) (0.5,0)--(xp);
+          %\draw
+
+          \node at ($(-60:1)+(0.1,-0.05)$) {$S\vec{e_1}$};
+          \node at ($(30:1)+(0.1,0.05)$) {$S\vec{e_2}$};
+
+          \draw pic[draw, angle eccentricity=2] {angle=x--O--xp};
+          \draw pic[draw, angle eccentricity=2,"$30^\circ$"] {angle=y--O--yp};
+        \end{tikzpicture}
+      \end{center}
+      Since $\cos30^\circ=\frac{\sqrt{3}}{2}$ and $\sin30^\circ=\frac{1}{2}$,
+      we conclude that
+      \[
+        S\vec{e_1}= \begin{pmatrix} \frac{\sqrt{3}}{2}\\[0.2cm]\frac{1}{2}\\[0.2cm]0 \end{pmatrix},\quad
+        S\vec{e_2}= \begin{pmatrix} -\frac{1}{2}\\[0.2cm]\frac{\sqrt{3}}{2}\\[0.2cm]0 \end{pmatrix},\quad
+        S\vec{e_3}= \begin{pmatrix*}[r] 0\\0\\1 \end{pmatrix*}.
+      \]
+      Therefore the matrix is
+      $ \begin{pmatrix}
+        \frac{\sqrt{3}}{2} & -\frac{1}{2} & 0\\[0.2cm]
+        \frac{1}{2} & \frac{\sqrt{3}}{2} & 0\\[0.2cm]
+        0 & 0 &1
+      \end{pmatrix}. $
+  \end{enumerate}
+\end{proof}
+% <==
+% ==> ex5
+\begin{exercise}
+  Let $A$ be a linear transformation. If $\vec{z}$ is the center of the
+  staight interval $[\vec{x},\vec{y}]$, show that $A\vec{z}$ is the
+  center of the interval $[A\vec{x}, A\vec{y}]$.
+\end{exercise}
+\begin{proof}
+  $\vec{z}$ is the center of $[\vec{x}, \vec{y}]$ iff 
+  $\vec{z}=\frac{1}{2}\vec{x}+\frac{1}{2}\vec{y}$. Therefore,
+  \[
+    A\vec{z}=A\left(\frac{1}{2}\vec{x}+\frac{1}{2}\vec{y}\right)
+    =\frac{1}{2}A\vec{x}+\frac{1}{2}A\vec{y}
+  \]
+  Thus, $A\vec{z}$ is the center of the interval $[A\vec{x}, A\vec{y}]$.
+\end{proof}
+% <==
+% ==> ex6
+\begin{exercise}
+  The set $\C$ of complex numbers can be canonically identified 
+  with the space $\R^2$ by treating each $z=x+iy\in\C$ as a column
+  $(x,y)\tran\in\R^2$.
+  \begin{enumerate}
+    \item Treating $\C$ as a complex vector space, show that the multiplication
+      by $\alpha=a+ib\in\C$ is a linear transformation in $\C$.
+      What is its matrix.
+    \item Treating $\C$ as the real vector space $\R^2$ show that the multiplication 
+      by $\alpha=a+ib\in\C$ is a linear transformation there.
+    \item Define $T(x+iy)=2x-y+i(x-3y)$. Show that this tran is not a 
+      linear transformation in the complex vector space $\C$, but
+      if we treat $\C$ as the real vector space $\R^2$ then it is a linear
+      transformation there, then find its matrix.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \text{}
+  \begin{enumerate}
+    \item Let $T$ be this transformation. For any $\vec{x}\in\C$, we have
+      $T\vec{x}=\alpha \vec{x}\in\C$.
+      Thus $T:\C\to\C$, and we'll prove that $T$ is a linear 
+      transformation. Let $\vec{x},\vec{y}\in\C$ be two vectors, 
+      and $z\in\C$ be a scalar (complex). Observe that
+      \begin{itemize}
+        \item $T(\vec{x}+\vec{y})=\alpha(\vec{x}+\vec{y})
+          =\alpha\vec{x}+\alpha\vec{y}=T\vec{x}+T\vec{y}$
+          \quad (distributivity of complex numbers)
+        \item $T(z\vec{x})=\alpha(z\vec{x})=z(\alpha\vec{x})=zT\vec{x}$
+      \end{itemize}
+      This shows that this transformation $T$ is a linear one.
+      To find its matrix, we only need to know the basis of $\C$.
+      Since any vector $\vec{x}\in\C$ we be written as 
+      \[\vec{x}=1\cdot \underbrace{\vec{x}}_{\text{scalar}}\]
+      and because this representation is unique, we obtain that 
+      $\{1\}\subset\C$ is a basis of $\C$. Thus the matrix is
+      \[
+        [T]=[T(1)]=[\alpha\cdot 1]=[\alpha].
+      \]
+    \item Because we treat $\C$ as $\R^2$, then any complex number 
+      $\vec{x}=x+iy$ can be represented as 
+      $\begin{pmatrix} x\\y \end{pmatrix}\in\R^2$.
+      Let $T$ be this transformation. Thus $T$ would look like
+      \begin{align*}
+        T\begin{pmatrix} x\\y \end{pmatrix}
+        &=T(\vec{x})=\alpha\vec{x}\\
+        &=(a+ib)(x+iy)\\
+        &=(ax-by)+i(ay+bx)\\
+        &=\begin{pmatrix} ax-by\\ay+bx \end{pmatrix}\in\R^2
+      \end{align*}
+      Thus $T:\R^2\to\R^2$.
+      We need to show that $T$ is in fact linear. Let 
+      $\vec{x_1}= \begin{pmatrix} x_1\\y_1 \end{pmatrix} $ and 
+      $\vec{x_2}= \begin{pmatrix} x_2\\y_2 \end{pmatrix} $ and 
+      be two arbitrary vectors. We have
+      \[
+        T\vec{x_1}+T\vec{x_2}=
+        \begin{pmatrix} ax_1-by_1\\ay_1+bx_1 \end{pmatrix}+
+        \begin{pmatrix} ax_2-by_2\\ay_2+bx_2 \end{pmatrix}=
+        \begin{pmatrix} a(x_1+x_2)-b(y_1+y_2)\\a(y_1+y_2)+b(x_1+x_2) \end{pmatrix}=
+        T(\vec{x_1}+\vec{x_2}),
+      \]
+      and for any scalar $r\in\R$,
+      \[
+        rT\vec{x}=r\begin{pmatrix} ax-by\\ay+bx \end{pmatrix}=
+        \begin{pmatrix} rax-rby\\ray+rbx \end{pmatrix}=
+        T(r\vec{x}).
+      \]
+      This shows that $T$ is a linear transformation.
+      To find the matrix, we first need to find a bisis in $\R^2$.
+      Luckily, as we've proved earlier we could choose $\{\vec{e_1},\vec{e_2}\}$
+      to be a basis where
+      \[
+        \vec{e_1} \begin{pmatrix} 1\\0 \end{pmatrix}
+        \quad\text{and}\quad
+        \vec{e_2} \begin{pmatrix} 0\\1 \end{pmatrix}
+      \]
+      Therefore
+      \[
+        T\vec{e_1}= \begin{pmatrix} a\\b \end{pmatrix}
+        \quad\text{and}\quad
+        T\vec{e_2}= \begin{pmatrix} -b\\a \end{pmatrix}
+      \]
+      Thus the matrix of this transformation is 
+      $ \begin{pmatrix} a&-b\\b&a \end{pmatrix} $.
+    \item Define $T(x+iy)=2x-y+i(x-3y)$
+      \begin{itemize}
+        \item We'll prove that $T$ is not linear in complex vector space.
+          Observe that
+          \[
+            T(i)=T(0+i)=-1-3i
+            \quad\text{and}\quad
+            T(1)=T(1+0i)=2+i
+          \]
+          cleary $T(i)\neq iT(1)$, this implies that $T$ is 
+          not a linear transformation in $\C$.
+        \item 
+          In $\R^2$ the transformation would look like
+          \[
+            T\begin{pmatrix}x\\y\end{pmatrix}=
+            \begin{pmatrix}2x-y\\x-3y\end{pmatrix}.
+          \]
+          For any vectors
+          $\vec{x_1}=\begin{pmatrix}x_1\\y_1\end{pmatrix}$ and
+          $\vec{x_2}=\begin{pmatrix}x_2\\y_2\end{pmatrix}$, we have
+          \[
+            T\vec{x_1}+T\vec{x_2}=
+            \begin{pmatrix}2x_1-y_1\\x_1-3y_1\end{pmatrix}+
+            \begin{pmatrix}2x_2-y_2\\x_2-3y_2\end{pmatrix}=
+            \begin{pmatrix}2(x_1+x_2)-(y_1+y_2)\\(x_1+x_2)-3(y_1+y_2)\end{pmatrix}=
+            T(\vec{x_1}+\vec{x_2})
+          \]
+          and for any scalar $r\in\R$,
+          \[
+            rT\vec{x}=r\begin{pmatrix}2x-y\\x-3y\end{pmatrix}=
+            \begin{pmatrix}2rx-ry\\rx-3ry\end{pmatrix}=
+            T(r\vec{x})
+          \]
+          this shows that $T:\R^2\to\R^2$ is linear.
+          Because $\begin{pmatrix} 1\\0 \end{pmatrix}$ and 
+          $\begin{pmatrix} 0\\1 \end{pmatrix}$ is a basis in $\R^2$ and
+          \[
+            T\begin{pmatrix} 1\\0 \end{pmatrix}=\begin{pmatrix} 2\\1 \end{pmatrix}
+            \quad\text{and}\quad
+            T\begin{pmatrix} 0\\1 \end{pmatrix}=\begin{pmatrix} -1\\-3 \end{pmatrix},
+          \]
+          thus the matrix of this transformation is 
+          $ \begin{pmatrix*}[r] 2 & -1\\1&-3 \end{pmatrix*} $.
+      \end{itemize}
+  \end{enumerate}
+\end{proof}
+% <==
+% ==> ex7
+\begin{exercise}
+  Show that any linear transformation in $\C$ 
+  (treated as a complex vector space) is a multiplication by 
+  $\alpha\in\C$.
+\end{exercise}
+\begin{proof}
+  Let $T:\C\to\C$ be this transformation. For any $\vec{x}\in\C$
+  \[
+    T\vec{x}=T(\vec{x}\cdot \vec{1})=\vec{x}\cdot \underbrace{T(\vec{1})}_{\text{scalar}}
+  \]
+  and the proof is completed.
+\end{proof}
+% <==
+% <==
+% ==> linear transformation as a vector
+\section{Linear transformation as a Vector}
+Let set $\mathcal{L}(V,W)$ is a vector space with addition and scalar 
+multiplication (as proved above).
+% <==
+% ==> composition
+\section{Composition}
+
+% ==> hw1
+\begin{homework}
+  Let $A$ and $B$ be matrices of size $m\by n$ and $n\by m$ 
+  respectively. Then \[\tr(AB)=\tr(BA).\]
+\end{homework}
+\begin{proof}
+  % ==> intro
+  We'd like to prove this theorem \emph{less} computationally.
+  Let $X\in M_{n\by m}$. Consider the mapping
+  $T,~T_1: M_{n\by m}\to\F$ defined by
+  \[
+    T(X)=\tr(AX)
+    \quad\text{and}\quad
+    T_1(X)=\tr(XA).
+  \]
+  To prove the theorem it is sufficient to show that 
+  $T,T_1$ are linear and they are the same.
+  so by substituting $X=B$ gives the theorem.
+  % <==
+  % ==> claim: linearity
+  \begin{claim}
+    The transformations $T,T_1$ defined above are linear.
+  \end{claim}
+  \begin{proof}
+    For $X,Y\in M_{n\by m}$,
+    \begin{itemize}
+      \item From the properties of matrix, $A(X+Y)=AX+AY$. 
+        Because $AX$ and $BX$ are both square matrices with 
+        size $m\by m$, and since we add the matrices $AX+AY$
+        entrywise, it follows that
+        \begin{align*}
+          T(X+Y)&=\tr(A(X+Y))=\tr(AX+AY)\\
+                &=\tr(AX)+\tr(AY)\\
+                &=T(X)+T(Y)
+        \end{align*}
+      \item Similarly for any scalar $\alpha\in\F$,
+        \[
+          T(\alpha X)=\tr(A\cdot\alpha X)
+          =\tr(\alpha AX)=\alpha\tr(AX)=\alpha T(X)
+        \]
+    \end{itemize}
+    This implies that $T$ is a linear transformation. With simply
+    proof, we conclude that $T_1$ is also a linear transformation.
+  \end{proof}
+  % <==
+  % ==> claim: T=T_1
+  We choose $\vec{e_{11}},\vec{e_{21}},\dots,\vec{e_{nm}}$ to be 
+  the standard basis of $M_{n\by m}$, meaning the vector
+  \[
+    \vec{e_{ij}}=
+    \begin{pmatrix}
+      0 & 0 & \cdots & 0 & \cdots & 0\\
+      \vdots  & & \cdots & & \cdots & \vdots\\
+      0 & 0 & \cdots & 1 & \cdots & 0\\
+      0 & 0 & \cdots & 0 & \cdots & 0
+    \end{pmatrix}
+  \]
+  is a matrix whose entries are zero, except at
+  the entry at row $i$ and column $j$, which is $1$.
+  Then we only need to show that $T\vec{e_{ij}}=T_1\vec{e_{ij}}$
+  for all $i,j$. Let 
+  \[
+    A=
+    \begin{pmatrix}
+      a_{11} & a_{12} & \cdots & a_{1j} & \cdots  &a_{1m}\\
+      \vdots &        & \vdots &        & \vdots  &\vdots\\
+      a_{i1} & a_{i2} & \cdots & a_{ij} & \cdots  &a_{im}\\
+      a_{nn} & a_{n2} & \cdots & a_{nj} & \cdots  &a_{nm}
+    \end{pmatrix}
+  \]
+  Hence 
+  \begin{align*}
+    A\vec{e_{ij}}&=
+    \begin{pmatrix}
+      \cdot & \cdot & \cdot  & \cdot \\
+      \cdot & \cdot & a_{ij} & \cdot \\
+      \cdot & \cdot & \cdot  & \cdot
+    \end{pmatrix}
+    \begin{pmatrix}
+      0 & 0 & 0 \\
+      0 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 0
+    \end{pmatrix}=
+    \begin{pmatrix}
+      0     &\cdot   &\cdot \\
+      \cdot &a_{ij}  &\cdot \\
+      \cdot &\cdot   &0
+    \end{pmatrix}
+  \intertext{and}
+    \vec{e_{ij}}A&=
+    \begin{pmatrix}
+      0 & 0 & 0 \\
+      0 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+      \cdot & \cdot & \cdot  & \cdot \\
+      \cdot & \cdot & a_{ij} & \cdot \\
+      \cdot & \cdot & \cdot  & \cdot
+    \end{pmatrix}=
+    \begin{pmatrix}
+      0      &  \cdot  &  \cdot  & \cdot \\
+      \cdot  &  0      &  \cdot  & \cdot \\
+      \cdot  &  \cdot  &  a_{ij} & \cdot \\
+      \cdot  &  \cdot  &  \cdot  & 0
+    \end{pmatrix}
+  \end{align*}
+  This implies that $T\vec{e_{ij}}=T_1\vec{e_{ij}}$ for all $i,j$,
+  and hence $T=T_1$.
+  % <==
+\end{proof}
+% <==
+
+% <==
+
+
+
+
 
 \end{document}

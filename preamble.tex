@@ -22,6 +22,7 @@
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\sym}{sym}
+\DeclareMathOperator{\tr}{trace}
 
 
 \def\N{\mathbb{N}}
@@ -29,6 +30,8 @@
 \def\Q{\mathbb{Q}}
 \def\R{\mathbb{R}}
 \def\C{\mathbb{C}}
+\def\F{\mathbb{F}}
+\def\P{\mathbb{P}}
 \def\labelitemi{$\circ$}
 \def\inv{^{-1}}
 \def\ang#1{\left\langle#1\right\rangle}
@@ -40,6 +43,7 @@
 \newtheorem{axiom}[definition]{Axiom}
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem{example}[exercise]{Example}
+\newtheorem{homework}{Homework}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -51,24 +55,18 @@
 
 
 % <== end: math
+% ==> figure, geometry
+\usepackage{tikz}
+\usetikzlibrary{arrows, calc, angles, quotes}
+% <==
 % ==> language
 \usepackage[no-math]{fontspec}
 \usepackage{mathpazo}
 \setmainfont{TeX Gyre Pagella}
 % <== 
-% ==> setup
-%\usepackage{geometry}
-%\geometry{a4paper,
-%  left=2.5cm, right=2.5cm,
-%  top=3cm, bottom=3cm
-%}
-% <== 
 % ==> enumerate
 \usepackage{enumitem}
 \usepackage{multicol}
-% <==
-% ==> title
-\author{Sivmeng}
 % <==
 % ==> listings
 \usepackage{xcolor}
@@ -82,6 +80,7 @@
 	keywordstyle=[2]{\color{magenta!90!black}},
 	keywordstyle=[3]{\color{red!60!orange}},
 	keywordstyle=[4]{\color{teal}},
+  keywordstyle=[5]{\color{magenta!90!black}}, % <-- otherkeywords, BUG
 	commentstyle=\color{gray},
 	stringstyle=\color{green!60!black},
 	tabsize=2,
@@ -108,6 +107,8 @@
   morekeywords=[2]{
     printf, scanf,  include
   },
+  otherkeywords={\#,<,>,\&},
+  morekeywords=[5]{\#,<,>,\&},
   sensitive,%
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
@@ -186,4 +187,6 @@
 }
 % <==
 % <==
-
+% ==> page setup
+\author{Sivmeng}
+% <==
