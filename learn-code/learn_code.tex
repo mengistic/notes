@@ -1,0 +1,98 @@
+\input{../preamble.tex}
+
+\begin{document}
+
+% ==> Getting Started
+\chapter{C Program}
+% ==> download
+\section{How to download}
+Just like other programming languages, in order to write a C program you
+need to have a text editor and a compiler. For me, I use neovim
+as my main editor. Installing a compiler is straight forwward. 
+On Arch Linux, 
+\begin{verbatim}
+$ sudo pacman -S gcc neovim
+\end{verbatim}
+to install the compiler \verb|gcc|, and \verb|neovim| for text editor.
+% <==
+% ==> Data type
+\section{Data types}
+There are many data types in C programming.
+\begin{center}
+  \begin{tabular}{ll}
+    \toprule
+    data type      & data format\\
+    \cmidrule(r){1-1} \cmidrule(r){2-2}
+    \verb|int|     &   \verb|%d|\\
+    \verb|float|   &   \verb|%f|\\
+    \verb|char|    &   \verb|%c|\\
+    \verb|char[]|  &   \verb|%s|\\
+    \bottomrule
+  \end{tabular}
+\end{center}
+% <==
+% ==> operator
+\section{Operators}
+Suppose that $a=10$ and $b=3$. In the ``Return value'' column,
+$0$ means \emph{false} and $1$ means \emph{true}.
+\begin{center}
+  \begin{tabular}{ll}
+    \toprule
+    logic operator    &return value\\
+    \cmidrule(r){1-1}\cmidrule(l){2-2}
+    \verb|a==b|   &0     \\
+    \verb|a>b|    &1     \\
+    \verb|a<b|    &0     \\
+    \verb|a>=b|   &1     \\
+    \verb|a<=b|   &0     \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+% <==
+% ==> loop
+\section{Control Structure (Loop)}
+
+\begin{example}
+  Write a C program to recieve two numbers and an operator
+  from the user, then print out the result correspond to
+  that operator.
+\end{example}
+\begin{lstlisting}[language=cmeng]
+#include <stdio.h>
+
+int main(){
+  float a,b, result;
+  char operator;
+
+  printf("enter the value of A: ");  scanf("%f", &a);
+  printf("enter the value of B: ");  scanf("%f", &b);
+  printf("enter the operator  : ");  scanf("\n%c", &operator);
+
+
+  if (operator == '+'){result=a+b;}
+  else if (operator == '-'){result=a-b;}
+  else if (operator == '*'){result=a*b;}
+  else if (operator == '/'){
+    if (b) {result=a/b;}
+    else {
+      printf("\n*** Error. Cannot divide by zero.");
+      return 0;
+    }
+  }
+  else {
+    printf("\n*** Aborted. Operator '%c' is not defined.", operator);
+    return 0;
+  }
+
+  printf("\n---\n A%cB = %f\n---", operator, result);
+
+  return 0;
+}
+\end{lstlisting}
+% <==
+
+
+% <==
+
+
+\end{document}
