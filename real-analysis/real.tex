@@ -1,9 +1,15 @@
-%
+
 % ==> preamble
 \input{../preamble.tex}
 
 \title{Notes on Real Analysis}
 % <==
+\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\Acc}{acc}
+\DeclareMathOperator{\Iso}{iso}
+\DeclareMathOperator{\Bnd}{bound}
+\def\st{~:~}
+\def\com{^\complement}
 
 \begin{document}
 \maketitle
@@ -120,8 +126,6 @@ A long the way, we're introduced \emph{bounded sets.}
 \end{axiom}
 % <==
 % <==
-
-
 % ==> abs convergence
 \newpage
 \begin{example}
@@ -147,6 +151,60 @@ A long the way, we're introduced \emph{bounded sets.}
   \[\abs{x-x_0}<\delta\implies\abs{f(x)-f(y)}<\epsilon.\]
 \end{definition}
 % <==
+
+\chapter{Basic Topology}
+
+Let $E$ be a set of real numbers.
+\begin{definition}
+  Basic topology in $\R$.
+  \begin{itemize}
+    \item $\Int(E)=\Big\{x\in E\st \exists c>0,~(x-c,x+c)\subset E\Big\}$
+    \item $\Iso(E)=\Big\{x\in E\st \exists c>0,~(x-c,x+c)\cap E=\{x\}\Big\}$
+    \item $\Acc(E)=\Big\{x\in\R\st \forall c>0,~(x-c,x+c)\cap E=\{\text{inifitely many points}\}\Big\}•$
+    \item $\Bnd(E)=\Big\{x\in\R\st \forall c>0,~\exists a,b\in (x-c,x+c),~a\in E,b\notin E\Big\}$
+  \end{itemize}
+\end{definition}
+\begin{example}
+  These are some examples.
+  \begin{multicols}{2}
+  \begin{itemize}
+    \item $\Int\emptyset=\emptyset?$
+    \item $\Int(a,b)=(a,b)$
+    \item $\Int[a,b]=(a,b)$
+    \item $\Int\N=\emptyset$
+    \item $\Int\Q=\emptyset$
+    \item $\Int\R=\R$
+      %
+    \item $\Iso\emptyset=??$
+    \item $\Iso(a,b)=\emptyset$
+    \item $\Iso[a,b]=\emptyset$
+    \item $\Iso\N=\N$
+    \item $\Iso\Q=\emptyset$
+    \item $\Iso\R=\emptyset$
+  \end{itemize}
+  \end{multicols}
+\end{example}
+
+\begin{example}
+  Some other examples.
+  \begin{multicols}{2}
+    \begin{itemize}
+      \item $\Acc\emptyset=\emptyset?$
+      \item $\Acc(a,b)=[a,b]$
+      \item $\Acc[a,b]=[a,b]$
+      \item $\Acc\N=\emptyset$
+      \item $\Acc\Q=\R$
+      \item $\Acc\R=\R$
+        %
+      \item $\Bnd\emptyset=??$
+      \item $\Bnd(a,b)=\left\{a,b\right\}$
+      \item $\Bnd[a,b]=\left\{a,b\right\}$
+      \item $\Bnd\N=\N$
+      \item $\Bnd\Q=\R$
+      \item $\Bnd\R=\emptyset$
+    \end{itemize}
+  \end{multicols}
+\end{example}
 
 
 
