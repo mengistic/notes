@@ -8,8 +8,8 @@
 \def\by{\times}
 % <==
 
-\setlrmarginsandblock{3.5cm}{2.5cm}{*}
-\setulmarginsandblock{2.5cm}{*}{1}
+\setlrmarginsandblock{2cm}{5cm}{*}
+%\setulmarginsandblock{2.5cm}{*}{1}
 \checkandfixthelayout
 \def\theenumi{\alph{enumi})}
 
@@ -1109,7 +1109,7 @@ multiplication (as proved above).
 \section{Composition}
 
 % ==> hw1
-\begin{homework}
+\begin{homework}\label{_trace}
   Let $A$ and $B$ be matrices of size $m\by n$ and $n\by m$ 
   respectively. Then \[\tr(AB)=\tr(BA).\]
 \end{homework}
@@ -1222,6 +1222,261 @@ multiplication (as proved above).
   % <==
 \end{proof}
 % <==
+
+% ==> ex1
+\begin{exercise}
+  Working on it.
+\end{exercise}
+% <==
+% ==> ex2
+\begin{exercise}
+  Let $T_{\gamma}$ be the rotation matrix by $\gamma$ in $\R^2$.
+  Check by matrix multiplication that 
+  $T_{\gamma}T_{-\gamma}=T_{-\gamma}T_{\gamma}=I$.
+\end{exercise}
+\begin{proof}
+  Working on it.
+\end{proof}
+% <==
+% ==> ex3
+\begin{exercise}
+  Multiply two rotation matrices $T_{\alpha}$ and $T_{\beta}$. Deduce
+  formulas for $\sin(\alpha+\beta)$ and $\cos(\alpha+\beta)$
+  from here.
+\end{exercise}
+\begin{proof}
+  Working on it.
+\end{proof}
+% <==
+% ==> ex4
+\begin{exercise}
+  Find the matrix of the orthogonal projection in $\R^2$ on to the line
+  $x_1=-2x_2$.
+\end{exercise}
+\begin{proof}
+  Let $T$ be this transformation. Let $R_{\gamma}$ and $P_x$ be the
+  transformations of rotation by $\gamma$ and projection to $x$-axis,
+  respectively. Therefore $T=R_{\gamma}P_xR_{-\gamma}$. Note that
+  \[
+    R_{\gamma}=
+    \begin{pmatrix*}[r]
+      \cos\gamma &-\sin\gamma\\
+      \sin\gamma &\cos\gamma
+    \end{pmatrix*},
+    \quad
+    R_{-\gamma}=
+    \begin{pmatrix*}[r]
+      \cos\gamma &\sin\gamma\\
+      -\sin\gamma &\cos\gamma
+    \end{pmatrix*},
+    \quad\text{and}\quad
+    P_x=
+    \begin{pmatrix}
+      1  &0\\
+      0  &0
+    \end{pmatrix}
+  \]
+  Thus, 
+  \[
+    \cos\gamma=\frac{\overline{OB}}{\overline{OA}}=\frac{2}{\sqrt{5}}
+    \quad\text{and}\quad
+    \sin\gamma=\frac{\overline{AB}}{\overline{OA}}=\frac{-1}{\sqrt{5}}.
+  \]
+  We get
+  \marginpar{
+  \begin{center}
+    \begin{tikzpicture}[scale=0.9]
+      \coordinate [label=-135:$O$] (O) at (0,0);
+      \coordinate [label=-90:$A$]  (X) at (2,-1);
+      \coordinate [label=90:$B$]   (Y) at (2,0) ;
+      \draw[-open triangle 60] (-1,0) -- (3.5,0);
+      \draw[-open triangle 60] (0,-2) -- (0,2);
+
+      % draw the tick
+      \foreach \x in {1,2,3}{
+        \draw (\x,0.1)--(\x,-0.1);
+      }
+      \draw (-0.1,-1)--(0.1,-1);
+
+      % draw the dashes
+      \draw[dashed] (X)--(0,-1) (X)--(Y);
+
+      \draw (-1,0.5)--(3.5,-1.75);
+      %\draw (-1,0.5)--(3.5,-1.75)node[right]{$y=-\frac{1}{2}x$};
+      \draw pic[draw, angle eccentricity=2, "$\gamma$"]
+        {angle=X--O--Y};
+    \end{tikzpicture}
+  \end{center}
+  }
+  \begin{align*}
+    T&=
+    \begin{pmatrix*}[r]
+      \frac{2}{\sqrt{5}}  &\frac{1}{\sqrt{5}}\\[0.3cm]
+      -\frac{1}{\sqrt{5}} &\frac{2}{\sqrt{5}}
+    \end{pmatrix*}
+    \begin{pmatrix} 1&0\\0&0 \end{pmatrix}
+    \begin{pmatrix*}[r]
+      \frac{2}{\sqrt{5}}  &-\frac{1}{\sqrt{5}}\\[0.3cm]
+      \frac{1}{\sqrt{5}}  &\frac{2}{\sqrt{5}}
+    \end{pmatrix*}\\[0.3cm]
+    &=
+    \frac{1}{5}
+    \begin{pmatrix*}[r] 2 &1\\-1&2 \end{pmatrix*}
+    \begin{pmatrix} 1&0\\0&0 \end{pmatrix}
+    \begin{pmatrix*}[r] 2 &-1\\1&2 \end{pmatrix*}\\[0.3cm]
+    &=
+    \frac{1}{5}
+    \begin{pmatrix*}[r]
+      4&-2\\-2&-2
+    \end{pmatrix*}
+  \end{align*}
+\end{proof}
+% <==
+% ==> ex5
+\begin{exercise}
+  Find linear transformations $A,B:\R^2\to\R^2$ such that 
+  $AB=\vec{0}$ but $BA\neq \vec{0}$.
+\end{exercise}
+\begin{proof}[Solution]
+  Consider the following
+  \[
+    \begin{pmatrix}
+      1&1\\2&2
+    \end{pmatrix}
+    \begin{pmatrix*}[r]
+      -1 &1\\ 1&-1
+    \end{pmatrix*}=
+    \begin{pmatrix}
+      0&0\\0&0
+    \end{pmatrix}
+  \]
+  however
+  \[
+    \begin{pmatrix*}[r]
+      -1 &1\\ 1&-1
+    \end{pmatrix*}
+    \begin{pmatrix}
+      1&1\\2&2
+    \end{pmatrix}=
+    \begin{pmatrix*}[r]
+      1&1\\-1&-1
+    \end{pmatrix*}\neq \vec{0}
+  \]
+  Therefore, these two matrices are the ones we wish to find.
+\end{proof}
+% <==
+% ==> ex6
+\begin{exercise}
+  Prove that $\tr(AB)=\tr(BA)$.
+\end{exercise}
+\begin{proof}
+  See on page \pageref{_trace}.
+\end{proof}
+% <==
+% ==> ex7
+\begin{exercise}
+  Construct a non-zero matrix $A$ such that $A^2=\vec{0}$
+\end{exercise}
+\begin{proof}
+  Let $A=\begin{pmatrix} a&c\\b&d \end{pmatrix}$. Thus
+  perform the multiplication, we get
+  \[
+    \begin{cases}
+      a^2 + bc=0\\
+      ac+cd=0\\
+      ab+bd=0\\
+      bc+d^2=0
+    \end{cases}
+  \]
+  for simplicity, we'll choose $a=1$. Hence $bc=-1$ and
+  \[
+    \begin{cases}
+      c(d+1)=0\\
+      b(d+1)=1\\
+      d^2=1
+    \end{cases}
+  \]
+  this suggests that $d=-1$, and $bc=-1$. Here, we'll choose $b=1$
+  and $c=-1$. Therefore, the matrix
+  \[ A=\begin{pmatrix}1&-1\\1&-1\end{pmatrix}. \]
+\end{proof}
+% <==
+% ==> ex8
+\begin{exercise}
+  Find the matrix of the reflection through the line $y=-2x/3$.
+\end{exercise}
+  \marginpar{
+  \begin{center}
+    \begin{tikzpicture}[scale=0.9]
+      \coordinate [label=-135:$O$] (O) at (0,0);
+      \coordinate [label=-95:$A$]  (X) at (3,-2);
+      \coordinate [label=90:$B$]   (Y) at (3,0) ;
+      \draw[-open triangle 60] (-1,0) -- (3.8,0);
+      \draw[-open triangle 60] (0,-2.5) -- (0,1);
+
+      % draw the tick
+      \foreach \x in {1,2,3}{
+        \draw (\x,0.1)--(\x,-0.1);
+      }
+      \draw (-0.1,-1)--(0.1,-1);
+      \draw (-0.1,-2)--(0.1,-2);
+
+      % draw the dashes
+      \draw[dashed] (X)--(0,-2) (X)--(Y);
+
+      \draw (-1,2/3)--(3.5,-2.4);
+      %\draw (-1,0.5)--(3.5,-1.75)node[right]{$y=-\frac{1}{2}x$};
+      \draw pic[draw, angle eccentricity=2, "$\gamma$"]
+        {angle=X--O--Y};
+    \end{tikzpicture}
+  \end{center}
+  }
+\begin{proof}
+  Let $T$ be this transformation and $\gamma$ be the angle between
+  the $x$-axis and the line $y=-2x/3$. Hence $T=R_{\gamma}T_0R_{\gamma}$.
+  We then have $\cos\gamma=OB/OA=3/\sqrt{13}$ and 
+  $\sin\gamma=-AB/OA=-2/\sqrt{13}$. Thus
+  \begin{align*}
+    T&=
+    \begin{pmatrix*}[r]
+      \cos\gamma &-\sin\gamma\\
+      \sin\gamma &\cos\gamma
+    \end{pmatrix*}
+    \begin{pmatrix*}[r]
+      1&0\\0&-1
+    \end{pmatrix*}
+    \begin{pmatrix*}[r]
+      \cos\gamma &\sin\gamma\\
+      -\sin\gamma &\cos\gamma
+    \end{pmatrix*}\\
+     &=
+     \frac{1}{13}
+     \begin{pmatrix*}[r]
+       3&2\\-2&3
+     \end{pmatrix*}
+    \begin{pmatrix*}[r]
+      1&0\\0&-1
+    \end{pmatrix*}
+     \begin{pmatrix*}[r]
+       3&-2\\2&3
+     \end{pmatrix*}\\
+     &=
+     \frac{1}{13}
+     \begin{pmatrix*}[r]
+       3&2\\-2&3
+     \end{pmatrix*}
+     \begin{pmatrix*}[r]
+       3&-2\\-2&-3
+     \end{pmatrix*}\\
+     &=
+     \frac{1}{15}
+     \begin{pmatrix*}[r]
+       5&-12\\-12&-5
+     \end{pmatrix*}.
+  \end{align*}
+\end{proof}
+% <==
+
 
 % <==
 
