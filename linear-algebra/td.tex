@@ -1476,9 +1476,91 @@ multiplication (as proved above).
   \end{align*}
 \end{proof}
 % <==
+% <==
+% ==> isomorphism
+\section{Isomophism}
+% ==> ex1
+\begin{exercise}
+  Prove that if $A:V\to W$ is an isomorphism and
+  $\vec{v_1},\vec{v_2},\dots,\vec{v_n}$ is a basis in $V$,
+  then $A\vec{v_1},A\vec{v_2},\dots,A\vec{v_n}$ is a basis in
+  $W$.
+\end{exercise}
+\begin{proof}
+  Since $A:V\to W$ is an isomorphism, hence it's invertable i.e. 
+  there is a linear transformation $A\inv:W\to V$ such that
+  $AA\inv=A\inv A=I$. Thus for any $\vec{w}\in W$, there is a
+  $\vec{v}\in V$ such that $A\inv\vec{w}=\vec{v}$. Recall that
+  $\{\vec{v_1},\vec{v_2},\dots,\vec{v_n}\}$ is a basis in $V$, then
+  there are unique scalars $\alpha_1,\alpha_2,\dots,\alpha_n$ such that
+  \[\vec{v}=\alpha_1\vec{v_1}+\alpha_2\vec{v_2}+\cdots+\alpha_n\vec{v_n}.\]
+  This implies that
+  \begin{align*}
+    A\inv\vec{w}&=\alpha_1\vec{v_1}+\alpha_2\vec{v_2}+\cdots+\alpha_n\vec{v_n}\\
+    AA\inv\vec{w}&=A(\alpha_1\vec{v_1}+\alpha_2\vec{v_2}+\cdots+\alpha_n\vec{v_n})\\
+    \vec{w}&=\alpha_1A\vec{v_1}+\alpha_2A\vec{v_2}+\cdots+\alpha_nA\vec{v_n}\\
+  \end{align*}
+  Because $\alpha_1,\alpha_2,\cdots,\alpha_n$ are unique, we conclude
+  that any $\vec{w}\in W$ can be represented as a unique linear combination
+  of $A\vec{v_1},A\vec{v_2},\dots,A\vec{v_2}$. Thus the proof is completed.
+\end{proof}
+% <==
+% ==> ex2
+\begin{exercise}
+  Find all right inverses of the $1\by 2$ matrix (row) $A=(1,1)$.
+  Conclude from here thaat the row $A$ is not left invertable.
+\end{exercise}
+% <==
+% ==> ex3
+\begin{exercise}
+  Find all the left inverses of the column $(1,2,3)\tran$.
+\end{exercise}
+\begin{proof}
+  Let $A=(1,2,3)\tran$. Because $A$ is a $3\by 1$ matrix, then its
+  inverse, say $B$ is a $1\by 3$ matrix. Let 
+  $B= \begin{pmatrix} x&y&z \end{pmatrix} $. Hence
+  \[AB=
+    \begin{pmatrix}
+      x&y&z
+    \end{pmatrix}
+    \begin{pmatrix}
+      1\\2\\3
+    \end{pmatrix}=
+    \begin{pmatrix}
+      1
+    \end{pmatrix}
+  \]
+  This implies that $x+2y+3z=0$ or $x=-2y-3z$. Thus all the left
+  inverses of $A$ is in the form
+  \[B=
+    \begin{pmatrix}
+      -2y-3z & y&z
+    \end{pmatrix}
+  \]
+  where $y,z$ are arbitrary real numbers.
+\end{proof}
+% <==
+% ==> ex4
+\begin{exercise}
+  Is the column $(1,2,3)\tran$ right invertable?
+\end{exercise}
+\begin{proof}[Solution]
+  The column $(1,2,3)\tran$ is not right invertable, because
+  as proved in previous exercise the column $(1,2,3)\tran$ has
+  more than one left inverses.
+\end{proof}
+% <==
+% ==> ex5
+\begin{exercise}
+  lkj
+\end{exercise}
+% <==
+
 
 
 % <==
+
+
 
 
 
