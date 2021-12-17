@@ -1,5 +1,5 @@
 
-\documentclass[10pt]{memoir}
+\documentclass[a4paper, 10pt]{memoir}
 % ==> math
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -186,6 +186,33 @@
 	%
 }
 % <==
+% <==
+% ==> tweaking memoir
+\makepagestyle{myruled}
+\makeheadrule {myruled}{\textwidth}{\normalrulethickness}
+\makefootrule {myruled}{\textwidth}{\normalrulethickness}{\footruleskip}
+\makeevenhead {myruled}{}{\small\itshape\leftmark} {}
+\makeoddhead  {myruled}{}{\small\itshape\rightmark}{}
+\makeevenfoot {myruled}{}{\small \thepage} {}
+\makeoddfoot  {myruled}{}{\small \thepage} {}
+
+\makeatletter % because of \@chapapp
+\makepsmarks{myruled}{
+  \nouppercaseheads
+  \createmark{chapter}{both}{shownumber}{\@chapapp\ }{. \ }
+  \createmark{section}{right}{shownumber}{}{. \ }
+  \createmark{subsection}{right}{shownumber}{}{. \ }
+  \createmark{subsubsection}{right}{shownumber}{}{. \ }
+  \createplainmark {toc} {both} {\contentsname} 
+  \createplainmark {lof} {both} {\listfigurename}
+  \createplainmark {lot} {both} {\listtablename} 
+  \createplainmark {bib} {both} {\bibname} 
+  \createplainmark {index} {both} {\indexname} 
+  \createplainmark {glossary} {both} {\glossaryname}
+}
+\makeatother
+\setsecnumdepth{subsubsection}
+\pagestyle{myruled}
 % <==
 % ==> page setup
 \author{Sivmeng}

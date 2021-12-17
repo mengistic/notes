@@ -8,9 +8,9 @@
 \def\by{\times}
 % <==
 
-\setlrmarginsandblock{2cm}{5cm}{*}
+%\setlrmarginsandblock{2cm}{5cm}{*}
 %\setulmarginsandblock{2.5cm}{*}{1}
-\checkandfixthelayout
+%\checkandfixthelayout
 \def\theenumi{\alph{enumi})}
 
 
@@ -255,7 +255,7 @@
   $\vec{v}=a\vec{e_1}+b\vec{e_2}+c\vec{e_3}+d\vec{e_4}+e\vec{e_5}+f\vec{e_6}$
   thus this system is generating. Next we're going to prove the uniqueness.
 
-  Supppose that there are $\hat{a},\hat{b},\dots,\hat{f}$ with
+  Suppose that there are $\hat{a},\hat{b},\dots,\hat{f}$ with
   \begin{align*}
     \vec{v}&=\hat{a}\vec{e_1}+\hat{b}\vec{e_2}+\hat{c}\vec{e_3}
               +\hat{d}\vec{e_4}+\hat{e}\vec{e_5}+\hat{f}\vec{e_6}\\
@@ -1511,7 +1511,7 @@ multiplication (as proved above).
   Conclude from here thaat the row $A$ is not left invertable.
 \end{exercise}
 % <==
-% ==> ex3
+% =Suppose => ex3
 \begin{exercise}
   Find all the left inverses of the column $(1,2,3)\tran$.
 \end{exercise}
@@ -1530,11 +1530,11 @@ multiplication (as proved above).
       1
     \end{pmatrix}
   \]
-  This implies that $x+2y+3z=0$ or $x=-2y-3z$. Thus all the left
+  This implies that $x+2y+3z=1$ or $x=1-2y-3z$. Thus all the left
   inverses of $A$ is in the form
   \[B=
     \begin{pmatrix}
-      -2y-3z & y&z
+      1-2y-3z & y&z
     \end{pmatrix}
   \]
   where $y,z$ are arbitrary real numbers.
@@ -1552,7 +1552,152 @@ multiplication (as proved above).
 % <==
 % ==> ex5
 \begin{exercise}
-  lkj
+  Find two matrices $A$ and $B$ that $AB$ is invertable, but
+  $A$ and $B$ are not.
+\end{exercise}
+\begin{proof}[Solution]
+  Consider:
+  $ A=
+    \begin{pmatrix}
+      2&1&-1
+    \end{pmatrix}
+    \quad\text{and}\quad
+    B=
+    \begin{pmatrix}
+      1&2&3
+    \end{pmatrix}\tran $
+    Note that
+    \[
+      AB=
+    \begin{pmatrix}
+      2&1&-1
+    \end{pmatrix}
+    \begin{pmatrix}
+      1\\2\\3
+    \end{pmatrix}=
+    \begin{pmatrix}
+      2+2-3
+    \end{pmatrix}=
+    \begin{pmatrix}
+      1
+    \end{pmatrix}
+    \]
+    However, as proved in previous exercise, we know that
+    the matrix $A$ is not invertable. And we wish to prove that
+    $B$ is not invertable either. To achieved this, we have to
+    find two matrices that are right invertable to $B$. Observe that
+    \[
+      \begin{pmatrix}
+        2&1&-1
+      \end{pmatrix}
+      \begin{pmatrix}
+        1\\0\\1
+      \end{pmatrix}=
+      \begin{pmatrix}
+        1
+      \end{pmatrix}
+      \quad\text{and}\quad
+      \begin{pmatrix}
+        2&1&-1
+      \end{pmatrix}
+      \begin{pmatrix}
+        2\\1\\6
+      \end{pmatrix}=
+      \begin{pmatrix}
+        1
+      \end{pmatrix}
+    \]
+    This suggests that $B$ is not invertable. Therefore, we've fond
+    matrices $A$ and $B$ such that $AB$ is invertable, yet 
+    $A$ and $B$ are not.
+\end{proof}
+% <==
+% ==> ex6
+\begin{exercise}
+  Suppose the product $AB$ is invertable. Show that $A$ is right 
+  invertable, and $B$ is left invertable.
+\end{exercise}
+\begin{proof}
+  Because $AB$ is invertable, then matrix $(AB)\inv$ is defined.
+  Observe that
+  \[ A\cdot B(AB)\inv=AB\cdot(AB)\inv=I \] and 
+  \[ (AB)\inv A\cdot B=(AB)\inv\cdot AB=I\]
+  This shows that $A$ is right invertable, and $B$ is left invertable,
+  as expected.
+\end{proof}
+% <==
+% ==> ex7
+\begin{exercise}
+  Let $A$ and $AB$ be invertable. Prove that $B$ is also in invertable.
+\end{exercise}
+\begin{proof}
+  We claim that $(AB)\inv A$ is the inverse of $B$. To prove this,
+  observe that 
+  \[
+    (AB)\inv A\cdot B=(AB)\inv\cdot AB=I
+  \] and
+  \[
+    B\cdot (AB)\inv A=A\inv AB\cdot (AB)\inv A=A\inv IA=I
+  \]
+  This shows that $(AB)\inv A$ is both the left and the right inverses
+  of $B$. Thus, $B$ is invertable.
+\end{proof}
+% <==
+% ==> ex8
+\begin{exercise}
+  Let $A$ be $n\by n$ matrix. Prove that if $A^2=\vec{0}$ then 
+  $A$ is not invertable.
+\end{exercise}
+\begin{proof}
+  Assume by contradiction that $A$ is invertable, meaning there's a
+  matrix $A\inv$ such that $AA\inv=A\inv A=I$. Thus
+  \[
+    A=A^2A\inv=\vec{0}A\inv=\vec{0}
+  \]
+  Then $I=AA\inv=\vec{0}A\inv=\vec{0}$, a contradiction. Therefore,
+  $A$ is not invertable.
+\end{proof}
+% <==
+% ==> ex9
+\begin{exercise}
+  Suppose $AB=\vec{0}$ for some non-zero matrix $B$. Can $A$ invertable?
+\end{exercise}
+\begin{proof}
+  We claim that $A$ is not invertable. To prove this, we assume by
+  contradiction that $A$ is invertable. Hence $A\inv$ exists, and
+  \[
+    B=A\inv A\cdot B=A\inv\cdot AB=A\inv\vec{0}=\vec{0}
+  \]
+  which is a contradiction that $B$ is non-zero.
+\end{proof}
+% <==
+% ==> ex10
+\begin{exercise}
+  Write matrices of the linear transformations $T_1$ and $T_2$ in $\F^5$,
+  defined as follows: $T_1$ interchanges the coordinates $X_2$ and $x_2$
+  of the vector $\vec{x}$, and $T_2$ just adds to the coordinates 
+  $x_2\to$
+  $a$ times the coordinate $x_4$. and does not change other coordinates, i.e.
+  \[
+    T_1
+    \begin{pmatrix}
+      x_1\\x_2\\x_3\\x_4\\x_5
+    \end{pmatrix}=
+    \begin{pmatrix}
+      x_1\\x_4\\x_3\\x_2\\x_5
+    \end{pmatrix}
+    \quad\text{and}\quad
+    T_2
+    \begin{pmatrix}
+      x_1\\x_2\\x_3\\x_4\\x_5
+    \end{pmatrix}=
+    \begin{pmatrix}
+      x_1\\x_2+ax_4\\x_3\\x_4\\x_5
+    \end{pmatrix}.
+  \]
+  where $a$ is a fixed number.
+  Show that $T_1$ and $T_2$ are invertable transformations, and write
+  the matrices of the inverses.
 \end{exercise}
 % <==
 
