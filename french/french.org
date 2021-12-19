@@ -1297,7 +1297,6 @@ Activité 3
 
 
 
-
 * Leçon 4: Lecture des phrase
 ** séance 39
 
@@ -1331,3 +1330,46 @@ Bonjour, je m'appelle Daro. J'ai maintenant vingt-et-un ans.
 Je suis cambodgien et étudiant à l'ITC. Dans ma famille,
 il y a mon papa, ma maman, ma soeur et moi. Actuellement,
 nous habitons à Phnom Penh. Enchanté et merci de votre attention.
+
+
+* Leçon avec B Chunny
+** coversation
+
+1. Qu'est-ce que tu fais avant les cours de français?
+	 --> Avant les cours the françias, je fais mai devoirs.
+2. Qu'est-ce que tu fais après les cours de français?
+	 --> Après les cours de français, je fais les devoirs avec ma
+	 --> Après les cours de f
+	 -->
+3. Aujourd'hui, c'est quel jour?
+
+** Présent le l'indicatif
+	 *Être*
+	 |  je   | suis   |
+	 |  tu   | es     |
+	 |  il   | est    |
+	 |  elle | est    |
+	 |  on   | est    |
+	 |  nous | sommes |
+	 |  vous | êtes   |
+	 |  ils  | sont   |
+	 |  elles| sont   |
+
+	 *Avoir*
+	 | je    | J'ai       |
+	 | tu    | tu as      |
+	 | il    | il a       |
+	 | elle  | elle a     |
+	 | on    | on a       |
+	 | nous  | nous avons |
+	 | vous  | vous avez  |
+	 | ils   | ont        |
+	 | elles | ont        |
+
+	 *Exemple*
+	 1. Quel age a tu maintenant?
+		  --> Maintenant, j'ai dix-huit ans.
+		  --> Actuellement, j'ai dix-huit ans.
+	 2. Actuellement, quel est ton travaille?
+			--> Actuellement, je suis étudiant à l'université Royale de Phnom Penh.
+			--> Je suis lycèe
