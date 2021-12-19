@@ -1511,7 +1511,7 @@ multiplication (as proved above).
   Conclude from here thaat the row $A$ is not left invertable.
 \end{exercise}
 % <==
-% =Suppose => ex3
+% ==> ex3
 \begin{exercise}
   Find all the left inverses of the column $(1,2,3)\tran$.
 \end{exercise}
@@ -1699,10 +1699,113 @@ multiplication (as proved above).
   Show that $T_1$ and $T_2$ are invertable transformations, and write
   the matrices of the inverses.
 \end{exercise}
+\begin{proof}
+  The matrix of this 
+\end{proof}
 % <==
 
 
 
+% <==
+
+% ==> subspace
+\section{Subspaces}
+
+
+% ==> ex1
+\begin{exercise}
+  Let $X$ and $Y$ be subspaces of a vector space $V$. Prove that
+  $X\cap Y$ is a subspace of $V$.
+\end{exercise}
+\begin{proof}
+  Let $\vec{a}$ and $\vec{b}$ be arbitrary vectors of $X\cap Y$.
+  Because $X$ and $Y$ are themselves  subspaces of $V$, hence 
+  \[
+    \begin{cases}
+      \vec{a}\in X\\
+      \vec{b}\in X
+    \end{cases}\implies
+    \begin{cases}
+      \alpha\vec{a}\in X\\
+      \beta\vec{b}\in X
+    \end{cases}
+  \]
+  this implies that $\alpha\vec{a}+\beta\vec{b}\in X$ for
+  any scalars $\alpha,\beta$. Similarly, $\alpha\vec{a}+\beta\vec{b}\in Y$.
+  Thus $\alpha\vec{a}+\beta\vec{b}\in X\cap Y$. Therefore, 
+  $X\cap Y$ is also a subspace of $V$.
+\end{proof}
+% <==
+% ==> ex2
+\begin{exercise}
+  Let $V$ be a vector space. For $X,Y\subset V$ the sum $X+Y$
+  is the collection of all vectors $\vec{v}$ which can be represented as 
+  $\vec{v}=\vec{x}+\vec{y}$ where $\vec{x}\in X$ and $\vec{y}\in Y$.
+  Show that if $X$ and $Y$ are subspaces of $V$, then $X+Y$ is also
+  a subspace of $V$.
+\end{exercise}
+\begin{proof}
+  Let $\vec{v_1},\vec{v_2}\in X+Y$ then there are $\vec{x_1},\vec{x_2}\in X$
+  and $\vec{y_1},\vec{y_2}\in Y$ such that
+  \[
+    \vec{v_1}=\vec{x_1}+\vec{y_1}
+    \quad\text{and}\quad
+    \vec{v_2}=\vec{x_2}+\vec{y_2}
+  \]
+  Because $X,Y$ are subspaces of $V$, then
+  \[
+    \alpha\vec{v_1}+\beta\vec{v_2}
+    =\underbrace{(\alpha\vec{x_1}+\beta\vec{x_2})}_{\text{vector of $X$}} + 
+    \underbrace{(\alpha\vec{y_1}+\beta\vec{y_2})}_{\text{vector of $Y$}}
+  \]
+  Hence $\alpha\vec{v_1}+\beta\vec{v_2}$ is also a vector of $X+Y$.
+  Thus $X+Y$ is a subspace of $V$.
+\end{proof}
+% <==
+% ==> ex3
+\begin{exercise}
+  Let $X$ be a subspace of a vector space $V$, and let $\vec{v}\in V$
+  and $\vec{v}\notin X$. Prove that if $\vec{x}\in X$ then
+  $\vec{x}+\vec{v}\notin X$.
+\end{exercise}
+\begin{proof}
+  We'll prove this by contradiction by assuming that 
+  $\vec{x}+\vec{v}\in X$. Because $X$ is a subspace of $V$ and 
+  $\vec{x}\in X$, hence $\vec{-x}\in X$. Thus
+  \[
+    (\vec{x}+\vec{v})+(\vec{-x})\in X
+  \]
+  and we conclude that $\vec{v}\in X$, which is a contradiction.
+\end{proof}
+% <==
+% ==> ex4
+\begin{exercise}
+  Let $X$ and $Y$ be subspaces of a vector space $V$. Using the previous
+  exercise, show that $X\cup Y$ is a subspace iff $X\subset Y$ or 
+  $Y\subset X$.
+\end{exercise}
+\begin{proof}
+  We need to prove this in two directions.
+  \begin{itemize}
+    \item If $X\subset Y$ or $Y\subset X$: Without loss of generality, 
+      we may assume that $Y\subset X$. Therefore $X\cup Y=X$ is a 
+      subspace of $V$.
+    \item If $X\not\subset Y$ and $Y\not\subset Y$, we now wish to show that
+      $X\cup Y$ is not a subspace. Observe that if
+      $X\not\subset Y$ and $Y\not\subset X$ that means there are 
+      $\vec{x_0}\in X$ and $\vec{y_0}\in Y$ such that $\vec{x_0}\notin Y$
+      and $\vec{y_0}\notin X$. Hence $\vec{x_0},\vec{y_0}\in X\cup Y$ and
+      follow from the previous exercise, we conclude that
+      \[
+        \vec{x_0}+\vec{y_0}\notin X
+        \quad\text{and}\quad
+        \vec{x_0}+\vec{y_0}\notin Y
+      \]
+      Therefore, $\vec{x_0}+\vec{y_0}\notin X\cup Y$. This suggests that
+      $X\cup Y$ is not a vector space. Hence the proof is completed.
+  \end{itemize}
+\end{proof}
+% <==
 % <==
 
 
