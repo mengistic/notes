@@ -1,0 +1,217 @@
+
+\input{../preamble.tex}
+
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
+
+\begin{document}
+
+\setcounter{chapter}{2}
+\chapter{Determinant}
+
+\setcounter{section}{2}
+\section{Constructing the determinant}
+% ==> ex4
+\setcounter{exercise}{3}
+\begin{exercise}
+  A square $(n\times n)$ matrix is called skew-symmetric 
+  (or antisymmetric) if $A\tran = -A$. Prove that if $A$ is 
+  skew-symmetric and $n$ is odd, then $\det A=0$. Is it
+  true for even $n$?
+\end{exercise}
+\begin{proof}
+  When $n$ is odd, we have
+  \begin{align*}
+    \det A=\det A\tran=\det (-A)=(-1)^n\det A=-\det A
+  \end{align*}
+  This implies that $\det A=0$ whenever $n$ is odd. For even $n$,
+  the determinant $\det A$ doestn't neccessarily zero, for instance
+  \[ B=\begin{pmatrix} 0&-1\\1&0 \end{pmatrix} \]
+  is a skew-symmetric matrix, yet $\det B=1$.
+\end{proof}
+% <==
+% ==> ex5
+\begin{exercise}
+  A square matrix is called \emph{nilpoten} if $A^k=0$
+  for some $k\in\N$. Show that if $A$ is nilpoten, then
+  $\det A=0$.
+\end{exercise}
+\begin{proof}
+  We use the property of determinant,
+  \[ \det 0=\det A^k=(\det A)^k \]
+  This shows that $\det A=0$.
+\end{proof}
+% <==
+% ==> ex6
+\begin{exercise}
+  Prove that if the matrices $A$ and $B$ are similar,
+  then $\det A=\det B$.
+\end{exercise}
+\begin{proof}
+  Since $A\sim B$, hence there's invertable $Q$ such that
+  $A=QBQ\inv$. Therefore
+  \begin{align*}
+    \det A=\det QBQ\inv
+    &=(\det Q)(\det B)(\det Q\inv)\\
+    &=\det(Q)(\det Q\inv)(\det B)=\det(QQ\inv)(\det B)\\
+    &=\det B.
+  \end{align*}
+\end{proof}
+% <==
+% ==> ex7
+\begin{exercise}
+  A real square matrix $Q$ is called \emph{othogonal} if 
+  $Q\tran Q=I$. Prove that if $Q$ is a n orthogonal matrix
+  then $\det Q=\pm 1$.
+\end{exercise}
+\begin{proof}
+  We have
+  \[ 1=\det Q\tran Q=(\det Q\tran)(\det Q)=(\det Q)^2 \]
+  this implies that $\det Q=\pm 1.$
+\end{proof}
+% <==
+
+\section{Formal definition}
+% ==> ex2
+\setcounter{exercise}{1}
+\begin{exercise}
+  Let $P$ be a permutation matrix.
+  \begin{itemize}
+    \item Can you describe the correspoding linear
+      transformation?
+    \item Show that $P$ is invertable. Can you describe $P\inv$.
+    \item Show that for some $N>0$, $P^N=I$.
+  \end{itemize}
+\end{exercise}
+\begin{proof}
+  Suppose that $P$ is an $n\times n$ matrix.
+  \begin{itemize}
+    \item The linear transformation looks like it's swapping 
+      the axis in $\R^n$.
+    \item If we interchange columns of $P$, we'll get the indentity
+      matrix hence $\det P=\pm 1$. The direct computation shows that
+      $P\inv =P\tran$.
+    \item Because there are finitely many permutations, the sequence
+      $\{P^n\}$ will eventually have repetitions. Hence we're sure 
+      there is $i,j$ with $i>j$ such that $P^i=P^j$. Since $P$ is 
+      invertable, we can multiply both sides by $P^{-j}$. Therefore
+      \[P^{i-j}=I,\]
+      now choose $N:=i-j$ and this completes the proof.
+  \end{itemize}
+\end{proof}
+% <==
+% ==> ex3
+\begin{exercise}
+  Why is there an even number of permutations of $(1,2,\dots,9)$
+  and why are exactly half of them odd permutations?
+\end{exercise}
+\begin{proof}
+  There are $9!$ permutations of $(1,2,\dots,9)$, which is an even 
+  number. To prove that there are exactly half of them odd 
+  (and other half even) we consider a $9\times 9$ matrix $A$ with all 
+  the entries are $1$. The determinant is $\det A=0$. However,
+  \[
+    \det A=\sum_{\sigma\in\perm(9)}
+    a_{\sigma(1),1}\cdots a_{\sigma(n),n}\sign(\sigma)
+  \]
+  Since all the $a_{jk}=1$, we get 
+  \[\sum_{\sigma}\sign\sigma=\det A=0\]
+  Because there are even number of permutations, and
+  $\sign\sigma=\pm 1$ we must have half of them has $\sign=1$ and
+  the other half has $\sign=-1$.
+\end{proof}
+% <==
+
+\section{Cofactor}
+\section{Minor and rank}
+
+\setcounter{exercise}{1}
+% ==> ex2
+\begin{exercise}
+  Let $A$ be an $n\times n$ matrix. How are $\det(3A),~\det(-A)$
+  and $\det(A^2)$ related to $\det A$ ?
+\end{exercise}
+\begin{proof}
+  It follows immediately that 
+  \begin{align*}
+    &\det(-A)=(-1)^n\det A,\\
+    &\det(3A)=3^n\det A,\\
+    &\det(A^2)=(\det A)^2.
+  \end{align*}
+\end{proof}
+% <==
+% ==> ex3
+\begin{exercise}
+  If the entries of both $A$ and $A\inv$ are integers,
+  is it possible that $\det A=3$ ?
+\end{exercise}
+\begin{proof}
+  It's impossible. If it was such a case, we'll get 
+  $\det A\inv=1/\det A=1/3$. Since all the entries of $A\inv$ are
+  integers, so
+  \[
+    \det A\inv=\sum_{\sigma}a_{\sigma(1),1}\cdots 
+    a_{\sigma(n),n}\sign\sigma\in\Z
+  \]
+  which is a contradiction that $\det A\inv=1/3$.
+\end{proof}
+% <==
+% ==> ex4
+\begin{exercise}
+  Let $\vec{v_1},\vec{v_2}$ be vectors in $\R^2$ and let $A$ be the
+  $2\times 2$ matrix with columns $\vec{v_1},\vec{v_2}$. Prove that
+  $\abs{\det A}$ is the area of parallelogram with two sides given by
+  vectors $\vec{v_1}$ and $\vec{v_2}$.
+\end{exercise}
+\begin{proof}
+  Let $\alpha$ be angle between $\vec{v_1}$ and the $x$-axis, and
+  let $R$ be the matrix of rotation by $-\alpha$ angle. Denote
+  \[
+    \vec{\tilde{v}_1}:=R\vec{v_1}=(a,0)\quad\text{and}\quad
+    \vec{\tilde{v}_2}:=R\vec{v_2}=(b,c).
+  \]
+  for some reals $a,b,c$. 
+  Note that after the transformation, the area stays the same, i.e.
+  $\mathrm{area}(\vec{v_1},\vec{v_2})
+  =\mathrm{area}(\vec{\tilde{v}_1},\vec{\tilde{v}_2})$. It's easy 
+  to see that the area of the new parallelogram is 
+  \[\abs{ac}=\abs{\det (\vec{\tilde{v}_1},\vec{\tilde{v}_2})}\]
+  (it has  base $\abs{a}$, and height $\abs{c}$). But
+  \begin{align*}
+    \det(\vec{\tilde{v}_1},\vec{\tilde{v}_2})
+    &=\det(R\vec{v_1}, R\vec{v_2})=\det(RA)=\det A
+  \end{align*}
+  because $\det R=1$ (rotation matrix). This implies that the area of
+  the parallelogram is $\abs{\det A}$.
+\end{proof}
+% <==
+% ==> ex5
+\begin{exercise}
+  Let $\vec{v_1},\vec{v_2}$ be vectors in $\R^2$. Show that 
+  $\det(\vec{v_1},\vec{v_2})>0$ if and only if there's a rotation
+  $T_{\alpha}$ such that $T_{\alpha}\vec{v_1}$ parallel to $\vec{e_1}$
+  and $T_{\alpha}\vec{v_2}$ is in the upper half-plane.
+\end{exercise}
+\begin{proof}
+  \text{}
+  \begin{itemize}
+    \item[$(\Rightarrow)$] For this direction, the proof is almost 
+      identical to the previous exercise. We claim that 
+      $T_{\alpha}=R$ ($R$ defined in the previous exercise).
+      We now wanna show that $\vec{\tilde{v}_2}=(b,c)$ is in the 
+      upper-half plane, meaning $c>0$. But this immediately true 
+      from the fact that $a>0$ and
+      \[
+        0<\det(\vec{v_1},\vec{v_2})=
+        \det(\vec{\tilde{v}_1},\vec{\tilde{v}_2})=ac
+      \]
+    \item[$(\Leftarrow)$]
+  \end{itemize}
+\end{proof}
+% <==
+
+
+
+
+
+\end{document}

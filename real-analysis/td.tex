@@ -1,0 +1,48 @@
+
+\input{../preamble.tex}
+\title{Problems in Real Analysis}
+\author{Sivmeng HUN}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+\chapter{Real Numbers}
+
+\begin{example}
+  Let $A$ be nonempty and bounded below.
+  Prove that $\inf(A)$ exists.
+\end{example}
+\begin{proof}[Proof 1]
+  Define $\L(A)$ to be the set of all lower bounds of $A$.
+	Notice that $\L(A)$ is bounded above. Of course, let
+  fix $a\in A$, therefore $b\leq a$ for all $b\in\L(A)$.
+  This implies that $a$ is an upper bound of $\L(A)$, and thus
+  bounded above. By AoC, it has supremum. Let's denote it's
+  supremum by $m$. Thus
+  \[m\leq a,\quad\forall a\in A.\]
+  If $m_0$ arbitrary lower bound of $A$, then $m_0\in\L(A)$, then
+  we must have $m_0\leq \sup(\L(A))=m$. This implies that
+  $m=\sup(\L(A))$ is the greatest lower bound of $A$.
+  Moreover, $\inf(A)=\sup(\L(A))$.
+\end{proof}
+\begin{proof}[Proof 2]
+  Let $B:=\set{-a}{a\in A}$. Let $\ell$ be arbitrary lower bound
+  of $A$. Then $\ell\leq a\iff -\ell\geq -a$ for all $a\in A$.
+  This implies that $B$ is bounded above. By AoC, let
+  $-s:=\sup B$. We conclude that
+  \[
+    \begin{cases}
+    	-s \geq -a,\quad \forall a\in A\\
+      \text{if }\forall a\in A,~ -s_0\geq -a\implies -s_0\geq s.
+    \end{cases}
+  \]
+  Muliply both eqations by $-1$, we obtain that $s$ is the greatest
+  lower bound of $A$. Moreover $\sup(-A)=-\inf(A)$.
+\end{proof}
+
+
+
+
+\end{document}

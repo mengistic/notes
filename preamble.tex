@@ -1,4 +1,4 @@
-
+\PassOptionsToPackage{dvipsnames,table,usenames,svgnames}{xcolor}
 \documentclass[a4paper, 10pt]{memoir}
 % ==> math
 \usepackage{amsthm}
@@ -6,6 +6,9 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{mathtools}
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+
 
 \mathtoolsset{centercolon} % not work when using |mathpazo|
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
@@ -23,26 +26,38 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\sym}{sym}
 \DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\spans}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\perm}{perm}
 
 
-\def\N{\mathbb{N}}
-\def\Z{\mathbb{Z}}
-\def\Q{\mathbb{Q}}
-\def\R{\mathbb{R}}
-\def\C{\mathbb{C}}
-\def\F{\mathbb{F}}
-\def\P{\mathbb{P}}
+
+\def\N{\mathbb N}
+\def\Z{\mathbb Z}
+\def\Q{\mathbb Q}
+\def\R{\mathbb R}
+\def\C{\mathbb C}
+\def\F{\mathbb F}
+\def\P{\mathbb P}
+
+\def\L{\mathcal L}
+\def\U{\mathcal U}
+
 \def\labelitemi{$\circ$}
 \def\inv{^{-1}}
 \def\ang#1{\left\langle#1\right\rangle}
 \def\tran{^\mathrm{T}}
 \renewcommand{\vec}[1]{\mathbf{#1}}
+%\renewcommand{\span}{\SPAN}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{axiom}[definition]{Axiom}
-\newtheorem{exercise}{Exercise}[section]
-\newtheorem{example}[exercise]{Example}
+%\newtheorem{exercise}{Exercise}[chapter]
+%\newtheorem{example}[exercise]{Example}
 \newtheorem{homework}{Homework}
 
 \theoremstyle{plain}
@@ -52,6 +67,33 @@
 \theoremstyle{remark}
 \newtheorem{corollary}{Corollary}
 \newtheorem{claim}{Claim}
+
+
+\renewcommand{\proofname}{\textcolor{blue}{\bfseries Proof}}
+\mdfdefinestyle{mdExerciseStyle}{%
+	skipabove=5pt,
+	skipbelow=5pt,
+	linewidth=1pt,
+	rightline=true,
+	leftline=true,
+	topline=true,
+	bottomline=true,
+	linecolor=blue,
+	backgroundcolor=white
+}
+\declaretheoremstyle[
+	headfont=\bfseries\color{blue},
+	bodyfont=\normalfont,
+	headindent=0pt,
+	spaceabove=2pt,
+	spacebelow=5pt,
+	mdframed={style=mdExerciseStyle},
+	notefont=\small\bfseries\itshape\color{DarkGreen},
+	notebraces={~(}{)},
+	headpunct={ },
+]{mdExercise}
+\declaretheorem{example}[name={Example},style=mdExercise, numberwithin=section]
+\declaretheorem{exercise}[name={Exercise},style=mdExercise, sibling=example]
 
 
 % <== end: math
