@@ -32,6 +32,12 @@
 \DeclareMathOperator{\row}{row}
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\perm}{perm}
+\DeclareMathOperator{\coef}{coef}
+%\DeclareMathOperator{\proj}{proj}
+
+\usepackage{bbold}
+\let\altmathbb\mathbb
+\AtBeginDocument{\let\mathbb\altmathbb}
 
 
 
@@ -51,6 +57,8 @@
 \def\ang#1{\left\langle#1\right\rangle}
 \def\tran{^\mathrm{T}}
 \renewcommand{\vec}[1]{\mathbf{#1}}
+\def\perc{^\perp}
+\def\proj#1#2{\mathrm{proj}_{#2}{#1}}
 %\renewcommand{\span}{\SPAN}
 
 \theoremstyle{definition}
