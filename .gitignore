@@ -1,6 +1,7 @@
 .auxtex-auto/*
 *.log
 *.aux
+*.pre
 *syntex.gz
 *.html
 personal/

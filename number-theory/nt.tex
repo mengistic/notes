@@ -1,0 +1,40 @@
+\input{../preamble.tex}
+
+
+
+\title{Number Theory}
+\author{Lectured by Meng T. Heang}
+\begin{document}
+\maketitle
+
+
+\chapter{Quadratic Ring}
+
+The motivation of this comes from the fact that solving 
+equations like $x^n+y^n=z^n$ is rather hard. For example, 
+case $n=2$, the equation becomes
+\[z^2=x^2+y^2=(x+\i y)(x-\i y)\]
+so we need a language to say that $(x+\i y)$ is a divisor 
+of $z^2$, I guess. And here comes the 
+
+\begin{definition}
+  For any square-free (not a perfect square) integer $d$,
+  we define
+  \[\Z[\sqrt{d}]:=\{x+y\sqrt{d}~:~ x,y\in\Q\}.\]
+\end{definition}
+In $\Z[\sqrt d]$, we define the usual addition and multiplication
+as follow: for $a+b\sqrt d,~x+y\sqrt d\in\Z[\sqrt d]$, then
+\[ (a+b\sqrt d)+(x+y\sqrt d)=(a+x)+(b+y)\sqrt d \]
+and
+\[ (a+b\sqrt d)(x+y\sqrt d)=(ax+byd)+(ay+bx)\sqrt d \]
+
+
+
+
+
+
+
+
+
+
+\end{document}
