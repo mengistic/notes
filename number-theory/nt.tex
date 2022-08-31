@@ -4,14 +4,18 @@
 
 \title{Number Theory}
 \author{Lectured by Meng T. Heang}
+
+\renewcommand{\bar}[1]{\overline{#1}}
+
 \begin{document}
 \maketitle
 
 
 \chapter{Quadratic Ring}
 
+\section{Some definitions}
 The motivation of this comes from the fact that solving 
-equations like $x^n+y^n=z^n$ is rather hard. For example, 
+equations like $x^n+y^n=z^n$ is rather hard to solve. For example, 
 case $n=2$, the equation becomes
 \[z^2=x^2+y^2=(x+\i y)(x-\i y)\]
 so we need a language to say that $(x+\i y)$ is a divisor 
@@ -20,15 +24,101 @@ of $z^2$, I guess. And here comes the
 \begin{definition}
   For any square-free (not a perfect square) integer $d$,
   we define
-  \[\Z[\sqrt{d}]:=\{x+y\sqrt{d}~:~ x,y\in\Q\}.\]
+  \[\Q[\sqrt{d}]:=\{x+y\sqrt{d}~:~ x,y\in\Q\}.\]
 \end{definition}
-In $\Z[\sqrt d]$, we define the usual addition and multiplication
-as follow: for $a+b\sqrt d,~x+y\sqrt d\in\Z[\sqrt d]$, then
+In $\Q[\sqrt d]$, we define the usual addition and multiplication
+as follow: for $a+b\sqrt d,~x+y\sqrt d\in\Q[\sqrt d]$, then
 \[ (a+b\sqrt d)+(x+y\sqrt d)=(a+x)+(b+y)\sqrt d \]
 and
-\[ (a+b\sqrt d)(x+y\sqrt d)=(ax+byd)+(ay+bx)\sqrt d \]
+\[ (a+b\sqrt d)(x+y\sqrt d)=(ax+byd)+(ay+bx)\sqrt d. \]
+As we can see that $\Z[\sqrt d]$ is indeed a ring.
+But it's more than that. In fact, it's a field. To see why,
+let $a+b\sqrt d\neq 0\in\Z[\sqrt d]$, and we choose
+$x=\frac{a}{a^2-db^2}$ and $y=\frac{-b}{a^2-db^2}$. We then have
+\[(a+b\sqrt d)(x+y\sqrt d)=1.\]
+
+\begin{example}
+  For special case of $d$:
+  \begin{itemize}
+    \item When $d=2$, we have $\Q[\sqrt d]=\Q[\sqrt 2]=\{a+b\sqrt{2}~:~a,b\in\Q\}$.
+    \item 
+      When $d=-1$, we then have $\Q[\sqrt d]=\Q[\sqrt{-1}]$. In is field,
+      a special subset is considered, the subring $\Z[\i]\subset \Q[\i]$,
+      which is called \emph{the set of Gaussian Integers}.
+  \end{itemize}
+\end{example}
+
+We can consider $\Q[\sqrt d]$ as a vector space over the field $\Q$.
+Moreover we can setup an isomophism $\Q[\sqrt d]$ to $\Q^2$ by sending
+$a+b\sqrt q$ to $(a,b)$.
 
 
+\section{Norm and Trace}
+Let $L=x+y\sqrt d\in\Q[\sqrt d]$. We define the
+\begin{itemize}
+  \item conjugate $\bar{L}:=x=y\sqrt d$
+  \item trace $T(L)=\tr(L):=L+\bar{L}=2x$
+  \item norm $N(L):=L\cdot\bar{L}=x^2-y^2d$
+\end{itemize}
+\begin{proposition}
+  Let $L,~L_1,~L_2\in\Q[\sqrt d]$. The the following are true:
+  \begin{itemize}
+    \item $\bar{L_1+L_2}=\bar{L_1}+\bar{L_2}$
+    \item $\bar{L_1L_2}=\bar{L_1}\bar{L_2}$
+    \item $N(L_1L_2)=N(L_1)N(L_2)$
+    \item $N(L)=0\iff L=0$.
+  \end{itemize}
+\end{proposition}
+\begin{proof}
+  The first three properties can be derived from direct computation
+  of conjugate and norm. We only give the proof for the last one.
+
+  If $L=0$, the clearly $N(L)=0$. Now we assume that $N(L)=0$, and
+  try to prove that $L=0$. Let $L=x+y\sqrt d$. Thus
+  \[0=N(L)=x^2-y^2\sqrt d\]
+  (to be continued ... )
+\end{proof}
+
+\newpage
+\section{Algebraic Integers}
+\begin{definition}
+  The number $L\in\Q[\sqrt d]$ is said to be an 
+  \emph{algebraic integer} if $T(L)\in\Z$
+  and $N(L)\in\Z$.
+\end{definition}
+What are the algebraic numbers in $\Q[\sqrt d]$ ?
+The theorem below illustrates this
+\begin{theorem}
+  The set of all algebraic, aka \emph{quadratic ring}, of
+  $\Q[\sqrt d]$ is
+  \[
+  \begin{cases}
+    \Z[\sqrt d] &\text{if } d\equiv 2,3 \pmod{4}\\
+    \Z\left[\frac{1+\sqrt d}{2}\right] &\text{if }d\equiv 1\pmod{4}
+  \end{cases}
+  \]
+\end{theorem}
+
+\begin{definition}
+  An algebraic integer $L$ is said to be a \emph{unit}
+  if its inverse $L\inv$ is also an algebraic integer.
+\end{definition}
+
+\begin{proposition}
+  Let $L$ be an algebraic integer. Then 
+  $L$ is a unit if and only if $N(1)=\pm 1$.
+\end{proposition}
+
+Yeah, I know it's boring to have ``theorem, definition'' style, 
+but let's keep it that way.
+
+\begin{definition}
+  Let $R$ be a quadratic ring and let $a,b\in R$.
+  \begin{itemize}
+    \item We say $b$ \emph{divides} $a$ if $\exists r\in R$ such that $bx=a$.
+    \item 
+  \end{itemize}
+\end{definition}
 
 
 

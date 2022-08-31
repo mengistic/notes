@@ -1,0 +1,119 @@
+\usepackage[no-math]{fontspec}
+\setsansfont{Khmer OS Siemreap}[
+	BoldFont = Khmer OS Bokor,
+%	ItalicFont = Khmer OS Metal Chrieng,
+	AutoFakeSlant=0.15,
+	BoldItalicFont = Khmer OS Muol,
+	Script=Khmer,Scale=1
+]
+\usepackage[Khmer, Latin]{ucharclasses}
+\usepackage{etoolbox}
+\XeTeXlinebreaklocale "khm"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 1pt
+
+\newfontfamily{\khmerfamily}
+[
+	BoldFont = Kdam Thmor,
+	ItalicFont = Khmer OS Metal Chrieng,
+	BoldItalicFont = Khmer OS Muol,
+	SmallCapsFont = TeX Gyre Pagella,
+	Script=Khmer,Scale=1
+]{Khmer OS Siemreap}
+\newfontfamily{\englishfamily}{Fira Sans}[Ligatures=TeX, Scale=1.1] 
+%Simonetta, Zeyada, Caveat, 
+\newfontfamily{\monofamily}[Scale=1.25]{Latin Modern Mono}
+\newfontfamily{\latinfamily}[Scale=1.3]{Latin Modern Roman}
+\newfontfamily{\tacteingfamily}[Scale=3]{Tacteing}
+
+% Define new font family (have to)   <-- BUG
+\newrobustcmd{\englishfont}{\englishfamily\let\currentenglish\englishfamily }
+\newrobustcmd{\khmerfont}{\khmerfamily\let\currentkhmer\khmerfamily}
+\newrobustcmd{\mono}{\monofamily\let\currentenglish\monofamily }
+\newrobustcmd{\en}{\latinfamily\let\currentenglish\latinfamily}
+\newrobustcmd{\tacteing}{\tacteingfamily\let\currentenglish\tacteingfamily}
+
+
+
+%% initialize the font
+\khmerfont\englishfont
+\setTransitionsForLatin{\currentenglish}{\currentkhmer}
+
+% Change typewriter font family
+\renewcommand{\ttfamily}{\mono}
+
+
+\usepackage{bbold}
+%\usepackage{fourier}
+\let\altmathbb\mathbb
+\AtBeginDocument{\let\mathbb\altmathbb}
+
+% change math fonts
+\let\temp\rmdefault
+\usepackage{mathpazo}
+\let\rmdefault\temp
+
+
+
+\newcommand{\kml}
+{
+	\fontspec[
+		Script=Khmer, Scale=1,
+		AutoFakeBold=1, AutoFakeSlant=0.25
+	] {Khmer OS Muol Light}
+	\selectfont
+}
+
+\newcommand{\km}
+{
+	\fontspec[
+		Script=Khmer, Scale=1,
+		AutoFakeBold=1, AutoFakeSlant=0.25
+	] {Khmer OS Muol}
+	\selectfont
+}
+
+\newcommand{\kpali}
+{
+	\fontspec[
+		Script=Khmer, Scale=1,
+		AutoFakeBold=1, AutoFakeSlant=0.25
+	] {Khmer OS Muol Pali}
+	\selectfont
+}
+
+%create khmer counter
+%khmer number
+\makeatletter
+\def\khmer#1{\expandafter\@khmer\csname c@#1\endcsname}
+\def\@khmer#1{\expandafter\@@khmer\number#1\@nil}
+\def\@@khmer#1{%
+	\ifx#1\@nil% terminate when encounter @nil
+	\else%
+	\ifcase#1 ០\or ១\or ២\or ៣\or ៤\or ៥\or ៦\or ៧\or ៨\or ៩\fi%
+	\expandafter\@@khmer% recursively map the following characters
+	 \fi}
+	 
+% khmer alphabet
+\def\khmernumeral#1{\@@khmer#1\@nil}
+\def\alpkh#1{\expandafter\@alpkh\csname c@#1\endcsname}
+\def\@alpkh#1{%
+	\ifcase#1% zero -> none
+	\or ក\or ខ\or គ\or ឃ\or ង%
+	\or ច\or ឆ\or ជ\or ឈ\or ញ%
+	\or ដ\or ឋ\or ឌ\or ឍ\or ណ%
+	\or ត\or ថ\or ទ\or ធ\or ន%
+	\or ប\or ផ\or ព\or ភ\or ម%
+	\or យ\or រ\or ល\or វ\or ស%
+	\or ហ\or ឡ\or អ%
+	\else%[most]
+	\@ctrerr % otherwise, counter error!
+	\fi}
+\makeatother
+
+
+%% Khmer & math
+\def\KHstop{\quad\text{។}}
+\def\KHand{\quad\text{និង}\quad}
+\def\KHor{\quad\text{ឬ}\quad}
+
+\def\chaptername{ជំពូកទី}

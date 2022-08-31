@@ -1,6 +1,20 @@
 \PassOptionsToPackage{dvipsnames,table,usenames,svgnames}{xcolor}
 \documentclass[a4paper, 10pt]{memoir}
+
+% ==> language
+\usepackage[no-math]{fontspec}
+\usepackage{fontawesome}
+\usepackage{mathpazo}
+\setmainfont{TeX Gyre Pagella}
+% <== 
+% ==> figure, geometry
+\usepackage[inline]{asymptote}
+\def\asydir{asydir}
+\usepackage{tikz}
+\usetikzlibrary{arrows, calc, angles, quotes}
+% <==
 % ==> math
+% ==> basic
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -63,23 +77,143 @@
 \def\proj#1#2{\mathrm{proj}_{#2}{#1}}
 %\renewcommand{\span}{\SPAN}
 
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{axiom}[definition]{Axiom}
-%\newtheorem{exercise}{Exercise}[chapter]
-%\newtheorem{example}[exercise]{Example}
 \newtheorem{homework}{Homework}
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
-\newtheorem{proposition}{Proposition}
-
-\theoremstyle{remark}
-\newtheorem{corollary}{Corollary}
-\newtheorem{claim}{Claim}
-
-
 \renewcommand{\proofname}{\textcolor{blue}{\bfseries Proof}}
+% <==
+% ==> mdframe theorem
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+
+\def\axiomName{{\large\faThumbTack}~~Axiom}
+\def\definitionName{{\large\faThumbTack}~~Definition}
+\def\theoremName{{\large\faFlask}~~Theorem}
+\def\lemmaName{{\large\faFlask}~~Lemma}
+\def\propositionName{{\large\faFlask}~~Proposition}
+\def\corollaryName{{\large\faFlask}~~Corollary}
+\def\exampleName{Example}
+\def\exerciseName{Exercise}
+\def\proofName{Proof}
+\def\solutionName{Solution}
+\def\remarkName{{\large\faExclamationTriangle}~~Remark}
+
+% ==> Axiom
+\mdfdefinestyle{mdAxiomStyle}{
+	roundcorner = 5pt,
+	linewidth=1.125pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	nobreak=false,
+	linecolor=blue,
+	backgroundcolor=TealBlue!5,
+}
+\declaretheoremstyle[
+	headfont=\large\bfseries\color{MidnightBlue},
+	bodyfont=\itshape,
+	mdframed={style=mdAxiomStyle},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+	notefont=\normalfont\small\bfseries\color{gray!50!blue},
+	notebraces={~(}{)},
+]{mdAxiom}
+% <==
+% ==> Definition
+\mdfdefinestyle{mdDefinitionStyle}{
+	roundcorner = 6pt,
+	linewidth=1.125pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	nobreak=false,
+	linecolor=red!80,
+	backgroundcolor=orange!10,
+}
+\declaretheoremstyle[
+	headfont=\large\bfseries\color{red!80},
+	bodyfont=\normalfont,
+	mdframed={style=mdDefinitionStyle},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+	notefont=\normalfont\small\bfseries\color{red!80},
+	notebraces={~(}{)},
+]{mdDefinition}
+% <==
+% ==> Theorem
+\mdfdefinestyle{mdTheoremStyle}{%
+	linewidth=1pt,
+	skipabove=12pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	innertopmargin=5pt,
+	innerbottommargin=8pt,
+	nobreak=false,
+	linecolor=magenta,
+	backgroundcolor=Goldenrod!10,
+}
+\declaretheoremstyle[
+	headfont=\large\bfseries\color{magenta},
+  headindent=0pt,
+	bodyfont=\itshape,
+	mdframed={style=mdTheoremStyle},
+	notefont=\normalfont\itshape\small\color{magenta},
+	notebraces={~$\big\langle$}{$\big\rangle$},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{mdTheorem}
+% <==
+% ==> Remark
+\mdfdefinestyle{mdRemarkStyle}{%
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	linewidth=1pt,
+	skipabove=12pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	innertopmargin=5pt,
+	innerbottommargin=8pt,
+	nobreak=false,
+	linecolor=magenta,
+	backgroundcolor=Goldenrod!10,
+}
+\declaretheoremstyle[
+	headfont=\large\bfseries\color{magenta},
+  headindent=0pt,
+	bodyfont=\itshape,
+	mdframed={style=mdRemarkStyle},
+	notefont=\normalfont\itshape\small\color{magenta},
+	notebraces={~$\big\langle$}{$\big\rangle$},
+	headpunct={\\[3pt]},
+	postheadspace={0pt},
+]{mdRemark}
+% <==
+% ==> Example
+\mdfdefinestyle{mdExampleStyle}{%
+	skipabove=5pt,
+	skipbelow=5pt,
+	rightline=false,
+	leftline=false,
+	topline=false,
+	bottomline=false,
+	backgroundcolor=white
+}
+\declaretheoremstyle[
+	headfont=\bfseries\color{blue},
+	bodyfont=\normalfont,
+	headindent=0em,
+	spaceabove=2pt,
+	spacebelow=5pt,
+	mdframed={style=mdExampleStyle},
+	notefont=\normalfont\small\itshape\color{gray!50!blue},
+	notebraces={~(}{)},
+	headpunct={ },
+	qed={\color{blue}$\blacktriangleleft$}
+]{mdExample}
+% <==
+% ==> Exercise
 \mdfdefinestyle{mdExerciseStyle}{%
 	skipabove=5pt,
 	skipbelow=5pt,
@@ -96,31 +230,57 @@
 	bodyfont=\normalfont,
 	headindent=0pt,
 	spaceabove=2pt,
-	spacebelow=5pt,
+	spacebelow=8pt,
 	mdframed={style=mdExerciseStyle},
-	notefont=\small\bfseries\itshape\color{DarkGreen},
+	notefont=\normalfont\small\itshape\color{DarkGreen},
 	notebraces={~(}{)},
 	headpunct={ },
 ]{mdExercise}
-\declaretheorem{example}[name={Example},style=mdExercise, numberwithin=section]
-\declaretheorem{exercise}[name={Exercise},style=mdExercise, sibling=example]
+% <==
+% ==> Proof
+\declaretheoremstyle[
+	spaceabove=6pt,
+	spacebelow=6pt,
+	headindent=0pt,
+	headfont=\normalfont\color{magenta},
+	bodyfont = \normalfont,
+	postheadspace=1em,
+	qed=$\color{magenta}\blacksquare$,
+	headpunct={ },
+]{mdProof}
+
+\newenvironment{prf}{\begin{proof}}{\end{proof}}
+
+% <==
+% ==> Declaring the theorems
+\declaretheorem{axiom}[style=mdDefinition, name={\axiomName}, numberwithin=chapter]
+\declaretheorem[style=mdDefinition, name={\definitionName}, sibling=axiom]{definition}
+
+\declaretheorem{theorem}[style=mdTheorem, name={\theoremName},numberwithin=chapter]
+\declaretheorem{lemma}[style=mdTheorem, name={\lemmaName},sibling=theorem]
+\declaretheorem{proposition}[style=mdTheorem, name={\propositionName}, sibling=theorem]
+\declaretheorem{corollary}[style=mdTheorem, sibling=theorem, name={\corollaryName}]
+\declaretheorem{remark}[style=mdRemark, sibling=theorem, numbered=no, name={\remarkName}]
+
+\declaretheorem{example}[name={\exampleName},style=mdExercise, numberwithin=chapter]
+\declaretheorem{exercise}[name={\exerciseName},style=mdExercise, sibling=example]
+\declaretheorem{problem}[name={\exerciseName},style=mdExercise, numberwithin=chapter]
+
+%% Proof
+\declaretheorem[name={\bfseries\proofName},numbered=no,style=mdProof]{Proof}
+\renewenvironment{proof}{\begin{Proof}}{\end{Proof}}
+\declaretheorem[name={\itshape\solutionName},numbered=no,style=mdProof]{solution}
+% <==
+% <==
+
+
 
 
 % <== end: math
-% ==> figure, geometry
-\usepackage[inline]{asymptote}
-\def\asydir{asydir}
-\usepackage{tikz}
-\usetikzlibrary{arrows, calc, angles, quotes}
-% <==
-% ==> language
-\usepackage[no-math]{fontspec}
-\usepackage{mathpazo}
-\setmainfont{TeX Gyre Pagella}
-% <== 
 % ==> enumerate
 \usepackage{enumitem}
 \usepackage{multicol}
+\def\labelitemi{{\faCaretRight}}
 % <==
 % ==> listings
 \usepackage{xcolor}
