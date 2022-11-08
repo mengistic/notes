@@ -2,6 +2,6 @@
 *.log
 *.aux
 *.pre
-*syntex.gz
+*synctex.gz
 *.html
 personal/
