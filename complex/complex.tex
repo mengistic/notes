@@ -1,0 +1,250 @@
+\documentclass{article}
+
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\mathtoolsset{centercolon} % not work when using |mathpazo|
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{claim}{Claim}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rot}{rot}
+\def\IM{\text{Im}}
+\def\inv{^{-1}}
+\def\SL{\text{SL}_2(\mathbb R)}
+\def\H{\mathbb{H}}
+\def\D{\mathbb{D}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+
+
+\title{Complex Analysis Notes}
+\author{\textsc{Sivmeng Hun}}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+
+\section{Conformal Mapping}
+A conformal map is a holomorphic and a bijection. It turned out that its inverse is then
+automatically holorphic. To prove this, consider the following:
+
+\noindent\hrulefill
+\begin{lemma}
+  If $f:U\to V$ is holomorphic and injective, then $f'(z)\neq 0$.
+\end{lemma}
+\noindent\hrulefill
+\begin{proof}
+  Assume by contradiction that there is $f'(z_0)=0$ for some $z_0\in U$.
+  Then we can choose small $R$ so that $f'(z)\neq 0$ for all $z\neq z_0$ and $z\in D_R(z_0)$,
+  and $f$ has power series
+  \begin{align*}
+    f(z)
+    &=f(z_0)+\frac{f'(z_0)}{1!}(z-z_0)+\frac{f''(z_0)}{2!}(z-z_0)^2+\cdots\\
+    &= f(z_0) + a(z-z_0)^k + G(z)
+  \end{align*}
+  converges in the disc $\overline{D_R}(z_0)$, where $a\neq 0, k\geq 2$ and $G(z)$ has zero
+  at $z=z_0$ of oder $k+1$. Next we choose $w$ small such that $\abs{G(z)}<\abs{a(z-z_0)^k-w}$
+  on some smaller circle $\abs{z-z_0}=r<R$.
+  \begin{itemize}
+  \item 
+    Write $G(z)=(z-z_0)^{k+1}H(z)$ where $H(z)$ is also holomorphic,
+    then it has a maximum on the closure
+    $\overline{D_R}(z_0)$, say $\abs{H(z)}<M$ for all $z\in D_R(z_0)$.
+    Then we have
+    \[\abs{G(z)}=\abs{(z-z_0)^{k+1}H(z)}<r^{k+1}M \]
+    on the disc $\abs{z-z_0}\leq R$.
+
+    
+  \item Denote $F(z):=a(z-z_0)^k-w$, where we choose $r<R$ so that $r<\frac{\abs a}{2M}$,
+    and $w$ so that $w=\frac{a}{2}r^k$, then for $\abs{z-z_0}=r$
+    \begin{align*}
+      \abs{F(z)}
+      &\geq \abs{ \abs{a}r^k - \abs{w} }\\
+      &= \frac{\abs a}{2}r^k > Mr^{k+1} > \abs{G(z)}
+    \end{align*}
+  \end{itemize}
+  Thus we've found $r<R$ such that $\abs{G(z)}<\abs{F(z)}$ on the circle $\abs{z-z_0}=r$, moreover
+  $F(z)=a(z-z_0)^k-\frac a2 r^k$ has at least two zeros inside this circle, then by
+  Rouch{\'e}'s theorem
+  \[f(z)-f(z_0)-w = F(z)+G(z)\]
+  has at least two zero inside this small circle. Let $\alpha\in D_r(z_0), \alpha\neq z_0$ be a zero of
+  $f(z)-f(z_0)-w$. Because $f$ is injective, then $\alpha$ has to be a double zero, then we can write
+  $f(z)=(z-\alpha)^2J(z)$, and differentiating both sides gives us $f'(w_0)=0$ which contradicts
+  the fact $f'(z)\neq 0$.
+\end{proof}
+
+So if $f:U\to V$ is conformal, then let $g=f\inv$ denote the inverse of $f$.
+Suppose $w_0:=f(z_0)\in V$ and $w:=f(z)$ is close to $w_0$, then if $w\neq w_0$
+\[
+  \frac{g(w)-g(w_0)}{w-w_0}
+  =\frac1{\frac{w-w_0}{g(w)-g(w_0)}}
+  =\frac1{\frac{f(z)-f(z_0)}{z-z_0}}.
+\]
+Since $f'(z_0)\neq 0$, we may let $z\to z_0$ and conclude that $g'(w_0)=1/f'(g(w_0))$.
+Hence the invere $f\inv$ is also holomorphic.
+
+\noindent\hrulefill
+\begin{theorem}
+  The upper half-plane is conformally equivalent to the unit circle by the map
+  \[F(z):=\frac{i-z}{i+z}.\]
+\end{theorem}
+\noindent\hrulefill
+
+\section{Automorphisms of the disc}
+We say a conformal map from an open set $\Omega$ to itself an \emph{automorphism}
+of $\Omega$. In this section, we want to characterize all the automorphims of the unit disc,
+denoted by $\Aut(\D)$. Some important maps in $\Aut(\D)$ are:
+\begin{itemize}
+\item the map $\rot_{\theta}: z\mapsto e^{i\theta}z$.
+\item the map $\psi_{\alpha}: z\mapsto \frac{\alpha-z}{1-\overline{\alpha}z}$, where $\alpha\in\D$.
+  This map $\psi_\alpha$ interchanges $0$ and $\alpha$, namely
+  $\psi_\alpha(0)=\alpha$ and $\psi_\alpha(\alpha)=0$. Often it's called \emph{Blaschke factors}.
+\end{itemize}
+The result in this chapter is that the maps $\rot_\theta$ and $\psi_\alpha$ exhaust all of $\Aut(\D)$.
+Before proving this result, let us first present
+
+\noindent\hrulefill
+\begin{lemma}[Schwarz Lemma]
+  Let $f:\D\to\D$ be holomorphic with $f(0)=0$. Then $\abs{f(z)}\leq\abs{z}$ for all $z\in\D$,
+  and if some $z_0\neq 0$ is such that $\abs{f(z_0)}=\abs{z_0}$ then $f$ is a rotation.
+\end{lemma}
+\noindent\hrulefill
+\begin{proof}
+  Expand power series of $f$ centered at $z=0$,
+  \[f(z)=a_0+a_1z+a_2z^2+\cdots\]
+  where the series converges in all of $\D$. Since $f(0)=0$ we get $a_0=0$, and therefore
+  $f(z)/z$ has removable singularity at $z=0$, hence it's holomorphic.
+  Let $r<1$. Then on the circle $\abs{z}=r$ we have
+  \[
+    \abs*{\frac{f(z)}{z}}=\frac{\abs{f(z)}}{\abs{z}}\leq\frac{1}{r}.
+  \]
+  By Maximum Modulus principle, we conclude that this expression is true for all
+  $\abs{z}\leq r$. Letting $r\to 1$, we get $\abs{f(z)}\leq \abs{z}$.
+
+  Now if there is such a $z_0\in\D$ for which $\abs{f(z_0)}=\abs{z_0}$, that means
+  $f(z)/z$ attains maximum in the interior of $\D$, thus it must be constant, i.e.
+  \[
+    f(z)=cz,\quad\text{for some}c\in\C
+  \]
+  Replacing $z=z_0$ then take absolute value we obtain $\abs{c}=1$, thus we can write
+  $c=e^{i\theta}$. Therefore, $f(z)=e^{i\theta}z$ is a rotation.
+\end{proof}
+The corollary of the Schwarz lemma is of out great interest, it states:
+
+\noindent\hrulefill
+\begin{lemma}
+  Any automorphism of $\D$ that fixes the origin is a rotation.
+\end{lemma}
+\noindent\hrulefill
+\begin{proof}
+  Let $f\in\Aut(\D)$ that fixes the origin. Because both $f$ and $f\inv$ are holomorphic
+  and because $f(0)=0$, $f\inv(0)=0$, applying Schwarz lemma gives us
+  \[\abs{f(z)}\leq \abs{z}, \]
+  and for any $w=f(z)$,
+  \[
+    \abs{f\inv(w)}\leq \abs{w} \implies \abs{z}\leq \abs{f(z)},
+  \]
+  we conclude that $\abs{f(z)}=\abs{z}$. Thus $f$ is a rotation.
+\end{proof}
+
+Now we are ready to prove the result promised above.
+
+\noindent\hrulefill
+\begin{theorem}
+  If $f\in\Aut(\D)$, then there exist $\alpha\in\D$ and $\theta\in\R$ such that
+  \[
+    f(z)
+    = (\rot_\theta\circ\,\psi_\alpha)(z)
+    = e^{i\theta}\cdot\frac{\alpha-z}{1-\overline{\alpha}z}.
+  \]
+\end{theorem}
+\noindent\hrulefill
+\begin{proof}
+  Since $f\in\Aut(\D)$, then there is a unique $\alpha\in\D$ so that $f(\alpha)=0$.
+  Then the map $g:=f\circ\,\psi_\alpha$ is in $\Aut(\D)$ and $g(0)=0$.
+  By Schwarz lemma, any automorphism that fixes the origin is a rotation, then
+  we obtain that $g(z)=e^{i\theta}z$ for some $\theta\in\R$. Replace $z$ by $\psi_\alpha(z)$,
+  we deduce that
+  \[
+    e^{i\theta}\psi_\alpha(z) = g(\psi_{\alpha}(z))= f(\psi_\alpha(\psi_\alpha(z)))=f(z).
+  \]
+  Thus we conclude that $f=\rot_\theta\circ\,\psi_\alpha$ for some $\alpha\in\D$
+  and $\theta\in\R$.
+\end{proof}
+
+\section{Automorphisms of the upper half-plane}
+Previously we've seen that the upper half-plane $\H$ could be mapped
+conformally to the unit circle $\D$ by the map
+$F: z\mapsto \frac{i-z}{i+z}$. It turned out that automorphisms of $\H$
+could be identified by automorphisms of $\D$. And moreover $\Aut(\D)\simeq\Aut(\H)$.
+
+To see why this is true, consider the map
+$\Gamma: \Aut(\D)\to \Aut(\H)$ by \[\Gamma(\varphi) = F\inv\varphi F\]
+conjugation by $F$. It can be shown that $\Gamma$ is indeed an isomorphism between
+these two groups. Next we want to characterize $\Aut(\H)$ like we did for $\Aut(\D)$
+earlier. But first we define
+\[
+  \SL:=\left\{
+    M= \begin{pmatrix} a&b\\c&d \end{pmatrix}~:~
+    a,b,c,d\in\R \text{ and }
+    \det M=1
+  \right\}
+\]
+called the \emph{special linear group}. Given a matrix $M\in\SL$ we define the mapping
+$f_M$ by
+\[f_M(z)=\frac{az+b}{cz+d}.\]
+
+\noindent\hrulefill
+\begin{theorem}
+  Every automorphism of $\H$ takes the form $f_M$ for some $M\in\SL$.
+  Conversely, every map of this form is an automorphism of $\H$.
+\end{theorem}
+\noindent\hrulefill
+\begin{proof}
+  \text{}
+  \begin{itemize}
+   \item[$(\Leftarrow)$] ``\textit{every map of this form is an automorphism of $\H$}''\\[0.2cm]
+     For $M, N\in\SL$,  tedious calculations showed that
+     \begin{itemize}[label={$\rhd$}]
+     \item $\IM(f_M(z))>0$ i.e. $f_M$ maps the upper half-plane to itself.
+     \item $f_M \circ\, f_N = f_{MN}$
+     \item $(f_N)\inv = f_{N\inv}$
+     \end{itemize}
+     As a consequence, $f_M$ is an automorphism of $\H$.
+     
+   \item[$(\Rightarrow)$] ``\textit{every automorphim of $\H$ takes the form $f_M$}''\\[0.2cm]
+     First, let $f\in\Aut(\H)$. Then there is a unique $\beta\in\H$  such that
+     $f(\beta)=i$. We then claim the following facts, which we won't give any proof
+     for the moment.
+     \begin{claim}
+       There is a matrix $N\in\SL$ such that $f_N(i)=\beta$.
+     \end{claim}
+     \begin{claim}
+       Every rotation in $\D$ corresponds to $Ff_MF\inv$ for some $M\in\SL$.
+     \end{claim}
+   \end{itemize}
+
+   With these claims at hand, we can proceed the proof as follows: Let $g=f\circ\,f_N$, then
+   $g(i)=i$, and therefore $FgF\inv$ is an automorphism of the disc that fixes the origin.
+   By Schwarz lemma, it must be a rotation. Thus by the second claim, we conclude that
+   $FgF\inv = Ff_MF\inv$ for some $M\in\SL$. Hence $g=f_M$, i.e.
+   \[f = f_M(f_N)\inv = f_Mf_{N\inv}= f_{MN\inv}\]
+   as desired.
+\end{proof}
+
+
+
+	
+
+
+
+
+\end{document}
