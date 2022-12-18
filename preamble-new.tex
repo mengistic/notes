@@ -1,0 +1,39 @@
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+\mathtoolsset{centercolon} 
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ang{\langle}{\rangle}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{claim}{Claim}
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rot}{rot}
+\def\IM{\text{Im}}
+\def\inv{^{-1}}
+\def\SL{\text{SL}_2(\mathbb R)}
+\def\H{\mathbb{H}}
+\def\D{\mathbb{D}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\DeclarePairedDelimiterX\norm[1]\lVert\rVert{
+	\ifblank{#1}{\:\cdot\:}{#1}
+}
+
+
+
+\usepackage{enumitem}
+\def\labelenumi{\textbf{(\alph*)}}
