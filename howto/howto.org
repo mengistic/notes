@@ -40,3 +40,32 @@ To install, run the following:
 sudo pacan -S texlive-most texlive-lang biber texmaker
 #+end_src
 for more info, see [[https://wiki.archlinux.org/title/TeX_Live][arch wiki]].
+* Linux
+** how to set default desktop application
+To see the mime type of a particular file,
+issue the command
+#+begin_src sh
+  xdg-mime query filetype yourfile
+  file --mime-type yourfile
+#+end_src
+
+
+To see your current default application for a
+specific type issue the command
+#+begin_src sh
+  xdg-mime query default application/pdf
+  xdg-mime query default application/zip
+  xdg-mime query default application/xml
+  xdg-mime query default text/xml
+  xdg-mime query default text/csv
+  xdg-mime query default text/plain
+  xdg-mime query default text/html
+  xdg-mime query default image/png
+#+end_src
+
+To set a particular desktop program to open
+a specific mime type:
+#+begin_src sh
+  xdg-mime default chromium.desktop text/html 
+  xdg-mime default org.pwmt.zathura.desktop  application/pdf
+#+end_src
