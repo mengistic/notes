@@ -18,7 +18,9 @@
   \endtikzpicture
 }
 
-\input{khmer.tex}
+\usepackage[no-math]{fontspec}
+\setmainfont{Fira Sans}
+
 \usepackage{fontawesome}
 % <==
 \def\mybold{\bfseries\large}
@@ -28,7 +30,7 @@
   colorlinks=true,
   linkcolor=magenta,
   filecolor=blue,      
-  urlcolor=cyan,
+  urlcolor=blue,
   pdfinfo={
     title = {Sivmeng HUN's Resume},
     author= {Sivmeng HUN}
@@ -84,9 +86,9 @@
       % ==> personal info
       {\mybold Personal Info}\\
       \begin{itemize}
-        \item[\faHome] Phnom Penh, Cambodia
-        \item[\faCalendar] 27 September, 2003
-        \item[\faGraduationCap] RUPP, ~Maths, ~2\textsuperscript{nd} year
+        \item[\faHome] Phnom Penh | Cambodia
+        \item[\faCalendar] 27 September | 2003
+        \item[\faGraduationCap] RUPP | Maths | 3\textsuperscript{rd} year
         \item[\faGlobe] Language
           \begin{itemize}
             \item Khmer (native)
@@ -98,23 +100,25 @@
       % ==> contact info
       {\mybold Contact}\\
       \begin{itemize}
-        \item[\faEnvelope] {\href{email}{\ttfamily mengsivmeng@gmail.com}}
+        \item[\faEnvelope] {\href{mailto://mengsivmeng@gmail.com}{\ttfamily mengsivmeng@gmail.com}}
         \item[\faPhoneSquare] {\href{phone}{\ttfamily (+855) 31 749 5858}}
-        \item[\faFacebookSquare] {\href{facebook}{\ttfamily fb.com/meng.sivmeng.er}}
-        \item[\faPaperPlane] {\href{telegram}{\ttfamily t.me/meng\textunderscore sivmeng}} 
-        \item[\faGithub] {\href{github}{\ttfamily github.com/mengistic}}
+        \item[\faFacebookSquare] {\url{fb.com/meng.sivmeng.er}}
+        \item[\faPaperPlane] {\url{t.me/meng_sivmeng}} 
+        \item[\faGithub] {\url{github.com/mengistic}}
       \end{itemize}
       \vspace{1cm}
       % <==
       % ==> hobbies
       {\mybold Hobbies}\\
-      \begin{itemize}
-        \item Reading math books 
-        \item watching lecture notes on Youtube
-        \item Streaming movies
-        \item Ricing Linux
-        \item Hanging out with friends
-      \end{itemize}
+      Read math books | Watching lecture notes | 
+      Programming | mozart | chess | movies | anime | coffee
+      % \begin{itemize}
+      %   \item Reading math books 
+      %   \item watching lecture notes on Youtube
+      %   \item Streaming movies
+      %   \item Ricing Linux
+      %   \item Hanging out with friends
+      % \end{itemize}
       % <==
 
     };
@@ -148,56 +152,52 @@
               at {Pannasastra} University of Cambodia (PUC)
           \end{itemize}
           % <==
-          % ==> 2021
-        \item {\bfseries 2021}
+          
+        \item {\bfseries 2020--2022}
           \begin{itemize}
-            %\item Entered {\itshape Royal University of Phnom Penh} (RUPP)
-              %majoring in Mathematics
-            \item 1\textsuperscript{st} year at RUPP, Maths major
-            %\item 1\textsuperscript{st} year at IFL, English major
-            \item Attended a course in {\itshape Real Analysis}
-            \item Attended a course in {\itshape Linear Algebra}
-            \item Achieved an overall GPA of 3.91 (1\textsuperscript{st} year)
+          \item Enter Royal University of Phnom Penh (RUPP)
+          \item Achieved an overall GPA of 3.91 (1\textsuperscript{st} year)
+          \item Achieved an overall GPA of 3.80 (2\textsuperscript{nd} year)
+          \item Was selected for a mentoring program in Mathematics by
+            {\itshape Forum for Pushing the Boundary} (FPB)
+          \item Attended {\itshape in Summer School on Algorithms and Programming in
+            Python}, by professors \textit{Roberto Mantaci} and \textit{Jean-Baptiste Yunes}.
+          \item Attended in {\itshape Data Analytics Camp}, 2023 Unitwin, by
+            Doctors \textit{Daiyon Cho} and \textit{Dim Dae Shik}.
           \end{itemize}
-          % <==
-          % ==> 2022
-        \item {\bfseries 2022--Now}
-          \begin{itemize}
-            \item 2\textsuperscript{nd} year at RUPP, Maths major
-            \item Attended a course in {\itshape Number Theory}
-            \item Was selected for a mentoring program in Mathematics by
-              {\itshape Forum for Pushing the Boundary} (FPB)
-            \item Was a selected candidate for 
-            Mathematical Association of Cambodia (MAC) training program
-          \end{itemize}
-          % <==
       \end{itemize}
       \vspace{0.4cm}
       % <==
       % ==> skills
-      \mytitle{\faWrench~~Experienced with}
+
+      \mytitle{\faSuperscript~~Maths}
       \begin{itemize}
-        \item[\faSuperscript]
-          {\bfseries Maths:}
-          {Linear Algebra, Real Analysis, Abstract Algebra}
+      \item {\bfseries Studied}
+        Linear Algebra | Real Analysis | Abstract Algebra |
+        Number Theory | Complex Analysis
+      \item {\bfseries Studying}
+        Algebraic Geometry | Differential Geometry |
+        Dynamical System | Topology | Vector Calculus |
+        Functional Analysis
+      \end{itemize}
+      
+      \mytitle{\faTags~~Others}
+      \begin{itemize}
         \item[\faTerminal] 
-          {\bfseries Programming (know some basics): } 
-          { C, C++, Python, Javascript, LaTeX, Asymptote, Markdown, HTML, Bash}
+          {\bfseries Programming (basics): } 
+          Sage | R  | LaTeX | C |  C++ |  Python |  Javascript |
+          Asymptote 
         \item[\faStackOverflow]
           {\bfseries Technology: }
-          {Linux, Vim, Emacs, Command line, Git}
+          Linux | Emacs | Vim | Emacs | Command line | Git
       \end{itemize}
       \vspace{0.3cm}
       % <==
       % ==> ref
       \mytitle{\faPaperclip~~Reference}
       \begin{itemize}
-        \item[\faUser] Professor \textit{SEAM Ngonn}, 
-          \begin{itemize}
-            \item Deputy Head of Department of Mathematics, RUPP
-            \item Email: \href{prof-ngonn}{\ttfamily seamngonn@yahoo.fr}
-            \item Contact: \href{prof-ngonn-phone}{\ttfamily (+855) 12 896 156}
-          \end{itemize}
+      \item[\faUser] Professor \textit{Rod Halburd}
+        \href{mailto://r.halburd@ucl.ac.uk}{\ttfamily r.halburd@ucl.ac.uk}
       \end{itemize}
       % <==
 

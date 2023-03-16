@@ -1,433 +1,70 @@
-\PassOptionsToPackage{dvipsnames,table,usenames,svgnames}{xcolor}
-\documentclass[a4paper, 10pt]{memoir}
 
-% ==> language
-\usepackage[no-math]{fontspec}
-\usepackage{fontawesome}
-\usepackage{mathpazo}
-\setmainfont{TeX Gyre Pagella}
-% <== 
-% ==> figure, geometry
-\usepackage[inline]{asymptote}
-\def\asydir{asydir}
 \usepackage{tikz}
-\usetikzlibrary{arrows, calc, angles, quotes}
-% <==
-% ==> math
-% ==> basic
-\usepackage{amsthm}
-\usepackage{amsfonts}
+\usetikzlibrary{arrows}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{etoolbox}
+
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{thmtools}
-\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{framed}
+\usepackage{pstricks}
+\usepackage[framed]{ntheorem}
 
 
-\mathtoolsset{centercolon} % not work when using |mathpazo|
+\mathtoolsset{centercolon} 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\ang{\langle}{\rangle}
+
+%% my theorem styles
+\newtheoremstyle{meng-margin}%
+{\item[\hskip\labelsep {\bfseries ##1\ ##2}]}%
+{\item[\llap{\itshape(##3)\quad\hskip\labelsep}  {\bfseries ##1\ ##2}]}%
+
+\newtheoremstyle{meng-ex}%
+{\item[\hskip\labelsep {\normalfont\bfseries ##1\ ##2}]}%
+{\item[\hskip\labelsep {\normalfont\bfseries ##1\ ##2}\ {\itshape (##3)} ]}%
+
+\newtheoremstyle{meng-thm}%
+{\item[\hskip\labelsep {\normalfont\bfseries ##1\ ##2}]}%
+{\item[\hskip\labelsep {\normalfont\bfseries ##1\ ##2}\ {\itshape (##3)} ]}%
+
+
+
+%% exercise, example, definition
+\theoremstyle{meng-ex}
+\theorembodyfont{\normalfont\upshape}
+\theoreminframepreskip{0pt}
+\theoreminframepostskip{0pt}
+\newtheorem{exercise}{Exercise}
+\newtheorem{example}{Example}
+\newframedtheorem{definition}{Definition}
+
+\theoremstyle{meng-thm}
+\theorembodyfont{\normalfont\itshape}
+\theoremprework{\bigskip\hrule\leavevmode}
+\theorempostwork{\hrule\leavevmode}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\rot}{rot}
+\def\IM{\text{Im}}
+\def\inv{^{-1}}
+\def\SL{\text{SL}_2(\mathbb R)}
+\def\H{\mathbb{H}}
+\def\D{\mathbb{D}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
 \DeclarePairedDelimiterX\norm[1]\lVert\rVert{
 	\ifblank{#1}{\:\cdot\:}{#1}
 }
-\def\set#1#2{\left\{#1 ~:~ #2\right\}}
-\def\permil{\text{\hskip 0.3pt\englishfont\textperthousand}}
-
-
-\DeclareMathOperator{\arccot}{cot}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccsc}{arccsc}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\sym}{sym}
-\DeclareMathOperator{\tr}{trace}
-\DeclareMathOperator{\spans}{span}
-\DeclareMathOperator{\rank}{rank}
-\DeclareMathOperator{\col}{col}
-\DeclareMathOperator{\row}{row}
-\DeclareMathOperator{\sign}{sign}
-\DeclareMathOperator{\perm}{perm}
-\DeclareMathOperator{\coef}{coef}
-%\DeclareMathOperator{\proj}{proj}
-
-\usepackage{bbold}
-\let\altmathbb\mathbb
-\AtBeginDocument{\let\mathbb\altmathbb}
 
 
 
-\def\N{\mathbb N}
-\def\Z{\mathbb Z}
-\def\Q{\mathbb Q}
-\def\R{\mathbb R}
-\def\C{\mathbb C}
-\def\F{\mathbb F}
-\def\P{\mathbb P}
-
-\def\L{\mathcal L}
-\def\U{\mathcal U}
-\def\i{\mathrm i}
-\def\e{\mathrm e}
-
-\def\labelitemi{$\circ$}
-\def\inv{^{-1}}
-\def\ang#1{\left\langle#1\right\rangle}
-\def\tran{^\mathrm{T}}
-\renewcommand{\vec}[1]{\mathbf{#1}}
-\def\perc{^\perp}
-\def\proj#1#2{\mathrm{proj}_{#2}{#1}}
-%\renewcommand{\span}{\SPAN}
-
-\newtheorem{homework}{Homework}
-\renewcommand{\proofname}{\textcolor{blue}{\bfseries Proof}}
-% <==
-% ==> mdframe theorem
-\usepackage{thmtools}
-\usepackage[framemethod=TikZ]{mdframed}
-
-\def\axiomName{{\large\faThumbTack}~~Axiom}
-\def\definitionName{{\large\faThumbTack}~~Definition}
-\def\theoremName{{\large\faFlask}~~Theorem}
-\def\lemmaName{{\large\faFlask}~~Lemma}
-\def\propositionName{{\large\faFlask}~~Proposition}
-\def\corollaryName{{\large\faFlask}~~Corollary}
-\def\exampleName{Example}
-\def\exerciseName{Exercise}
-\def\proofName{Proof}
-\def\solutionName{Solution}
-\def\remarkName{{\large\faExclamationTriangle}~~Remark}
-
-% ==> Axiom
-\mdfdefinestyle{mdAxiomStyle}{
-	roundcorner = 5pt,
-	linewidth=1.125pt,
-	skipabove=12pt,
-	innerbottommargin=9pt,
-	skipbelow=2pt,
-	nobreak=false,
-	linecolor=blue,
-	backgroundcolor=TealBlue!5,
-}
-\declaretheoremstyle[
-	headfont=\large\bfseries\color{MidnightBlue},
-	bodyfont=\itshape,
-	mdframed={style=mdAxiomStyle},
-	headpunct={\\[3pt]},
-	postheadspace={0pt},
-	notefont=\normalfont\small\bfseries\color{gray!50!blue},
-	notebraces={~(}{)},
-]{mdAxiom}
-% <==
-% ==> Definition
-\mdfdefinestyle{mdDefinitionStyle}{
-	roundcorner = 6pt,
-	linewidth=1.125pt,
-	skipabove=12pt,
-	innerbottommargin=9pt,
-	skipbelow=2pt,
-	nobreak=false,
-	linecolor=red!80,
-	backgroundcolor=orange!10,
-}
-\declaretheoremstyle[
-	headfont=\large\bfseries\color{red!80},
-	bodyfont=\normalfont,
-	mdframed={style=mdDefinitionStyle},
-	headpunct={\\[3pt]},
-	postheadspace={0pt},
-	notefont=\normalfont\small\bfseries\color{red!80},
-	notebraces={~(}{)},
-]{mdDefinition}
-% <==
-% ==> Theorem
-\mdfdefinestyle{mdTheoremStyle}{%
-	linewidth=1pt,
-	skipabove=12pt,
-	frametitleaboveskip=5pt,
-	frametitlebelowskip=0pt,
-	skipbelow=2pt,
-	innertopmargin=5pt,
-	innerbottommargin=8pt,
-	nobreak=false,
-	linecolor=magenta,
-	backgroundcolor=Goldenrod!10,
-}
-\declaretheoremstyle[
-	headfont=\large\bfseries\color{magenta},
-  headindent=0pt,
-	bodyfont=\itshape,
-	mdframed={style=mdTheoremStyle},
-	notefont=\normalfont\itshape\small\color{magenta},
-	notebraces={~$\big\langle$}{$\big\rangle$},
-	headpunct={\\[3pt]},
-	postheadspace={0pt},
-]{mdTheorem}
-% <==
-% ==> Remark
-\mdfdefinestyle{mdRemarkStyle}{%
-	rightline=false,
-	leftline=true,
-	topline=false,
-	bottomline=false,
-	linewidth=1pt,
-	skipabove=12pt,
-	frametitleaboveskip=5pt,
-	frametitlebelowskip=0pt,
-	skipbelow=2pt,
-	innertopmargin=5pt,
-	innerbottommargin=8pt,
-	nobreak=false,
-	linecolor=magenta,
-	backgroundcolor=Goldenrod!10,
-}
-\declaretheoremstyle[
-	headfont=\large\bfseries\color{magenta},
-  headindent=0pt,
-	bodyfont=\itshape,
-	mdframed={style=mdRemarkStyle},
-	notefont=\normalfont\itshape\small\color{magenta},
-	notebraces={~$\big\langle$}{$\big\rangle$},
-	headpunct={\\[3pt]},
-	postheadspace={0pt},
-]{mdRemark}
-% <==
-% ==> Example
-\mdfdefinestyle{mdExampleStyle}{%
-	skipabove=5pt,
-	skipbelow=5pt,
-	rightline=false,
-	leftline=false,
-	topline=false,
-	bottomline=false,
-	backgroundcolor=white
-}
-\declaretheoremstyle[
-	headfont=\bfseries\color{blue},
-	bodyfont=\normalfont,
-	headindent=0em,
-	spaceabove=2pt,
-	spacebelow=5pt,
-	mdframed={style=mdExampleStyle},
-	notefont=\normalfont\small\itshape\color{gray!50!blue},
-	notebraces={~(}{)},
-	headpunct={ },
-	qed={\color{blue}$\blacktriangleleft$}
-]{mdExample}
-% <==
-% ==> Exercise
-\mdfdefinestyle{mdExerciseStyle}{%
-	skipabove=5pt,
-	skipbelow=5pt,
-	linewidth=1pt,
-	rightline=true,
-	leftline=true,
-	topline=true,
-	bottomline=true,
-	linecolor=blue,
-	backgroundcolor=white
-}
-\declaretheoremstyle[
-	headfont=\bfseries\color{blue},
-	bodyfont=\normalfont,
-	headindent=0pt,
-	spaceabove=2pt,
-	spacebelow=8pt,
-	mdframed={style=mdExerciseStyle},
-	notefont=\normalfont\small\itshape\color{DarkGreen},
-	notebraces={~(}{)},
-	headpunct={ },
-]{mdExercise}
-% <==
-% ==> Proof
-\declaretheoremstyle[
-	spaceabove=6pt,
-	spacebelow=6pt,
-	headindent=0pt,
-	headfont=\normalfont\color{magenta},
-	bodyfont = \normalfont,
-	postheadspace=1em,
-	qed=$\color{magenta}\blacksquare$,
-	headpunct={ },
-]{mdProof}
-
-\newenvironment{prf}{\begin{proof}}{\end{proof}}
-
-% <==
-% ==> Declaring the theorems
-\declaretheorem{axiom}[style=mdDefinition, name={\axiomName}, numberwithin=chapter]
-\declaretheorem[style=mdDefinition, name={\definitionName}, sibling=axiom]{definition}
-
-\declaretheorem{theorem}[style=mdTheorem, name={\theoremName},numberwithin=chapter]
-\declaretheorem{lemma}[style=mdTheorem, name={\lemmaName},sibling=theorem]
-\declaretheorem{proposition}[style=mdTheorem, name={\propositionName}, sibling=theorem]
-\declaretheorem{corollary}[style=mdTheorem, sibling=theorem, name={\corollaryName}]
-\declaretheorem{remark}[style=mdRemark, sibling=theorem, numbered=no, name={\remarkName}]
-
-\declaretheorem{example}[name={\exampleName},style=mdExercise, numberwithin=chapter]
-\declaretheorem{exercise}[name={\exerciseName},style=mdExercise, sibling=example]
-\declaretheorem{problem}[name={\exerciseName},style=mdExercise, numberwithin=chapter]
-
-%% Proof
-\declaretheorem[name={\bfseries\proofName},numbered=no,style=mdProof]{Proof}
-\renewenvironment{proof}{\begin{Proof}}{\end{Proof}}
-\declaretheorem[name={\itshape\solutionName},numbered=no,style=mdProof]{solution}
-% <==
-% <==
-
-
-
-
-% <== end: math
-% ==> enumerate
 \usepackage{enumitem}
-\usepackage{multicol}
-\def\labelitemi{{\faCaretRight}}
-% <==
-% ==> listings
-\usepackage{xcolor}
-\usepackage{listings}
-% ==> basic
-\lstset{%
-	basicstyle=\small\ttfamily,
-	keywordstyle=\color{black},
-	commentstyle=\color{gray},
-	keywordstyle=[1]{\color{blue!90!black}},
-	keywordstyle=[2]{\color{magenta!90!black}},
-	keywordstyle=[3]{\color{red!60!orange}},
-	keywordstyle=[4]{\color{teal}},
-  keywordstyle=[5]{\color{magenta!90!black}}, % <-- otherkeywords, BUG
-	commentstyle=\color{gray},
-	stringstyle=\color{green!60!black},
-	tabsize=2,
-	%
-	numbers=left,
-	numberstyle=\tiny\color{blue!70!gray},
-	stepnumber=1,
-	%
-	frame=Lt,
-	breaklines=true,
-	xleftmargin=0cm,
-	rulecolor=\color{gray!50!black},
-	aboveskip=0.5cm,
-	belowskip=0.5cm
-}
-% <==
-% ==> code c
-\lstdefinelanguage{cmeng}{
-  morekeywords={
-    auto,break,case,char,const,continue,default,do,double,%
-    else,enum,extern,float,for,goto,if,int,long,register,return,%
-    short,signed,sizeof,static,struct,switch,typedef,union,unsigned,%
-    void,volatile,while},%
-  morekeywords=[2]{
-    printf, scanf,  include
-  },
-  otherkeywords={\#,<,>,\&},
-  morekeywords=[5]{\#,<,>,\&},
-  sensitive,%
-	morecomment=[l]{//},
-	morecomment=[s]{/*}{*/},
-	morestring=[b]',
-	morestring=[b]",
-}
-% <==
-% ==> code python
-\lstdefinelanguage{py}{
-	morekeywords={
-		access,and,as,break,class,continue,def,del,elif,else,
-		except,exec,finally,for,from,global,if,import,in,is,lambda,
-		not,or,pass,print,raise,return,try,while},
-	% Built-ins
-	morekeywords=[2]{
-		abs,all,any,basestring,bin,bool,bytearray,
-		callable,chr,classmethod,cmp,compile,complex,delattr,dict,dir,
-		divmod,enumerate,eval,execfile,file,filter,float,format,
-		frozenset,getattr,globals,hasattr,hash,help,hex,id,input,int,
-		isinstance,issubclass,iter,len,list,locals,long,map,max,
-		memoryview,min,next,object,oct,open,ord,pow,property,range,
-		raw_input,reduce,reload,repr,reversed,round,set,setattr,slice,
-		sorted,staticmethod,str,sum,super,tuple,type,unichr,unicode,
-		vars,xrange,zip,apply,buffer,coerce,intern,True,False},
-	%
-	morecomment=[l]\#,%
-	morestring=[b]',%
-	morestring=[b]",%
-	morecomment=[s]{'''}{'''},% used for documentation text
-	%                         % (mulitiline strings)
-	morecomment=[s]{"""}{"""},% added by Philipp Matthias Hahn
-	morestring=[s]{r'}{'},% `raw' strings
-	morestring=[s]{r"}{"},%
-	morestring=[s]{r'''}{'''},%
-	morestring=[s]{r"""}{"""},%
-	morestring=[s]{u'}{'},% unicode strings
-	morestring=[s]{u"}{"},%
-	morestring=[s]{u'''}{'''},%
-	morestring=[s]{u"""}{"""},%
-	%
-	sensitive=true,%
-}
-% <==
-% ==> code asy
-\lstdefinelanguage{asy}{ %% Added by Sivmeng HUN
-	morekeywords=[1]{
-		import, for, if, else,new, do,and, access,
-		from, while, break, continue, unravel, 
-		operator, include, return},
-	morekeywords=[2]{
-		struct,typedef,static,public,readable,private,explicit,
-		void,bool,int,real,string,var,picture,
-		pair, path, pair3, path3, triple, transform, guide, pen, frame
-	},
-	morekeywords=[3]{
-		true,false,and,cycle,controls,tension,atleast,
-		curl,null,nullframe,nullpath,
-		currentpicture,currentpen,currentprojection,
-		inch,inches,cm,mm,pt,bp,up,down,right,left,
-		E,N,S,W,NE,NW,SE,SW,
-		solid,dashed,dashdotted,longdashed,longdashdotted,
-		squarecap,roundcap,extendcap,miterjoin,roundjoin,
-		beveljoin,zerowinding,evenodd,invisible
-	},
-	morekeywords=[4]{
-		size,unitsize,draw,dot,label,
-		sqrt,sin,cos,tan,cot,Sin,Cos,Tan,Cot,
-		graph,
-	},
-	%
-	morecomment=[l]{//},
-	morecomment=[s]{/*}{*/},
-	morestring=[b]',
-	morestring=[b]",
-	%
-}
-% <==
-% <==
-% ==> tweaking memoir
-\makepagestyle{myruled}
-\makeheadrule {myruled}{\textwidth}{\normalrulethickness}
-\makefootrule {myruled}{\textwidth}{\normalrulethickness}{\footruleskip}
-\makeevenhead {myruled}{}{\small\itshape\leftmark} {}
-\makeoddhead  {myruled}{}{\small\itshape\rightmark}{}
-\makeevenfoot {myruled}{}{\small \thepage} {}
-\makeoddfoot  {myruled}{}{\small \thepage} {}
-
-\makeatletter % because of \@chapapp
-\makepsmarks{myruled}{
-  \nouppercaseheads
-  \createmark{chapter}{both}{shownumber}{\@chapapp\ }{. \ }
-  \createmark{section}{right}{shownumber}{}{. \ }
-  \createmark{subsection}{right}{shownumber}{}{. \ }
-  \createmark{subsubsection}{right}{shownumber}{}{. \ }
-  \createplainmark {toc} {both} {\contentsname} 
-  \createplainmark {lof} {both} {\listfigurename}
-  \createplainmark {lot} {both} {\listtablename} 
-  \createplainmark {bib} {both} {\bibname} 
-  \createplainmark {index} {both} {\indexname} 
-  \createplainmark {glossary} {both} {\glossaryname}
-}
-\makeatother
-\setsecnumdepth{subsubsection}
-\pagestyle{myruled}
-% <==
-% ==> page setup
-\author{Sivmeng}
-% <==
+\def\labelenumi{\textbf{(\alph*)}}
